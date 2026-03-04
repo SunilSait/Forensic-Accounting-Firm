@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Secure client portal dashboard - ForensicEdge forensic accounting.">
+    <title>Dashboard | ForensicEdge Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: ['selector', '[data-theme="dark"]'], theme: { extend: { colors: { primary: { DEFAULT: '#0B1120', light: '#1E293B', dark: '#060A14' }, gold: { DEFAULT: '#D4A843', light: '#E8C97A', dark: '#B8922E' }, teal: { DEFAULT: '#14B8A6', light: '#2DD4BF' } }, fontFamily: { heading: ['Outfit', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }</script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-wrapper">
+
+        <!-- ========== SIDEBAR ========== -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <i data-lucide="shield-check" style="width:20px;height:20px;color:#fff;"></i>
+                </div>
+                <div class="sidebar-brand">Forensic<span>Edge</span></div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-label">Main</div>
+                    <a href="dashboard.html" class="nav-item active">
+                        <i data-lucide="layout-dashboard"></i>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                    <a href="dashboard-matters.html" class="nav-item">
+                        <i data-lucide="briefcase"></i>
+                        <span class="nav-text">Matters & Cases</span>
+                        <span class="nav-badge">5</span>
+                    </a>
+                    <a href="dashboard-documents.html" class="nav-item">
+                        <i data-lucide="file-lock-2"></i>
+                        <span class="nav-text">Document Vault</span>
+                    </a>
+                    <a href="dashboard-progress.html" class="nav-item">
+                        <i data-lucide="git-branch"></i>
+                        <span class="nav-text">Investigation Progress</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-label">Analytics</div>
+                    <a href="dashboard-reports.html" class="nav-item">
+                        <i data-lucide="bar-chart-3"></i>
+                        <span class="nav-text">Reports</span>
+                    </a>
+                    <a href="dashboard-notifications.html" class="nav-item">
+                        <i data-lucide="bell"></i>
+                        <span class="nav-text">Notifications</span>
+                        <span class="nav-badge">3</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-label">Account</div>
+                    <a href="dashboard-profile.html" class="nav-item">
+                        <i data-lucide="user-circle"></i>
+                        <span class="nav-text">Profile & Settings</span>
+                    </a>
+                    <a href="login.html" class="nav-item">
+                        <i data-lucide="log-out"></i>
+                        <span class="nav-text">Sign Out</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-user">
+                <div class="sidebar-user-avatar">JD</div>
+                <div class="sidebar-user-info">
+                    <div class="sidebar-user-name">James Donovan</div>
+                    <div class="sidebar-user-role">Client • Premium</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ========== MAIN CONTENT ========== -->
+        <div class="main-content">
+
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+                        <i data-lucide="panel-left-close" style="width:18px;height:18px;"></i>
+                    </button>
+                    <h1 class="page-title">Dashboard Overview</h1>
+                </div>
+                <div class="top-bar-right">
+                    <div class="top-bar-search">
+                        <i data-lucide="search" style="width:16px;height:16px;"></i>
+                        <input type="text" placeholder="Search cases, documents..." id="global-search">
+                    </div>
+                    <a href="dashboard-notifications.html" class="top-bar-icon" aria-label="Notifications">
+                        <i data-lucide="bell" style="width:18px;height:18px;"></i>
+                        <span class="notification-dot"></span>
+                    </a>
+                    <button class="theme-toggle" aria-label="Toggle theme">
+                        <i data-lucide="moon" style="width:18px;height:18px;"></i>
+                    </button>
+                    <div class="avatar" style="width:36px;height:36px;font-size:0.8rem;">JD</div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+
+                <!-- Welcome Bar -->
+                <div
+                    style="margin-bottom:var(--space-8);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-4);">
+                    <div>
+                        <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;">Welcome back,
+                            James 👋</h2>
+                        <p class="text-muted" style="font-size:0.9rem;margin-top:4px;">Here's what's happening with your
+                            cases today.</p>
+                    </div>
+                    <div style="display:flex;gap:var(--space-3);">
+                        <button class="btn btn-ghost btn-sm">
+                            <i data-lucide="download" style="width:16px;height:16px;"></i>
+                            Export Report
+                        </button>
+                        <button class="btn btn-primary btn-sm">
+                            <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                            New Request
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card animate-fadeInUp delay-1">
+                        <div class="stat-icon gold"><i data-lucide="briefcase" style="width:22px;height:22px;"></i>
+                        </div>
+                        <div class="stat-value" data-count="12">0</div>
+                        <div class="stat-label">Active Cases</div>
+                        <div class="stat-change up"><i data-lucide="trending-up" style="width:12px;height:12px;"></i> +2
+                            this month</div>
+                    </div>
+
+                    <div class="stat-card animate-fadeInUp delay-2">
+                        <div class="stat-icon teal"><i data-lucide="file-text" style="width:22px;height:22px;"></i>
+                        </div>
+                        <div class="stat-value" data-count="47">0</div>
+                        <div class="stat-label">Pending Documents</div>
+                        <div class="stat-change down"><i data-lucide="trending-down"
+                                style="width:12px;height:12px;"></i> -5 from last week</div>
+                    </div>
+
+                    <div class="stat-card animate-fadeInUp delay-3">
+                        <div class="stat-icon blue"><i data-lucide="clipboard-check"
+                                style="width:22px;height:22px;"></i></div>
+                        <div class="stat-value" data-count="8">0</div>
+                        <div class="stat-label">Reports Due</div>
+                        <div class="stat-change up"><i data-lucide="trending-up" style="width:12px;height:12px;"></i> 3
+                            urgent</div>
+                    </div>
+
+                    <div class="stat-card animate-fadeInUp delay-4">
+                        <div class="stat-icon green"><i data-lucide="clock" style="width:22px;height:22px;"></i></div>
+                        <div class="stat-value" data-count="284" data-suffix="h">0</div>
+                        <div class="stat-label">Hours Logged</div>
+                        <div class="stat-change up"><i data-lucide="trending-up" style="width:12px;height:12px;"></i>
+                            +12% vs last quarter</div>
+                    </div>
+                </div>
+
+                <!-- Main Content Grid -->
+                <div class="content-grid">
+
+                    <!-- Case Status Chart -->
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">Case Activity (Last 6 Months)</h3>
+                            <select class="filter-select" style="min-width:auto;">
+                                <option>6 Months</option>
+                                <option>12 Months</option>
+                                <option>YTD</option>
+                            </select>
+                        </div>
+                        <div class="panel-body">
+                            <div class="chart-placeholder" style="height:220px;padding-bottom:30px;">
+                                <div class="chart-bar" data-height="65%"
+                                    style="background:linear-gradient(to top, #D4A843, #E8C97A);"><span
+                                        class="chart-bar-label">Sep</span></div>
+                                <div class="chart-bar" data-height="80%"
+                                    style="background:linear-gradient(to top, #D4A843, #E8C97A);"><span
+                                        class="chart-bar-label">Oct</span></div>
+                                <div class="chart-bar" data-height="55%"
+                                    style="background:linear-gradient(to top, #14B8A6, #2DD4BF);"><span
+                                        class="chart-bar-label">Nov</span></div>
+                                <div class="chart-bar" data-height="90%"
+                                    style="background:linear-gradient(to top, #D4A843, #E8C97A);"><span
+                                        class="chart-bar-label">Dec</span></div>
+                                <div class="chart-bar" data-height="70%"
+                                    style="background:linear-gradient(to top, #14B8A6, #2DD4BF);"><span
+                                        class="chart-bar-label">Jan</span></div>
+                                <div class="chart-bar" data-height="85%"
+                                    style="background:linear-gradient(to top, #D4A843, #E8C97A);"><span
+                                        class="chart-bar-label">Feb</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">Recent Activity</h3>
+                            <a href="dashboard-notifications.html"
+                                style="font-size:0.8rem;color:var(--accent-gold);font-weight:600;">View All</a>
+                        </div>
+                        <div class="panel-body">
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-dot" style="background:var(--success);"></div>
+                                    <div>
+                                        <div class="activity-text"><strong>Case #FA-2026-038</strong> status changed to
+                                            <span class="badge badge-success">Active</span></div>
+                                        <div class="activity-time">2 hours ago</div>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-dot" style="background:var(--info);"></div>
+                                    <div>
+                                        <div class="activity-text"><strong>3 documents</strong> uploaded to Financial
+                                            Audit vault</div>
+                                        <div class="activity-time">5 hours ago</div>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-dot" style="background:var(--accent-gold);"></div>
+                                    <div>
+                                        <div class="activity-text"><strong>Investigation Report</strong> for Case
+                                            #FA-2026-031 is ready for review</div>
+                                        <div class="activity-time">Yesterday</div>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-dot" style="background:var(--warning);"></div>
+                                    <div>
+                                        <div class="activity-text"><strong>Deadline reminder:</strong> Document
+                                            submission due for Case #FA-2026-029</div>
+                                        <div class="activity-time">2 days ago</div>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-dot" style="background:var(--accent-teal);"></div>
+                                    <div>
+                                        <div class="activity-text"><strong>Team assigned:</strong> Sarah K. assigned to
+                                            Asset Tracing Case</div>
+                                        <div class="activity-time">3 days ago</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upcoming Deadlines Table -->
+                <div class="panel" style="margin-bottom:var(--space-8);">
+                    <div class="panel-header">
+                        <h3 class="panel-title">Upcoming Deadlines</h3>
+                        <a href="dashboard-matters.html"
+                            style="font-size:0.8rem;color:var(--accent-gold);font-weight:600;">All Cases →</a>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Case ID</th>
+                                    <th>Case Name</th>
+                                    <th>Type</th>
+                                    <th>Deadline</th>
+                                    <th>Status</th>
+                                    <th>Priority</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="case-id">FA-2026-038</span></td>
+                                    <td style="font-weight:600;">Meridian Corp Fraud Review</td>
+                                    <td>Fraud Investigation</td>
+                                    <td>Mar 10, 2026</td>
+                                    <td><span class="badge badge-warning">In Progress</span></td>
+                                    <td><span class="badge badge-danger">High</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="case-id">FA-2026-035</span></td>
+                                    <td style="font-weight:600;">Apex Financial Audit</td>
+                                    <td>Financial Audit</td>
+                                    <td>Mar 15, 2026</td>
+                                    <td><span class="badge badge-info">Under Review</span></td>
+                                    <td><span class="badge badge-warning">Medium</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="case-id">FA-2026-031</span></td>
+                                    <td style="font-weight:600;">Kensington Litigation Support</td>
+                                    <td>Litigation</td>
+                                    <td>Mar 22, 2026</td>
+                                    <td><span class="badge badge-success">Report Ready</span></td>
+                                    <td><span class="badge badge-success">Low</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="case-id">FA-2026-029</span></td>
+                                    <td style="font-weight:600;">Global Assets Recovery</td>
+                                    <td>Asset Tracing</td>
+                                    <td>Mar 28, 2026</td>
+                                    <td><span class="badge badge-warning">In Progress</span></td>
+                                    <td><span class="badge badge-danger">High</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="case-id">FA-2026-027</span></td>
+                                    <td style="font-weight:600;">TechVentures Compliance Check</td>
+                                    <td>Compliance</td>
+                                    <td>Apr 05, 2026</td>
+                                    <td><span class="badge badge-gold">Pending</span></td>
+                                    <td><span class="badge badge-warning">Medium</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Quick Access Section -->
+                <div class="content-grid-equal">
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">Quick Access</h3>
+                        </div>
+                        <div class="panel-body" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);">
+                            <a href="dashboard-documents.html" class="doc-card">
+                                <div class="doc-icon pdf"><i data-lucide="file-text"
+                                        style="width:24px;height:24px;"></i></div>
+                                <div class="doc-name">Upload Documents</div>
+                                <div class="doc-size">Secure vault</div>
+                            </a>
+                            <a href="dashboard-reports.html" class="doc-card">
+                                <div class="doc-icon xlsx"
+                                    style="background:rgba(20,184,166,0.1);color:var(--accent-teal);">
+                                    <i data-lucide="bar-chart-3" style="width:24px;height:24px;"></i>
+                                </div>
+                                <div class="doc-name">View Reports</div>
+                                <div class="doc-size">Analytics & exports</div>
+                            </a>
+                            <a href="dashboard-progress.html" class="doc-card">
+                                <div class="doc-icon doc"><i data-lucide="git-branch"
+                                        style="width:24px;height:24px;"></i></div>
+                                <div class="doc-name">Track Progress</div>
+                                <div class="doc-size">Investigation timeline</div>
+                            </a>
+                            <a href="dashboard-profile.html" class="doc-card">
+                                <div class="doc-icon img"
+                                    style="background:rgba(212,168,67,0.1);color:var(--accent-gold);">
+                                    <i data-lucide="settings" style="width:24px;height:24px;"></i>
+                                </div>
+                                <div class="doc-name">Settings</div>
+                                <div class="doc-size">Profile & security</div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Case Status Overview -->
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">Case Status Breakdown</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div style="margin-bottom:var(--space-5);">
+                                <div
+                                    style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.85rem;">
+                                    <span>Active Investigations</span><span
+                                        style="font-weight:700;color:var(--accent-gold);">5</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="42%" style="background:var(--accent-gold);">
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-bottom:var(--space-5);">
+                                <div
+                                    style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.85rem;">
+                                    <span>Under Review</span><span style="font-weight:700;color:var(--info);">3</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="25%" style="background:var(--info);"></div>
+                                </div>
+                            </div>
+                            <div style="margin-bottom:var(--space-5);">
+                                <div
+                                    style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.85rem;">
+                                    <span>Reports Ready</span><span
+                                        style="font-weight:700;color:var(--success);">2</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="17%" style="background:var(--success);">
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-bottom:var(--space-5);">
+                                <div
+                                    style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.85rem;">
+                                    <span>Pending</span><span style="font-weight:700;color:var(--warning);">2</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="17%" style="background:var(--warning);">
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="text-align:center;margin-top:var(--space-6);">
+                                <span style="font-family:var(--font-heading);font-size:2rem;font-weight:800;">12</span>
+                                <span style="font-size:0.85rem;color:var(--text-secondary);display:block;">Total
+                                    Cases</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- end dashboard-content -->
+        </div><!-- end main-content -->
+    </div><!-- end wrapper -->
+
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

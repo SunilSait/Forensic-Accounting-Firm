@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="ForensicEdge - Precision forensic accounting. Alternative home experience with modern design.">
+    <title>ForensicEdge | Home 2 — Modern Forensic Accounting</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { primary: '#D4A843', dark: '#0B1120', darkLight: '#1E293B', teal: '#14B8A6' },
+                    fontFamily: { heading: ['Outfit', 'sans-serif'], body: ['Inter', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-200 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-300 {
+            transition-delay: 0.3s;
+        }
+
+        .delay-400 {
+            transition-delay: 0.4s;
+        }
+
+        .nav-link {
+            transition: all 0.2s ease-in-out;
+        }
+
+        .nav-link-active {
+            color: #D4A843 !important;
+            font-weight: 700;
+        }
+
+        @media (min-width: 1024px) {
+            .nav-link-active {
+                position: relative;
+            }
+
+            .nav-link-active::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: #D4A843;
+                border-radius: 99px;
+            }
+        }
+
+        @media (max-width: 1023px) {
+            .nav-link-active {
+                background-color: rgba(212, 168, 67, 0.05);
+                padding-left: 12px;
+                border-left: 4px solid #D4A843;
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .float-anim {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes count-up {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white text-slate-900 dark:bg-slate-900 dark:text-white transition-all">
+
+    <!-- ========== NAVBAR ========== -->
+    <nav
+        class="fixed w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="index.html" class="flex-shrink-0 flex items-center gap-2">
+                    <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white"><i
+                            class="fas fa-shield-alt"></i></div>
+                    <span class="font-bold text-xl tracking-tight font-heading">Forensic<span
+                            class="text-primary">Edge</span></span>
+                </a>
+                <div class="hidden lg:flex space-x-8 items-center">
+                    <a href="index.html" class="nav-link hover:text-primary transition-colors">Home 1</a>
+                    <a href="home2.html" class="nav-link hover:text-primary transition-colors">Home 2</a>
+                    <a href="about.html" class="nav-link hover:text-primary transition-colors">About</a>
+                    <a href="services.html" class="nav-link hover:text-primary transition-colors">Services</a>
+                    <a href="pricing.html" class="nav-link hover:text-primary transition-colors">Pricing</a>
+                    <a href="documentation.html" class="nav-link hover:text-primary transition-colors">Resources</a>
+                    <a href="contact.html" class="nav-link hover:text-primary transition-colors">Contact</a>
+                </div>
+                <div class="lg:hidden flex items-center gap-2">
+                    <button onclick="toggleTheme()" class="p-2 rounded-full"><i id="theme-icon-mobile"
+                            class="fas fa-moon"></i></button>
+                    <button onclick="toggleMenu()" class="text-2xl p-2 text-slate-600 dark:text-slate-300"><i
+                            id="menu-toggle-icon" class="fas fa-bars"></i></button>
+                </div>
+                <div class="hidden lg:flex items-center gap-4">
+                    <button onclick="toggleTheme()"
+                        class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"><i id="theme-icon"
+                            class="fas fa-moon"></i></button>
+                    <a href="login.html"><button
+                            class="bg-primary text-white px-5 py-2 rounded-full font-medium hover:opacity-90 transition-all">Client
+                            Portal</button></a>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu"
+            class="hidden lg:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 py-8 shadow-xl">
+            <div class="flex flex-col space-y-2">
+                <a href="index.html"
+                    class="nav-link block py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800 hover:text-primary">Home
+                    1</a>
+                <a href="home2.html"
+                    class="nav-link block py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800 hover:text-primary">Home
+                    2</a>
+                <a href="about.html"
+                    class="nav-link block py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800 hover:text-primary">About</a>
+                <a href="services.html"
+                    class="nav-link block py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800 hover:text-primary">Services</a>
+                <a href="pricing.html"
+                    class="nav-link block py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800 hover:text-primary">Pricing</a>
+                <a href="documentation.html"
+                    class="nav-link block py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800 hover:text-primary">Resources</a>
+                <a href="contact.html"
+                    class="nav-link block py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800 hover:text-primary">Contact</a>
+            </div>
+            <div class="mt-8"><a href="login.html" class="block"><button
+                        class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg">Client
+                        Portal</button></a></div>
+        </div>
+    </nav>
+
+    <script>
+        function handleActiveNav() { const p = window.location.pathname; document.querySelectorAll('.nav-link').forEach(l => { const h = l.getAttribute('href'); if (p.endsWith(h)) l.classList.add('nav-link-active'); else l.classList.remove('nav-link-active'); }); }
+        function toggleMenu() { const m = document.getElementById('mobile-menu'); const i = document.getElementById('menu-toggle-icon'); const h = m.classList.toggle('hidden'); if (h) i.classList.replace('fa-times', 'fa-bars'); else i.classList.replace('fa-bars', 'fa-times'); }
+        window.addEventListener('DOMContentLoaded', handleActiveNav);
+        window.addEventListener('resize', () => { if (window.innerWidth >= 1024) { document.getElementById('mobile-menu').classList.add('hidden'); document.getElementById('menu-toggle-icon').classList.replace('fa-times', 'fa-bars'); } });
+    </script>
+
+    <!-- ========== HERO — SPLIT LAYOUT (Different from Home 1) ========== -->
+    <section
+        class="relative min-h-screen flex items-center overflow-hidden bg-slate-50 dark:bg-slate-900 transition-colors duration-500">
+        <div class="absolute inset-0 z-0">
+            <img src="assets/images/hero-home2.png" alt=""
+                class="w-full h-full object-cover opacity-10 dark:opacity-15">
+            <div class="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none"
+                style="background-image: radial-gradient(#D4A843 1px, transparent 1px); background-size: 30px 30px;">
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-40">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="text-center lg:text-left">
+                    <div
+                        class="reveal-up inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
+                        <i class="fas fa-award text-primary text-sm"></i>
+                        <span class="text-xs font-bold uppercase tracking-widest text-primary">Award-Winning Forensic
+                            Team</span>
+                    </div>
+
+                    <h1
+                        class="reveal-up delay-100 text-4xl sm:text-5xl lg:text-7xl font-black text-slate-900 dark:text-white mb-8 leading-[1.05]">
+                        Where <span class="text-primary">Numbers</span> Tell the <span class="text-primary">Story</span>
+                    </h1>
+
+                    <p
+                        class="reveal-up delay-200 text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                        Advanced forensic accounting powered by cutting-edge analytics. We decode complex financial data
+                        to uncover the truth.
+                    </p>
+
+                    <div class="reveal-up delay-300 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="services.html"
+                            class="bg-primary text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-primary/30 hover:-translate-y-1 active:scale-95 transition-all text-center">
+                            Explore Services <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="about.html"
+                            class="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/20 text-slate-900 dark:text-white px-8 py-4 rounded-2xl font-bold text-lg hover:-translate-y-1 active:scale-95 transition-all text-center shadow-sm">
+                            <i class="fas fa-play-circle mr-2"></i> Our Story
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Floating Stats Cards -->
+                <div class="reveal-up delay-400 relative hidden lg:block">
+                    <div class="float-anim relative">
+                        <!-- Card 1 -->
+                        <div
+                            class="absolute top-0 left-0 bg-white dark:bg-white/10 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-3xl p-6 w-64 shadow-xl dark:shadow-2xl">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center"><i
+                                        class="fas fa-chart-line text-green-500 dark:text-green-400"></i></div>
+                                <div class="text-xs text-slate-400 uppercase tracking-widest">Recovery Rate</div>
+                            </div>
+                            <div class="text-3xl font-black text-slate-900 dark:text-white">94.7%</div>
+                            <div class="text-xs text-green-500 dark:text-green-400 mt-2"><i
+                                    class="fas fa-arrow-up mr-1"></i> +2.3% this
+                                quarter</div>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="absolute top-32 right-0 bg-white dark:bg-white/10 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-3xl p-6 w-64 shadow-xl dark:shadow-2xl"
+                            style="animation-delay: -2s;">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center"><i
+                                        class="fas fa-users text-primary"></i></div>
+                                <div class="text-xs text-slate-400 uppercase tracking-widest">Active Clients</div>
+                            </div>
+                            <div class="text-3xl font-black text-slate-900 dark:text-white">500+</div>
+                            <div class="text-xs text-primary mt-2"><i class="fas fa-globe mr-1"></i> Worldwide</div>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="absolute top-64 left-8 bg-white dark:bg-white/10 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-3xl p-6 w-64 shadow-xl dark:shadow-2xl"
+                            style="animation-delay: -4s;">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 bg-blue-500/20 rounded-xl flex items-center justify-center"><i
+                                        class="fas fa-shield-alt text-blue-500 dark:text-blue-400"></i></div>
+                                <div class="text-xs text-slate-400 uppercase tracking-widest">Certifications</div>
+                            </div>
+                            <div class="text-3xl font-black text-slate-900 dark:text-white">12+</div>
+                            <div class="text-xs text-blue-500 dark:text-blue-400 mt-2"><i
+                                    class="fas fa-certificate mr-1"></i> ISO & SOC
+                                Certified</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== WHAT WE DO — Alternating Split Layout ========== -->
+    <section class="py-24 bg-white dark:bg-slate-900 transition-colors duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+
+            <!-- Row 1: Text Left, Visual Right -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center reveal-up">
+                <div>
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-6">
+                        <i class="fas fa-search"></i> Investigation
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 leading-tight">
+                        Deep-Dive <span class="text-primary">Fraud Analysis</span></h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8">Our forensic teams use
+                        advanced analytics to trace financial anomalies through layers of complex transactions,
+                        uncovering patterns invisible to conventional audits.</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+                            <div class="w-8 h-8 bg-green-500/10 rounded-lg flex items-center justify-center"><i
+                                    class="fas fa-check text-green-500 text-xs"></i></div> Multi-jurisdiction asset
+                            tracing
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+                            <div class="w-8 h-8 bg-green-500/10 rounded-lg flex items-center justify-center"><i
+                                    class="fas fa-check text-green-500 text-xs"></i></div> Real-time progress via secure
+                            portal
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+                            <div class="w-8 h-8 bg-green-500/10 rounded-lg flex items-center justify-center"><i
+                                    class="fas fa-check text-green-500 text-xs"></i></div> Court-admissible evidence
+                            reports
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-slate-800 rounded-3xl p-8 border border-white/5 shadow-2xl relative overflow-hidden">
+                    <div class="flex gap-2 mb-6">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div class="font-mono text-sm text-slate-300 space-y-2">
+                        <p><span class="text-primary">forensic</span>.<span class="text-teal">scan</span>({</p>
+                        <p class="ml-4">target: <span class="text-orange-400">"transactions_2024"</span>,</p>
+                        <p class="ml-4">depth: <span class="text-purple-400">"full_trace"</span>,</p>
+                        <p class="ml-4">jurisdictions: [<span class="text-green-400">"US"</span>, <span
+                                class="text-green-400">"EU"</span>, <span class="text-green-400">"APAC"</span>]</p>
+                        <p>});</p>
+                        <p class="text-slate-500 mt-4">// Results</p>
+                        <p><span class="text-green-400">✓</span> 15,420 transactions analyzed</p>
+                        <p><span class="text-red-400">⚠</span> 23 anomalies detected</p>
+                        <p><span class="text-primary">→</span> $2.4M flagged for review</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: Visual Left, Text Right -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center reveal-up">
+                <div
+                    class="order-2 lg:order-1 bg-gradient-to-br from-primary/10 to-teal/10 rounded-3xl p-8 border border-primary/10 shadow-xl">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 text-center shadow-sm">
+                            <div class="text-4xl font-black text-primary mb-2">98%</div>
+                            <div class="text-xs text-slate-500 uppercase tracking-wider">Accuracy Rate</div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 text-center shadow-sm">
+                            <div class="text-4xl font-black text-teal mb-2">48h</div>
+                            <div class="text-xs text-slate-500 uppercase tracking-wider">Avg Response</div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 text-center shadow-sm">
+                            <div class="text-4xl font-black text-blue-500 mb-2">25+</div>
+                            <div class="text-xs text-slate-500 uppercase tracking-wider">Years of Expertise</div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 text-center shadow-sm">
+                            <div class="text-4xl font-black text-green-500 mb-2">100%</div>
+                            <div class="text-xs text-slate-500 uppercase tracking-wider">Confidential</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal/10 text-teal text-xs font-bold uppercase tracking-widest mb-6">
+                        <i class="fas fa-shield-alt"></i> Compliance
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 leading-tight">
+                        Enterprise-Grade <span class="text-teal">Security</span></h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8">All client data is
+                        protected with bank-grade encryption, SOC2 certification, and GDPR-compliant data handling
+                        protocols. Your information never leaves secure channels.</p>
+                    <a href="documentation.html" class="inline-flex items-center gap-2 font-bold text-teal group"><i
+                            class="fas fa-book"></i> Read Our Security Whitepaper <i
+                            class="fas fa-arrow-right transition-transform group-hover:translate-x-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== HORIZONTAL TIMELINE PROCESS ========== -->
+    <section class="py-24 bg-slate-50 dark:bg-slate-800/30 transition-colors duration-500 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-6">Our <span
+                        class="text-primary">Proven Process</span></h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">A systematic, confidential approach from
+                    first contact to final resolution.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+                <div
+                    class="absolute hidden lg:block top-1/2 left-0 w-full h-0.5 bg-slate-200 dark:bg-slate-700 -z-10 -translate-y-12">
+                </div>
+
+                <div
+                    class="reveal-up group relative p-8 rounded-[2.5rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary transition-all duration-300">
+                    <div
+                        class="w-14 h-14 bg-white dark:bg-slate-800 rounded-2xl shadow-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all text-primary text-xl">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h4 class="font-bold dark:text-white mb-2">1. Contact</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Reach out for a free,
+                        confidential initial consultation.</p>
+                </div>
+
+                <div
+                    class="reveal-up delay-100 group relative p-8 rounded-[2.5rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary transition-all duration-300">
+                    <div
+                        class="w-14 h-14 bg-white dark:bg-slate-800 rounded-2xl shadow-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all text-blue-500 text-xl">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h4 class="font-bold dark:text-white mb-2">2. Assessment</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Detailed scope analysis with
+                        timeline and cost estimation.</p>
+                </div>
+
+                <div
+                    class="reveal-up delay-200 group relative p-8 rounded-[2.5rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary transition-all duration-300">
+                    <div
+                        class="w-14 h-14 bg-white dark:bg-slate-800 rounded-2xl shadow-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all text-purple-500 text-xl">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h4 class="font-bold dark:text-white mb-2">3. Investigate</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Full forensic analysis with
+                        real-time portal updates.</p>
+                </div>
+
+                <div
+                    class="reveal-up delay-300 group relative p-8 rounded-[2.5rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-green-500 transition-all duration-300">
+                    <div
+                        class="w-14 h-14 bg-white dark:bg-slate-800 rounded-2xl shadow-lg flex items-center justify-center mb-6 group-hover:bg-green-500 group-hover:text-white transition-all text-green-500 text-xl">
+                        <i class="fas fa-check-double"></i>
+                    </div>
+                    <h4 class="font-bold dark:text-white mb-2">4. Resolve</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Comprehensive reporting,
+                        testimony, and asset recovery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SERVICE HIGHLIGHTS (Different from Home 1) ========== -->
+    <section class="py-24 bg-white dark:bg-slate-900 transition-colors duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div
+                    class="lg:col-span-8 reveal-up group relative overflow-hidden rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-8 hover:shadow-2xl transition-all duration-500">
+                    <div class="flex flex-col md:flex-row gap-8 items-center">
+                        <div class="flex-1">
+                            <div
+                                class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-6">
+                                <i class="fas fa-book-open text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4 dark:text-white">Client Knowledge Base</h3>
+                            <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">Access our comprehensive
+                                resource library with case handling guides, compliance checklists, and forensic
+                                methodology documentation.</p>
+                            <a href="documentation.html"
+                                class="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all">Browse
+                                Resources <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div
+                            class="w-full md:w-64 bg-slate-900 rounded-xl p-4 font-mono text-[11px] text-slate-300 shadow-inner group-hover:-translate-y-2 transition-transform">
+                            <div class="flex gap-1 mb-3">
+                                <div class="w-2 h-2 rounded-full bg-red-500"></div>
+                                <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+                            </div>
+                            <p class="text-blue-400">GET <span class="text-green-400">/v1/cases</span></p>
+                            <p class="mt-2 text-slate-500">{</p>
+                            <p class="ml-2">"status": <span class="text-orange-300">"active"</span>,</p>
+                            <p class="ml-2">"count": <span class="text-orange-300">38</span></p>
+                            <p class="text-slate-500">}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="lg:col-span-4 reveal-up delay-100 group rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 p-8 text-white border border-slate-700 hover:scale-[1.02] transition-all">
+                    <i
+                        class="fas fa-lock text-4xl mb-6 opacity-50 group-hover:opacity-100 transition-opacity text-primary"></i>
+                    <h3 class="text-xl font-bold mb-2">Secure Portal</h3>
+                    <p class="text-slate-400 text-sm mb-8">End-to-end encrypted document sharing and real-time
+                        investigation tracking.</p>
+                    <div class="space-y-4">
+                        <div class="bg-white/5 p-3 rounded-lg flex justify-between items-center">
+                            <span class="text-xs">Encryption</span><span
+                                class="text-xs font-mono py-1 px-2 bg-green-500/20 text-green-400 rounded">AES-256</span>
+                        </div>
+                        <div class="bg-white/5 p-3 rounded-lg flex justify-between items-center">
+                            <span class="text-xs">Compliance</span><span class="text-xs font-mono text-primary">SOC2
+                                Type II</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            <div
+                class="relative z-10 bg-gradient-to-r from-slate-900 to-dark rounded-[40px] p-12 md:p-20 text-center text-white shadow-2xl border border-white/5">
+                <div
+                    class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none select-none font-mono text-[10px] p-10 leading-relaxed hidden md:block text-left text-primary">
+                    forensic.init() → scanning...<br>trace.assets() → 47 nodes mapped<br>compliance.verify() →
+                    PASSED<br>status: case_resolved ✓
+                </div>
+                <div class="reveal-up relative z-20">
+                    <h2 class="text-4xl md:text-6xl font-black mb-6">Let's decode your <br><span
+                            class="text-primary">financial puzzle.</span></h2>
+                    <p class="text-white/80 text-lg mb-12 max-w-2xl mx-auto">Every case starts with a conversation.
+                        Schedule your free, confidential consultation today.</p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="contact.html"><button
+                                class="px-10 py-5 bg-primary text-white font-black rounded-2xl hover:-translate-y-1 transition-all active:scale-95 shadow-xl shadow-primary/30">Schedule
+                                Consultation</button></a>
+                        <a href="login.html"><button
+                                class="px-10 py-5 border border-white/30 text-white font-bold rounded-2xl hover:bg-white/10 transition-all">Access
+                                Portal</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-white dark:bg-slate-900 pt-20 pb-10 border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <a href="index.html" class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white"><i
+                                class="fas fa-shield-alt"></i></div><span
+                            class="font-bold text-xl tracking-tight font-heading">Forensic<span
+                                class="text-primary">Edge</span></span>
+                    </a>
+                    <p class="text-slate-500 text-sm leading-relaxed">Providing expert forensic accounting, fraud
+                        investigation, and litigation support services for over 25 years.</p>
+                    <div class="flex gap-4 mt-6">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all"><i
+                                class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 uppercase text-xs tracking-widest">Quick Links</h4>
+                    <ul class="space-y-4 text-slate-500">
+                        <li><a href="index.html" class="hover:text-primary">Home 1</a></li>
+                        <li><a href="home2.html" class="hover:text-primary">Home 2</a></li>
+                        <li><a href="about.html" class="hover:text-primary">About Us</a></li>
+                        <li><a href="services.html" class="hover:text-primary">Services</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 uppercase text-xs tracking-widest">Resources</h4>
+                    <ul class="space-y-4 text-slate-500">
+                        <li><a href="pricing.html" class="hover:text-primary">Pricing</a></li>
+                        <li><a href="documentation.html" class="hover:text-primary">Resources</a></li>
+                        <li><a href="contact.html" class="hover:text-primary">Contact</a></li>
+                        <li><a href="login.html" class="hover:text-primary">Client Portal</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 uppercase text-xs tracking-widest">Contact Info</h4>
+                    <ul class="space-y-4 text-slate-500">
+                        <li class="flex items-center gap-3"><i class="fas fa-envelope text-primary"></i>
+                            info@forensicedge.com</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-phone text-primary"></i> +1 (123) 456-7890
+                        </li>
+                        <li class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-primary"></i> 250 Park
+                            Avenue, New York</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center pt-10 border-t border-slate-100 dark:border-slate-800 text-slate-400 text-sm">&copy;
+                2026 ForensicEdge. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const h = document.documentElement; const i = document.getElementById('theme-icon'); const m = document.getElementById('theme-icon-mobile');
+            if (h.classList.contains('dark')) { h.classList.remove('dark'); localStorage.setItem('theme', 'light'); if (i) i.className = 'fas fa-moon'; if (m) m.className = 'fas fa-moon'; }
+            else { h.classList.add('dark'); localStorage.setItem('theme', 'dark'); if (i) i.className = 'fas fa-sun'; if (m) m.className = 'fas fa-sun'; }
+        }
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); const i = document.getElementById('theme-icon'); if (i) i.className = 'fas fa-sun'; }
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); }); }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>

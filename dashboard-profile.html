@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile & Settings | ForensicEdge Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: ['selector', '[data-theme="dark"]'], theme: { extend: { colors: { primary: { DEFAULT: '#0B1120', light: '#1E293B', dark: '#060A14' }, gold: { DEFAULT: '#D4A843', light: '#E8C97A', dark: '#B8922E' }, teal: { DEFAULT: '#14B8A6', light: '#2DD4BF' } }, fontFamily: { heading: ['Outfit', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }</script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i data-lucide="shield-check" style="width:20px;height:20px;color:#fff;"></i>
+                </div>
+                <div class="sidebar-brand">Forensic<span>Edge</span></div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-label">Main</div>
+                    <a href="dashboard.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span
+                            class="nav-text">Dashboard</span></a>
+                    <a href="dashboard-matters.html" class="nav-item"><i data-lucide="briefcase"></i><span
+                            class="nav-text">Matters & Cases</span><span class="nav-badge">5</span></a>
+                    <a href="dashboard-documents.html" class="nav-item"><i data-lucide="file-lock-2"></i><span
+                            class="nav-text">Document Vault</span></a>
+                    <a href="dashboard-progress.html" class="nav-item"><i data-lucide="git-branch"></i><span
+                            class="nav-text">Investigation Progress</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-label">Analytics</div>
+                    <a href="dashboard-reports.html" class="nav-item"><i data-lucide="bar-chart-3"></i><span
+                            class="nav-text">Reports</span></a>
+                    <a href="dashboard-notifications.html" class="nav-item"><i data-lucide="bell"></i><span
+                            class="nav-text">Notifications</span><span class="nav-badge">3</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-label">Account</div>
+                    <a href="dashboard-profile.html" class="nav-item active"><i data-lucide="user-circle"></i><span
+                            class="nav-text">Profile & Settings</span></a>
+                    <a href="login.html" class="nav-item"><i data-lucide="log-out"></i><span class="nav-text">Sign
+                            Out</span></a>
+                </div>
+            </nav>
+            <div class="sidebar-user">
+                <div class="sidebar-user-avatar">JD</div>
+                <div class="sidebar-user-info">
+                    <div class="sidebar-user-name">James Donovan</div>
+                    <div class="sidebar-user-role">Client • Premium</div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <button class="sidebar-toggle"><i data-lucide="panel-left-close"
+                            style="width:18px;height:18px;"></i></button>
+                    <h1 class="page-title">Profile & Settings</h1>
+                </div>
+                <div class="top-bar-right">
+                    <button class="theme-toggle"><i data-lucide="moon" style="width:18px;height:18px;"></i></button>
+                    <div class="avatar" style="width:36px;height:36px;font-size:0.8rem;">JD</div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <!-- Profile Header -->
+                <div class="profile-header animate-fadeInUp">
+                    <div class="profile-avatar">JD</div>
+                    <div style="flex:1;">
+                        <div class="profile-name">James Donovan</div>
+                        <div class="profile-role">Premium Client • Member since Jan 2024</div>
+                        <div style="display:flex;gap:var(--space-3);margin-top:var(--space-4);flex-wrap:wrap;">
+                            <span class="badge badge-gold"><i data-lucide="crown" style="width:12px;height:12px;"></i>
+                                Premium Plan</span>
+                            <span class="badge badge-success"><i data-lucide="shield-check"
+                                    style="width:12px;height:12px;"></i> 2FA Enabled</span>
+                            <span class="badge badge-info"><i data-lucide="briefcase"
+                                    style="width:12px;height:12px;"></i> 12 Active Cases</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-ghost btn-sm"><i data-lucide="camera" style="width:16px;height:16px;"></i>
+                        Change Photo</button>
+                </div>
+
+                <div class="content-grid-equal">
+                    <!-- Personal Info -->
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">Personal Information</h3><button class="btn btn-ghost btn-sm"><i
+                                    data-lucide="edit-3" style="width:14px;height:14px;"></i> Edit</button>
+                        </div>
+                        <div class="panel-body">
+                            <form data-validate>
+                                <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);">
+                                    <div class="form-group">
+                                        <label class="form-label">First Name</label>
+                                        <input type="text" class="form-input" value="James">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Last Name</label>
+                                        <input type="text" class="form-input" value="Donovan">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Email Address</label>
+                                    <input type="email" class="form-input" value="james.donovan@meridian.com">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Phone</label>
+                                    <input type="tel" class="form-input" value="+1 (555) 234-5678">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Company</label>
+                                    <input type="text" class="form-input" value="Meridian Corporation">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Job Title</label>
+                                    <input type="text" class="form-input" value="Chief Financial Officer">
+                                </div>
+                                <button type="button" class="btn btn-primary" style="width:100%;">Save Changes</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Security Settings -->
+                    <div>
+                        <div class="panel" style="margin-bottom:var(--space-6);">
+                            <div class="panel-header">
+                                <h3 class="panel-title">Security Settings</h3>
+                            </div>
+                            <div class="panel-body">
+                                <!-- 2FA Toggle -->
+                                <div
+                                    style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) 0;border-bottom:1px solid var(--border-color);">
+                                    <div>
+                                        <div style="font-weight:600;font-size:0.9rem;">Two-Factor Authentication</div>
+                                        <div style="font-size:0.8rem;color:var(--text-secondary);">Add an extra layer of
+                                            security</div>
+                                    </div>
+                                    <label style="position:relative;width:48px;height:26px;cursor:pointer;">
+                                        <input type="checkbox" checked style="opacity:0;width:0;height:0;">
+                                        <span
+                                            style="position:absolute;inset:0;background:var(--success);border-radius:26px;transition:0.3s;"></span>
+                                        <span
+                                            style="position:absolute;top:3px;left:24px;width:20px;height:20px;background:#fff;border-radius:50%;transition:0.3s;"></span>
+                                    </label>
+                                </div>
+
+                                <!-- Change Password -->
+                                <div style="padding:var(--space-4) 0;border-bottom:1px solid var(--border-color);">
+                                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                                        <div>
+                                            <div style="font-weight:600;font-size:0.9rem;">Password</div>
+                                            <div style="font-size:0.8rem;color:var(--text-secondary);">Last changed 30
+                                                days ago</div>
+                                        </div>
+                                        <button class="btn btn-ghost btn-sm">Change</button>
+                                    </div>
+                                </div>
+
+                                <!-- Login Activity -->
+                                <div style="padding:var(--space-4) 0;border-bottom:1px solid var(--border-color);">
+                                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                                        <div>
+                                            <div style="font-weight:600;font-size:0.9rem;">Login Activity</div>
+                                            <div style="font-size:0.8rem;color:var(--text-secondary);">View recent login
+                                                history</div>
+                                        </div>
+                                        <button class="btn btn-ghost btn-sm">View</button>
+                                    </div>
+                                </div>
+
+                                <!-- Session -->
+                                <div style="padding:var(--space-4) 0;">
+                                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                                        <div>
+                                            <div style="font-weight:600;font-size:0.9rem;">Active Sessions</div>
+                                            <div style="font-size:0.8rem;color:var(--text-secondary);">1 active session
+                                                (this device)</div>
+                                        </div>
+                                        <button class="btn btn-ghost btn-sm" style="color:var(--danger);">Revoke
+                                            All</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Billing -->
+                        <div class="panel">
+                            <div class="panel-header">
+                                <h3 class="panel-title">Billing & Subscription</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div
+                                    style="background:linear-gradient(135deg, rgba(212,168,67,0.08), rgba(20,184,166,0.06));border:1px solid rgba(212,168,67,0.15);border-radius:var(--radius-lg);padding:var(--space-5);margin-bottom:var(--space-4);">
+                                    <div
+                                        style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-3);">
+                                        <span style="font-weight:700;font-size:0.95rem;">Premium Plan</span>
+                                        <span class="badge badge-gold">Active</span>
+                                    </div>
+                                    <div style="font-size:0.85rem;color:var(--text-secondary);">$499/month • Next
+                                        billing: Apr 01, 2026</div>
+                                </div>
+
+                                <div
+                                    style="display:flex;justify-content:space-between;align-items:center;padding:var(--space-3) 0;border-bottom:1px solid var(--border-color);font-size:0.85rem;">
+                                    <span>Payment Method</span>
+                                    <span style="font-weight:600;">•••• •••• •••• 4829</span>
+                                </div>
+                                <div
+                                    style="display:flex;justify-content:space-between;align-items:center;padding:var(--space-3) 0;border-bottom:1px solid var(--border-color);font-size:0.85rem;">
+                                    <span>Storage Used</span>
+                                    <span style="font-weight:600;">106.6 MB / 10 GB</span>
+                                </div>
+                                <div
+                                    style="display:flex;justify-content:space-between;align-items:center;padding:var(--space-3) 0;font-size:0.85rem;">
+                                    <span>Cases Included</span>
+                                    <span style="font-weight:600;">Unlimited</span>
+                                </div>
+
+                                <div style="display:flex;gap:var(--space-3);margin-top:var(--space-5);">
+                                    <button class="btn btn-ghost btn-sm" style="flex:1;">View Invoices</button>
+                                    <button class="btn btn-primary btn-sm" style="flex:1;">Upgrade Plan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

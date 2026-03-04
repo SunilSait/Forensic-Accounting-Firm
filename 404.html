@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | ForensicEdge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: ['selector', '[data-theme="dark"]'], theme: { extend: { colors: { primary: { DEFAULT: '#0B1120', light: '#1E293B', dark: '#060A14' }, gold: { DEFAULT: '#D4A843', light: '#E8C97A', dark: '#B8922E' }, teal: { DEFAULT: '#14B8A6', light: '#2DD4BF' } }, fontFamily: { heading: ['Outfit', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }</script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+
+<body>
+    <div class="error-page">
+        <div class="hero-bg"></div>
+        <div class="hero-grid-pattern"
+            style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);background-size:60px 60px;">
+        </div>
+
+        <div style="position:relative;z-index:2;" class="animate-fadeInUp">
+            <div class="error-code">404</div>
+            <h1 class="error-title">Page Not Found</h1>
+            <p class="error-desc">The page you're looking for doesn't exist or has been moved. Let's get you back on
+                track.</p>
+            <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
+                <a href="index.html" class="btn btn-primary btn-lg">
+                    <i data-lucide="home" style="width:18px;height:18px;"></i>
+                    Back to Home
+                </a>
+                <a href="contact.html" class="btn btn-secondary btn-lg">
+                    <i data-lucide="message-circle" style="width:18px;height:18px;"></i>
+                    Contact Support
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/theme.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

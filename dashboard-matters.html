@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matters & Cases | ForensicEdge Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: ['selector', '[data-theme="dark"]'], theme: { extend: { colors: { primary: { DEFAULT: '#0B1120', light: '#1E293B', dark: '#060A14' }, gold: { DEFAULT: '#D4A843', light: '#E8C97A', dark: '#B8922E' }, teal: { DEFAULT: '#14B8A6', light: '#2DD4BF' } }, fontFamily: { heading: ['Outfit', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }</script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i data-lucide="shield-check" style="width:20px;height:20px;color:#fff;"></i>
+                </div>
+                <div class="sidebar-brand">Forensic<span>Edge</span></div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-label">Main</div>
+                    <a href="dashboard.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span
+                            class="nav-text">Dashboard</span></a>
+                    <a href="dashboard-matters.html" class="nav-item active"><i data-lucide="briefcase"></i><span
+                            class="nav-text">Matters & Cases</span><span class="nav-badge">5</span></a>
+                    <a href="dashboard-documents.html" class="nav-item"><i data-lucide="file-lock-2"></i><span
+                            class="nav-text">Document Vault</span></a>
+                    <a href="dashboard-progress.html" class="nav-item"><i data-lucide="git-branch"></i><span
+                            class="nav-text">Investigation Progress</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-label">Analytics</div>
+                    <a href="dashboard-reports.html" class="nav-item"><i data-lucide="bar-chart-3"></i><span
+                            class="nav-text">Reports</span></a>
+                    <a href="dashboard-notifications.html" class="nav-item"><i data-lucide="bell"></i><span
+                            class="nav-text">Notifications</span><span class="nav-badge">3</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-label">Account</div>
+                    <a href="dashboard-profile.html" class="nav-item"><i data-lucide="user-circle"></i><span
+                            class="nav-text">Profile & Settings</span></a>
+                    <a href="login.html" class="nav-item"><i data-lucide="log-out"></i><span class="nav-text">Sign
+                            Out</span></a>
+                </div>
+            </nav>
+            <div class="sidebar-user">
+                <div class="sidebar-user-avatar">JD</div>
+                <div class="sidebar-user-info">
+                    <div class="sidebar-user-name">James Donovan</div>
+                    <div class="sidebar-user-role">Client • Premium</div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <button class="sidebar-toggle" aria-label="Toggle sidebar"><i data-lucide="panel-left-close"
+                            style="width:18px;height:18px;"></i></button>
+                    <h1 class="page-title">Matters & Cases</h1>
+                </div>
+                <div class="top-bar-right">
+                    <div class="top-bar-search"><i data-lucide="search" style="width:16px;height:16px;"></i><input
+                            type="text" placeholder="Search cases..."></div>
+                    <a href="dashboard-notifications.html" class="top-bar-icon"><i data-lucide="bell"
+                            style="width:18px;height:18px;"></i><span class="notification-dot"></span></a>
+                    <button class="theme-toggle" aria-label="Toggle theme"><i data-lucide="moon"
+                            style="width:18px;height:18px;"></i></button>
+                    <div class="avatar" style="width:36px;height:36px;font-size:0.8rem;">JD</div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <!-- Filter Bar -->
+                <div class="filter-bar">
+                    <select class="filter-select">
+                        <option>All Status</option>
+                        <option>Active</option>
+                        <option>In Progress</option>
+                        <option>Under Review</option>
+                        <option>Completed</option>
+                        <option>Pending</option>
+                    </select>
+                    <select class="filter-select">
+                        <option>All Types</option>
+                        <option>Fraud Investigation</option>
+                        <option>Financial Audit</option>
+                        <option>Litigation Support</option>
+                        <option>Asset Tracing</option>
+                        <option>Compliance</option>
+                    </select>
+                    <select class="filter-select">
+                        <option>Sort: Latest</option>
+                        <option>Sort: Oldest</option>
+                        <option>Sort: Priority</option>
+                    </select>
+                    <div style="margin-left:auto;">
+                        <button class="btn btn-primary btn-sm"><i data-lucide="plus"
+                                style="width:16px;height:16px;"></i> New Case Request</button>
+                    </div>
+                </div>
+
+                <!-- Case Cards -->
+                <div class="case-card animate-fadeInUp delay-1">
+                    <div class="case-card-header">
+                        <span class="case-id">FA-2026-038</span>
+                        <span class="badge badge-warning">In Progress</span>
+                    </div>
+                    <h3 class="case-title">Meridian Corp Fraud Review</h3>
+                    <p
+                        style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:var(--space-4);line-height:1.6;">
+                        Comprehensive review of financial transactions and internal controls following suspected
+                        embezzlement by senior management.</p>
+                    <div class="case-meta">
+                        <span><i data-lucide="folder"
+                                style="width:14px;height:14px;display:inline;vertical-align:middle;"></i> Fraud
+                            Investigation</span>
+                        <span><i data-lucide="users"
+                                style="width:14px;height:14px;display:inline;vertical-align:middle;"></i> Sarah K.,
+                            Michael R.</span>
+                        <span><i data-lucide="calendar"
+                                style="width:14px;height:14px;display:inline;vertical-align:middle;"></i> Started Feb
+                            12, 2026</span>
+                        <span class="badge badge-danger" style="margin-left:auto;">High Priority</span>
+                    </div>
+                    <div style="margin-top:var(--space-4);">
+                        <div
+                            style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--text-secondary);margin-bottom:6px;">
+                            <span>Progress</span><span>65%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="65%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card animate-fadeInUp delay-2">
+                    <div class="case-card-header">
+                        <span class="case-id">FA-2026-035</span>
+                        <span class="badge badge-info">Under Review</span>
+                    </div>
+                    <h3 class="case-title">Apex Financial Group Annual Audit</h3>
+                    <p
+                        style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:var(--space-4);line-height:1.6;">
+                        Year-end financial audit covering revenue recognition, asset valuation, and internal compliance
+                        verification.</p>
+                    <div class="case-meta">
+                        <span><i data-lucide="folder"
+                                style="width:14px;height:14px;display:inline;vertical-align:middle;"></i> Financial
+                            Audit</span>
+                        <span><i data-lucide="users"
+                                style="width:14px;height:14px;display:inline;vertical-align:middle;"></i> David L.,
+                            Emily T.</span>
+                        <span><i data-lucide="calendar"
+                                style="width:14px;height:14px;display:inline;vertical-align:middle;"></i> Started Jan
+                            20, 2026</span>
+                        <span class="badge badge-warning" style="margin-left:auto;">Medium Priority</span>
+                    </div>
+                    <div style="margin-top:var(--space-4);">
+                        <div
+                            style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--text-secondary);margin-bottom:6px;">
+                            <span>Progress</span><span>82%</span></div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="82%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card animate-fadeInUp delay-3">
+                    <div class="case-card-header">
+                        <span class="case-id">FA-2026-031</span>
+                        <span class="badge badge-success">Report Ready</span>
+                    </div>
+                    <h3 class="case-title">Kensington & Associates Litigation Support</h3>
+                    <p
+                        style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:var(--space-4);line-height:1.6;">
+                        Expert witness preparation and financial damage calculation for breach-of-contract lawsuit
+                        involving $12M in disputed funds.</p>
+                    <div class="case-meta">
+                        <span><i data-lucide="folder"
+                                style="width:14px;height:14px;display:inline;vertical-align:middle;"></i> Litigation
+                            Support</span>
+                        <span><i data-lucide="users"
+                                style="width:14px;height:14px;display:inline;vertical-align:middle;"></i> Sarah
+                            K.</span>
+                        <span><i data-lucide="calendar"
+                                style="width:14px;height:14px;display:inline;vertical-align:middle;"></i> Started Dec
+                            05, 2025</span>
+                        <span class="badge badge-success" style="margin-left:auto;">Low Priority</span>
+                    </div>
+                    <div style="margin-top:var(--space-4);">
+                        <div
+                            style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--text-secondary);margin-bottom:6px;">
+                            <span>Progress</span><span>100%</span></div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="100%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card animate-fadeInUp delay-4">
+                    <div class="case-card-header">
+                        <span class="case-id">FA-2026-029</span>
+                        <span class="badge badge-warning">In Progress</span>
+                    </div>
+                    <h3 class="case-title">Global Assets Recovery Initiative</h3>
+                    <p
+                        style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:var(--space-4);line-height:1.6;">
+                        Cross-border asset tracing operation to identify and recover misappropriated funds across
+                        multiple jurisdictions.</p>
+                    <div class="case-meta">
+                        <span><i data-lucide="folder"
+                                style="width:14px;height:14px;display:inline;vertical-align:middle;"></i> Asset
+                            Tracing</span>
+                        <span><i data-lucide="users"
+                                style="width:14px;height:14px;display:inline;vertical-align:middle;"></i> Full
+                            Team</span>
+                        <span><i data-lucide="calendar"
+                                style="width:14px;height:14px;display:inline;vertical-align:middle;"></i> Started Nov
+                            15, 2025</span>
+                        <span class="badge badge-danger" style="margin-left:auto;">High Priority</span>
+                    </div>
+                    <div style="margin-top:var(--space-4);">
+                        <div
+                            style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--text-secondary);margin-bottom:6px;">
+                            <span>Progress</span><span>48%</span></div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="48%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card animate-fadeInUp delay-5">
+                    <div class="case-card-header">
+                        <span class="case-id">FA-2026-027</span>
+                        <span class="badge badge-gold">Pending</span>
+                    </div>
+                    <h3 class="case-title">TechVentures Inc. Regulatory Compliance Review</h3>
+                    <p
+                        style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:var(--space-4);line-height:1.6;">
+                        Comprehensive AML/KYC compliance assessment and remediation plan for fintech startup ahead of
+                        Series B funding.</p>
+                    <div class="case-meta">
+                        <span><i data-lucide="folder"
+                                style="width:14px;height:14px;display:inline;vertical-align:middle;"></i>
+                            Compliance</span>
+                        <span><i data-lucide="users"
+                                style="width:14px;height:14px;display:inline;vertical-align:middle;"></i> Pending
+                            Assignment</span>
+                        <span><i data-lucide="calendar"
+                                style="width:14px;height:14px;display:inline;vertical-align:middle;"></i> Requested Feb
+                            28, 2026</span>
+                        <span class="badge badge-warning" style="margin-left:auto;">Medium Priority</span>
+                    </div>
+                    <div style="margin-top:var(--space-4);">
+                        <div
+                            style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--text-secondary);margin-bottom:6px;">
+                            <span>Progress</span><span>0%</span></div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

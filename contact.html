@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Contact ForensicEdge for forensic accounting consultations and financial investigations.">
+    <title>Contact Us | ForensicEdge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#D4A843', dark: '#0B1120', teal: '#14B8A6' }, fontFamily: { heading: ['Outfit', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-200 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-300 {
+            transition-delay: 0.3s;
+        }
+
+        .nav-link {
+            transition: all 0.2s ease-in-out;
+        }
+
+        .nav-link-active {
+            color: #D4A843 !important;
+            font-weight: 700;
+        }
+
+        @media(min-width:1024px) {
+            .nav-link-active {
+                position: relative;
+            }
+
+            .nav-link-active::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: #D4A843;
+                border-radius: 99px;
+            }
+        }
+
+        @media(max-width:1023px) {
+            .nav-link-active {
+                background-color: rgba(212, 168, 67, 0.05);
+                padding-left: 12px;
+                border-left: 4px solid #D4A843;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white text-slate-900 dark:bg-slate-900 dark:text-white">
+
+    <!-- NAVBAR -->
+    <nav
+        class="fixed w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="index.html" class="flex-shrink-0 flex items-center gap-2">
+                    <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white"><i
+                            class="fas fa-shield-alt"></i></div><span
+                        class="font-bold text-xl tracking-tight font-heading">Forensic<span
+                            class="text-primary">Edge</span></span>
+                </a>
+                <div class="hidden lg:flex space-x-8 items-center"><a href="index.html"
+                        class="nav-link hover:text-primary">Home 1</a><a href="home2.html"
+                        class="nav-link hover:text-primary">Home 2</a><a href="about.html"
+                        class="nav-link hover:text-primary">About</a><a href="services.html"
+                        class="nav-link hover:text-primary">Services</a><a href="pricing.html"
+                        class="nav-link hover:text-primary">Pricing</a><a href="documentation.html"
+                        class="nav-link hover:text-primary">Resources</a><a href="contact.html"
+                        class="nav-link hover:text-primary">Contact</a></div>
+                <div class="lg:hidden flex items-center gap-2"><button onclick="toggleTheme()" class="p-2"><i
+                            id="theme-icon-mobile" class="fas fa-moon"></i></button><button onclick="toggleMenu()"
+                        class="text-2xl p-2"><i id="menu-toggle-icon" class="fas fa-bars"></i></button></div>
+                <div class="hidden lg:flex items-center gap-4"><button onclick="toggleTheme()"
+                        class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"><i id="theme-icon"
+                            class="fas fa-moon"></i></button><a href="login.html"><button
+                            class="bg-primary text-white px-5 py-2 rounded-full font-medium hover:opacity-90 transition-all">Client
+                            Portal</button></a></div>
+            </div>
+        </div>
+        <div id="mobile-menu"
+            class="hidden lg:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 py-8 shadow-xl">
+            <div class="flex flex-col space-y-2"><a href="index.html"
+                    class="nav-link block py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800">Home
+                    1</a><a href="home2.html"
+                    class="nav-link block py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800">Home
+                    2</a><a href="about.html"
+                    class="nav-link block py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800">About</a><a
+                    href="services.html"
+                    class="nav-link block py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800">Services</a><a
+                    href="pricing.html"
+                    class="nav-link block py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800">Pricing</a><a
+                    href="documentation.html"
+                    class="nav-link block py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800">Resources</a><a
+                    href="contact.html" class="nav-link block py-3 text-lg font-medium">Contact</a></div>
+            <div class="mt-8"><a href="login.html" class="block"><button
+                        class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg">Client
+                        Portal</button></a></div>
+        </div>
+    </nav>
+    <script>function handleActiveNav() { const p = window.location.pathname; document.querySelectorAll('.nav-link').forEach(l => { const h = l.getAttribute('href'); if (p.endsWith(h)) l.classList.add('nav-link-active'); else l.classList.remove('nav-link-active'); }); } function toggleMenu() { const m = document.getElementById('mobile-menu'); const i = document.getElementById('menu-toggle-icon'); const h = m.classList.toggle('hidden'); if (h) i.classList.replace('fa-times', 'fa-bars'); else i.classList.replace('fa-bars', 'fa-times'); } window.addEventListener('DOMContentLoaded', handleActiveNav); window.addEventListener('resize', () => { if (window.innerWidth >= 1024) { document.getElementById('mobile-menu').classList.add('hidden'); document.getElementById('menu-toggle-icon').classList.replace('fa-times', 'fa-bars'); } });</script>
+
+    <!-- HERO -->
+    <section
+        class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-slate-50 dark:bg-slate-900 overflow-hidden transition-colors duration-500">
+        <div class="absolute inset-0 z-0">
+            <img src="assets/images/hero-contact.png" alt=""
+                class="w-full h-full object-cover opacity-10 dark:opacity-15">
+            <div class="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none"
+                style="background-image: radial-gradient(#D4A843 1px, transparent 1px); background-size: 30px 30px;">
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
+            <h1 class="reveal-up text-5xl lg:text-7xl font-black mb-6 text-slate-900 dark:text-white">Contact <span
+                    class="text-primary">Us</span></h1>
+            <p class="reveal-up delay-100 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Get in touch for
+                a confidential consultation about your forensic accounting needs.</p>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="py-24 bg-white dark:bg-slate-900 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Form -->
+                <div class="reveal-up">
+                    <h2 class="text-3xl font-black mb-2 dark:text-white">Send us a <span
+                            class="text-primary">Message</span></h2>
+                    <p class="text-slate-500 mb-8">Fill out the form below and our team will respond within 24 hours.
+                    </p>
+                    <form class="space-y-5">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div><label
+                                    class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 block">First
+                                    Name *</label><input type="text" placeholder="John" required
+                                    class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary text-sm dark:text-white">
+                            </div>
+                            <div><label
+                                    class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 block">Last
+                                    Name *</label><input type="text" placeholder="Doe" required
+                                    class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary text-sm dark:text-white">
+                            </div>
+                        </div>
+                        <div><label class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 block">Email
+                                *</label><input type="email" placeholder="john@company.com" required
+                                class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary text-sm dark:text-white">
+                        </div>
+                        <div><label
+                                class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 block">Phone</label><input
+                                type="tel" placeholder="+1 (555) 000-0000"
+                                class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary text-sm dark:text-white">
+                        </div>
+                        <div><label
+                                class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 block">Service</label>
+                            <select
+                                class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary text-sm dark:text-white cursor-pointer">
+                                <option value="">Select a service...</option>
+                                <option>Fraud Investigation</option>
+                                <option>Litigation Support</option>
+                                <option>Asset Tracing</option>
+                                <option>Financial Audit</option>
+                                <option>Regulatory Compliance</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div><label
+                                class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 block">Message
+                                *</label><textarea rows="5" placeholder="Please describe your requirements..." required
+                                class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary text-sm dark:text-white resize-none"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-primary text-white py-4 rounded-2xl font-black text-lg hover:opacity-90 transition-all"><i
+                                class="fas fa-paper-plane mr-2"></i> Send Message</button>
+                        <p class="text-center text-xs text-slate-400"><i class="fas fa-lock mr-1 text-green-500"></i>
+                            Your information is kept strictly confidential</p>
+                    </form>
+                </div>
+
+                <!-- Info -->
+                <div class="reveal-up delay-200 space-y-6">
+                    <h2 class="text-3xl font-black mb-2 dark:text-white">Get in <span class="text-primary">Touch</span>
+                    </h2>
+                    <p class="text-slate-500 mb-8">Reach out through any of the channels below.</p>
+                    <div
+                        class="flex items-start gap-4 p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                        <div
+                            class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold dark:text-white mb-1">Head Office</h4>
+                            <p class="text-sm text-slate-500">250 Park Avenue, Suite 1200<br>New York, NY 10177</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                        <div
+                            class="w-12 h-12 bg-blue-500/10 text-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold dark:text-white mb-1">Phone</h4>
+                            <p class="text-sm text-slate-500">+1 (123) 456-7890<br>Mon-Fri, 9:00 AM - 6:00 PM EST</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                        <div
+                            class="w-12 h-12 bg-green-500/10 text-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold dark:text-white mb-1">Email</h4>
+                            <p class="text-sm text-slate-500">info@forensicedge.com<br>consultations@forensicedge.com
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                        <div
+                            class="w-12 h-12 bg-purple-500/10 text-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold dark:text-white mb-1">Business Hours</h4>
+                            <p class="text-sm text-slate-500">Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: By
+                                appointment only</p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl h-48 flex items-center justify-center">
+                        <div class="text-center text-slate-400"><i
+                                class="fas fa-map text-4xl mb-3 opacity-30 block"></i><span class="text-sm">Interactive
+                                Map</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white dark:bg-slate-900 pt-20 pb-10 border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div><a href="index.html" class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white"><i
+                                class="fas fa-shield-alt"></i></div><span
+                            class="font-bold text-xl tracking-tight font-heading">Forensic<span
+                                class="text-primary">Edge</span></span>
+                    </a>
+                    <p class="text-slate-500 text-sm leading-relaxed">Expert forensic accounting services for over 25
+                        years.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 uppercase text-xs tracking-widest">Quick Links</h4>
+                    <ul class="space-y-4 text-slate-500">
+                        <li><a href="index.html" class="hover:text-primary">Home 1</a></li>
+                        <li><a href="home2.html" class="hover:text-primary">Home 2</a></li>
+                        <li><a href="about.html" class="hover:text-primary">About</a></li>
+                        <li><a href="services.html" class="hover:text-primary">Services</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 uppercase text-xs tracking-widest">Resources</h4>
+                    <ul class="space-y-4 text-slate-500">
+                        <li><a href="pricing.html" class="hover:text-primary">Pricing</a></li>
+                        <li><a href="documentation.html" class="hover:text-primary">Resources</a></li>
+                        <li><a href="contact.html" class="hover:text-primary">Contact</a></li>
+                        <li><a href="login.html" class="hover:text-primary">Client Portal</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 uppercase text-xs tracking-widest">Contact</h4>
+                    <ul class="space-y-4 text-slate-500">
+                        <li class="flex items-center gap-3"><i class="fas fa-envelope text-primary"></i>
+                            info@forensicedge.com</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-phone text-primary"></i> +1 (123) 456-7890
+                        </li>
+                        <li class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-primary"></i> 250 Park
+                            Ave, New York</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center pt-10 border-t border-slate-100 dark:border-slate-800 text-slate-400 text-sm">&copy;
+                2026 ForensicEdge. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() { const h = document.documentElement; const i = document.getElementById('theme-icon'); const m = document.getElementById('theme-icon-mobile'); if (h.classList.contains('dark')) { h.classList.remove('dark'); localStorage.setItem('theme', 'light'); if (i) i.className = 'fas fa-moon'; if (m) m.className = 'fas fa-moon'; } else { h.classList.add('dark'); localStorage.setItem('theme', 'dark'); if (i) i.className = 'fas fa-sun'; if (m) m.className = 'fas fa-sun'; } }
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); const i = document.getElementById('theme-icon'); if (i) i.className = 'fas fa-sun'; }
+        document.addEventListener("DOMContentLoaded", () => { const o = new IntersectionObserver((es) => { es.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); }); }, { threshold: 0.1 }); document.querySelectorAll('.reveal-up').forEach(el => o.observe(el)); });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investigation Progress | ForensicEdge Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: ['selector', '[data-theme="dark"]'], theme: { extend: { colors: { primary: { DEFAULT: '#0B1120', light: '#1E293B', dark: '#060A14' }, gold: { DEFAULT: '#D4A843', light: '#E8C97A', dark: '#B8922E' }, teal: { DEFAULT: '#14B8A6', light: '#2DD4BF' } }, fontFamily: { heading: ['Outfit', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }</script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i data-lucide="shield-check" style="width:20px;height:20px;color:#fff;"></i>
+                </div>
+                <div class="sidebar-brand">Forensic<span>Edge</span></div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-label">Main</div>
+                    <a href="dashboard.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span
+                            class="nav-text">Dashboard</span></a>
+                    <a href="dashboard-matters.html" class="nav-item"><i data-lucide="briefcase"></i><span
+                            class="nav-text">Matters & Cases</span><span class="nav-badge">5</span></a>
+                    <a href="dashboard-documents.html" class="nav-item"><i data-lucide="file-lock-2"></i><span
+                            class="nav-text">Document Vault</span></a>
+                    <a href="dashboard-progress.html" class="nav-item active"><i data-lucide="git-branch"></i><span
+                            class="nav-text">Investigation Progress</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-label">Analytics</div>
+                    <a href="dashboard-reports.html" class="nav-item"><i data-lucide="bar-chart-3"></i><span
+                            class="nav-text">Reports</span></a>
+                    <a href="dashboard-notifications.html" class="nav-item"><i data-lucide="bell"></i><span
+                            class="nav-text">Notifications</span><span class="nav-badge">3</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-label">Account</div>
+                    <a href="dashboard-profile.html" class="nav-item"><i data-lucide="user-circle"></i><span
+                            class="nav-text">Profile & Settings</span></a>
+                    <a href="login.html" class="nav-item"><i data-lucide="log-out"></i><span class="nav-text">Sign
+                            Out</span></a>
+                </div>
+            </nav>
+            <div class="sidebar-user">
+                <div class="sidebar-user-avatar">JD</div>
+                <div class="sidebar-user-info">
+                    <div class="sidebar-user-name">James Donovan</div>
+                    <div class="sidebar-user-role">Client • Premium</div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <button class="sidebar-toggle"><i data-lucide="panel-left-close"
+                            style="width:18px;height:18px;"></i></button>
+                    <h1 class="page-title">Investigation Progress</h1>
+                </div>
+                <div class="top-bar-right">
+                    <div class="top-bar-search"><i data-lucide="search" style="width:16px;height:16px;"></i><input
+                            type="text" placeholder="Search..."></div>
+                    <a href="dashboard-notifications.html" class="top-bar-icon"><i data-lucide="bell"
+                            style="width:18px;height:18px;"></i><span class="notification-dot"></span></a>
+                    <button class="theme-toggle"><i data-lucide="moon" style="width:18px;height:18px;"></i></button>
+                    <div class="avatar" style="width:36px;height:36px;font-size:0.8rem;">JD</div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <!-- Case Selector -->
+                <div
+                    style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-6);flex-wrap:wrap;gap:var(--space-4);">
+                    <div>
+                        <select class="filter-select" style="font-size:0.9rem;padding:0.6rem 2.5rem 0.6rem 1rem;">
+                            <option>FA-2026-038 — Meridian Corp Fraud Review</option>
+                            <option>FA-2026-035 — Apex Financial Audit</option>
+                            <option>FA-2026-029 — Global Assets Recovery</option>
+                        </select>
+                    </div>
+                    <div style="display:flex;gap:var(--space-3);align-items:center;">
+                        <span style="font-size:0.85rem;color:var(--text-secondary);">Overall Completion:</span>
+                        <span
+                            style="font-family:var(--font-heading);font-weight:800;font-size:1.25rem;color:var(--accent-gold);">65%</span>
+                    </div>
+                </div>
+
+                <!-- Overall Progress Bar -->
+                <div class="panel" style="margin-bottom:var(--space-8);">
+                    <div class="panel-body">
+                        <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:8px;">
+                            <span style="font-weight:600;">Meridian Corp Fraud Review</span>
+                            <span style="color:var(--accent-gold);font-weight:700;">65%</span>
+                        </div>
+                        <div class="progress-bar" style="height:12px;">
+                            <div class="progress-fill" data-width="65%" style="height:12px;"></div>
+                        </div>
+                        <div
+                            style="display:flex;justify-content:space-between;margin-top:12px;font-size:0.8rem;color:var(--text-secondary);">
+                            <span>Started: Feb 12, 2026</span><span>Est. Completion: Mar 30, 2026</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-grid">
+                    <!-- Timeline -->
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">Investigation Timeline</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-dot completed"></div>
+                                    <div class="timeline-content" style="border-left:3px solid var(--success);">
+                                        <div class="timeline-date">Feb 12, 2026</div>
+                                        <h4 class="timeline-title">Phase 1: Initial Assessment</h4>
+                                        <p class="timeline-desc">Engagement letter signed, scope of investigation
+                                            defined, initial document requests issued to client.</p>
+                                        <span class="badge badge-success" style="margin-top:8px;">Completed</span>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-dot completed"></div>
+                                    <div class="timeline-content" style="border-left:3px solid var(--success);">
+                                        <div class="timeline-date">Feb 18, 2026</div>
+                                        <h4 class="timeline-title">Phase 2: Data Collection</h4>
+                                        <p class="timeline-desc">Financial records, transaction logs, and email
+                                            correspondence collected. Digital forensic imaging completed.</p>
+                                        <span class="badge badge-success" style="margin-top:8px;">Completed</span>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-dot active"></div>
+                                    <div class="timeline-content" style="border-left:3px solid var(--accent-gold);">
+                                        <div class="timeline-date">Feb 26, 2026 — Present</div>
+                                        <h4 class="timeline-title">Phase 3: Analysis & Investigation</h4>
+                                        <p class="timeline-desc">Detailed transaction analysis, pattern recognition, and
+                                            cross-referencing of financial data. Currently identifying suspicious
+                                            transfers.</p>
+                                        <span class="badge badge-warning" style="margin-top:8px;">In Progress</span>
+                                        <div style="margin-top:12px;">
+                                            <div
+                                                style="display:flex;justify-content:space-between;font-size:0.75rem;margin-bottom:6px;">
+                                                <span>Phase Progress</span><span>60%</span>
+                                            </div>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" data-width="60%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content"
+                                        style="border-left:3px solid var(--gray-300);opacity:0.6;">
+                                        <div class="timeline-date">Est. Mar 15, 2026</div>
+                                        <h4 class="timeline-title">Phase 4: Report Preparation</h4>
+                                        <p class="timeline-desc">Compilation of findings, expert opinion formulation,
+                                            and preparation of detailed forensic accounting report.</p>
+                                        <span class="badge badge-gold" style="margin-top:8px;">Upcoming</span>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content"
+                                        style="border-left:3px solid var(--gray-300);opacity:0.6;">
+                                        <div class="timeline-date">Est. Mar 30, 2026</div>
+                                        <h4 class="timeline-title">Phase 5: Resolution & Delivery</h4>
+                                        <p class="timeline-desc">Final report delivery, client presentation, expert
+                                            witness preparation if needed, and case closure.</p>
+                                        <span class="badge badge-gold" style="margin-top:8px;">Upcoming</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Milestones -->
+                    <div>
+                        <div class="panel" style="margin-bottom:var(--space-6);">
+                            <div class="panel-header">
+                                <h3 class="panel-title">Key Milestones</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div
+                                    style="margin-bottom:var(--space-5);display:flex;gap:var(--space-3);align-items:flex-start;">
+                                    <div
+                                        style="width:24px;height:24px;border-radius:50%;background:var(--success);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+                                        <i data-lucide="check" style="width:14px;height:14px;color:#fff;"></i>
+                                    </div>
+                                    <div>
+                                        <div style="font-weight:600;font-size:0.85rem;">Engagement Signed</div>
+                                        <div style="font-size:0.75rem;color:var(--text-secondary);">Feb 12, 2026</div>
+                                    </div>
+                                </div>
+                                <div
+                                    style="margin-bottom:var(--space-5);display:flex;gap:var(--space-3);align-items:flex-start;">
+                                    <div
+                                        style="width:24px;height:24px;border-radius:50%;background:var(--success);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+                                        <i data-lucide="check" style="width:14px;height:14px;color:#fff;"></i>
+                                    </div>
+                                    <div>
+                                        <div style="font-weight:600;font-size:0.85rem;">Data Collection Complete</div>
+                                        <div style="font-size:0.75rem;color:var(--text-secondary);">Feb 25, 2026</div>
+                                    </div>
+                                </div>
+                                <div
+                                    style="margin-bottom:var(--space-5);display:flex;gap:var(--space-3);align-items:flex-start;">
+                                    <div
+                                        style="width:24px;height:24px;border-radius:50%;background:var(--accent-gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;animation:pulse-glow 2s infinite;">
+                                        <i data-lucide="loader" style="width:14px;height:14px;color:#fff;"></i>
+                                    </div>
+                                    <div>
+                                        <div style="font-weight:600;font-size:0.85rem;">Suspicious Transactions Flagged
+                                        </div>
+                                        <div style="font-size:0.75rem;color:var(--text-secondary);">In Progress</div>
+                                    </div>
+                                </div>
+                                <div
+                                    style="margin-bottom:var(--space-5);display:flex;gap:var(--space-3);align-items:flex-start;opacity:0.5;">
+                                    <div
+                                        style="width:24px;height:24px;border-radius:50%;background:var(--gray-300);flex-shrink:0;margin-top:2px;">
+                                    </div>
+                                    <div>
+                                        <div style="font-weight:600;font-size:0.85rem;">Draft Report</div>
+                                        <div style="font-size:0.75rem;color:var(--text-secondary);">Est. Mar 18</div>
+                                    </div>
+                                </div>
+                                <div style="display:flex;gap:var(--space-3);align-items:flex-start;opacity:0.5;">
+                                    <div
+                                        style="width:24px;height:24px;border-radius:50%;background:var(--gray-300);flex-shrink:0;margin-top:2px;">
+                                    </div>
+                                    <div>
+                                        <div style="font-weight:600;font-size:0.85rem;">Final Delivery</div>
+                                        <div style="font-size:0.75rem;color:var(--text-secondary);">Est. Mar 30</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Team Activity -->
+                        <div class="panel">
+                            <div class="panel-header">
+                                <h3 class="panel-title">Assigned Team</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div
+                                    style="display:flex;gap:var(--space-4);align-items:center;margin-bottom:var(--space-4);padding-bottom:var(--space-4);border-bottom:1px solid var(--border-color);">
+                                    <div class="avatar">SK</div>
+                                    <div>
+                                        <div style="font-weight:600;font-size:0.85rem;">Sarah Kensington</div>
+                                        <div style="font-size:0.75rem;color:var(--text-secondary);">Lead Investigator
+                                        </div>
+                                    </div>
+                                    <span class="badge badge-success" style="margin-left:auto;">Active</span>
+                                </div>
+                                <div
+                                    style="display:flex;gap:var(--space-4);align-items:center;margin-bottom:var(--space-4);padding-bottom:var(--space-4);border-bottom:1px solid var(--border-color);">
+                                    <div class="avatar"
+                                        style="background:linear-gradient(135deg, var(--info), var(--accent-teal));">MR
+                                    </div>
+                                    <div>
+                                        <div style="font-weight:600;font-size:0.85rem;">Michael Rodriguez</div>
+                                        <div style="font-size:0.75rem;color:var(--text-secondary);">Forensic Analyst
+                                        </div>
+                                    </div>
+                                    <span class="badge badge-success" style="margin-left:auto;">Active</span>
+                                </div>
+                                <div style="display:flex;gap:var(--space-4);align-items:center;">
+                                    <div class="avatar"
+                                        style="background:linear-gradient(135deg, var(--warning), var(--accent-gold));">
+                                        DL</div>
+                                    <div>
+                                        <div style="font-weight:600;font-size:0.85rem;">David Lee</div>
+                                        <div style="font-size:0.75rem;color:var(--text-secondary);">Digital Forensics
+                                        </div>
+                                    </div>
+                                    <span class="badge badge-info" style="margin-left:auto;">Review</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

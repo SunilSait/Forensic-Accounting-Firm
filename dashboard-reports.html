@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports & Analytics | ForensicEdge Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: ['selector', '[data-theme="dark"]'], theme: { extend: { colors: { primary: { DEFAULT: '#0B1120', light: '#1E293B', dark: '#060A14' }, gold: { DEFAULT: '#D4A843', light: '#E8C97A', dark: '#B8922E' }, teal: { DEFAULT: '#14B8A6', light: '#2DD4BF' } }, fontFamily: { heading: ['Outfit', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }</script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i data-lucide="shield-check" style="width:20px;height:20px;color:#fff;"></i>
+                </div>
+                <div class="sidebar-brand">Forensic<span>Edge</span></div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-label">Main</div>
+                    <a href="dashboard.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span
+                            class="nav-text">Dashboard</span></a>
+                    <a href="dashboard-matters.html" class="nav-item"><i data-lucide="briefcase"></i><span
+                            class="nav-text">Matters & Cases</span><span class="nav-badge">5</span></a>
+                    <a href="dashboard-documents.html" class="nav-item"><i data-lucide="file-lock-2"></i><span
+                            class="nav-text">Document Vault</span></a>
+                    <a href="dashboard-progress.html" class="nav-item"><i data-lucide="git-branch"></i><span
+                            class="nav-text">Investigation Progress</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-label">Analytics</div>
+                    <a href="dashboard-reports.html" class="nav-item active"><i data-lucide="bar-chart-3"></i><span
+                            class="nav-text">Reports</span></a>
+                    <a href="dashboard-notifications.html" class="nav-item"><i data-lucide="bell"></i><span
+                            class="nav-text">Notifications</span><span class="nav-badge">3</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-label">Account</div>
+                    <a href="dashboard-profile.html" class="nav-item"><i data-lucide="user-circle"></i><span
+                            class="nav-text">Profile & Settings</span></a>
+                    <a href="login.html" class="nav-item"><i data-lucide="log-out"></i><span class="nav-text">Sign
+                            Out</span></a>
+                </div>
+            </nav>
+            <div class="sidebar-user">
+                <div class="sidebar-user-avatar">JD</div>
+                <div class="sidebar-user-info">
+                    <div class="sidebar-user-name">James Donovan</div>
+                    <div class="sidebar-user-role">Client • Premium</div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <button class="sidebar-toggle"><i data-lucide="panel-left-close"
+                            style="width:18px;height:18px;"></i></button>
+                    <h1 class="page-title">Reports & Analytics</h1>
+                </div>
+                <div class="top-bar-right">
+                    <div class="top-bar-search"><i data-lucide="search" style="width:16px;height:16px;"></i><input
+                            type="text" placeholder="Search reports..."></div>
+                    <a href="dashboard-notifications.html" class="top-bar-icon"><i data-lucide="bell"
+                            style="width:18px;height:18px;"></i><span class="notification-dot"></span></a>
+                    <button class="theme-toggle"><i data-lucide="moon" style="width:18px;height:18px;"></i></button>
+                    <div class="avatar" style="width:36px;height:36px;font-size:0.8rem;">JD</div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <!-- Filter -->
+                <div class="filter-bar">
+                    <select class="filter-select">
+                        <option>All Reports</option>
+                        <option>Financial Summary</option>
+                        <option>Investigation</option>
+                        <option>Audit Trail</option>
+                        <option>Compliance</option>
+                    </select>
+                    <select class="filter-select">
+                        <option>Last 30 Days</option>
+                        <option>Last 90 Days</option>
+                        <option>Last 12 Months</option>
+                        <option>All Time</option>
+                    </select>
+                    <div style="margin-left:auto;display:flex;gap:var(--space-3);">
+                        <button class="btn btn-ghost btn-sm"><i data-lucide="download"
+                                style="width:16px;height:16px;"></i> Export All</button>
+                        <button class="btn btn-primary btn-sm"><i data-lucide="plus"
+                                style="width:16px;height:16px;"></i> Request Report</button>
+                    </div>
+                </div>
+
+                <!-- Summary Stats -->
+                <div class="stats-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:var(--space-8);">
+                    <div class="stat-card">
+                        <div class="stat-icon gold"><i data-lucide="file-text" style="width:22px;height:22px;"></i>
+                        </div>
+                        <div class="stat-value" data-count="24">0</div>
+                        <div class="stat-label">Total Reports Generated</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><i data-lucide="check-circle" style="width:22px;height:22px;"></i>
+                        </div>
+                        <div class="stat-value" data-count="18">0</div>
+                        <div class="stat-label">Completed & Delivered</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><i data-lucide="clock" style="width:22px;height:22px;"></i></div>
+                        <div class="stat-value" data-count="6">0</div>
+                        <div class="stat-label">Pending / In Progress</div>
+                    </div>
+                </div>
+
+                <!-- Report Cards Grid -->
+                <h3
+                    style="font-family:var(--font-heading);font-size:1.1rem;font-weight:700;margin-bottom:var(--space-5);">
+                    Available Reports</h3>
+                <div
+                    style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:var(--space-6);margin-bottom:var(--space-8);">
+
+                    <div class="report-card">
+                        <div class="report-icon" style="background:rgba(212,168,67,0.1);color:var(--accent-gold);"><i
+                                data-lucide="trending-up" style="width:28px;height:28px;"></i></div>
+                        <h4 class="report-title">Financial Summary Report</h4>
+                        <p class="report-desc">Comprehensive overview of financial transactions, discrepancies
+                            identified, and recommendations for each active case.</p>
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <span class="badge badge-success">Ready</span>
+                            <button class="btn btn-primary btn-sm"><i data-lucide="download"
+                                    style="width:14px;height:14px;"></i> Download PDF</button>
+                        </div>
+                    </div>
+
+                    <div class="report-card">
+                        <div class="report-icon" style="background:rgba(59,130,246,0.1);color:var(--info);"><i
+                                data-lucide="search" style="width:28px;height:28px;"></i></div>
+                        <h4 class="report-title">Investigation Findings</h4>
+                        <p class="report-desc">Detailed analysis of identified fraud patterns, evidence chain, and
+                            expert conclusions for litigation preparation.</p>
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <span class="badge badge-warning">In Progress</span>
+                            <button class="btn btn-ghost btn-sm" disabled><i data-lucide="clock"
+                                    style="width:14px;height:14px;"></i> Pending</button>
+                        </div>
+                    </div>
+
+                    <div class="report-card">
+                        <div class="report-icon" style="background:rgba(34,197,94,0.1);color:var(--success);"><i
+                                data-lucide="shield-check" style="width:28px;height:28px;"></i></div>
+                        <h4 class="report-title">Audit Trail Report</h4>
+                        <p class="report-desc">Complete audit trail documentation showing all document access,
+                            modifications, and chain-of-custody records.</p>
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <span class="badge badge-success">Ready</span>
+                            <button class="btn btn-primary btn-sm"><i data-lucide="download"
+                                    style="width:14px;height:14px;"></i> Download PDF</button>
+                        </div>
+                    </div>
+
+                    <div class="report-card">
+                        <div class="report-icon" style="background:rgba(168,85,247,0.1);color:#A855F7;"><i
+                                data-lucide="landmark" style="width:28px;height:28px;"></i></div>
+                        <h4 class="report-title">Asset Recovery Report</h4>
+                        <p class="report-desc">Status of traced assets, recovery amounts, and jurisdictional breakdown
+                            for cross-border investigations.</p>
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <span class="badge badge-info">Under Review</span>
+                            <button class="btn btn-ghost btn-sm" disabled><i data-lucide="clock"
+                                    style="width:14px;height:14px;"></i> Pending</button>
+                        </div>
+                    </div>
+
+                    <div class="report-card">
+                        <div class="report-icon" style="background:rgba(20,184,166,0.1);color:var(--accent-teal);"><i
+                                data-lucide="file-check" style="width:28px;height:28px;"></i></div>
+                        <h4 class="report-title">Compliance Assessment</h4>
+                        <p class="report-desc">AML/KYC compliance evaluation results, gap analysis, and recommended
+                            remediation actions.</p>
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <span class="badge badge-success">Ready</span>
+                            <button class="btn btn-primary btn-sm"><i data-lucide="download"
+                                    style="width:14px;height:14px;"></i> Download PDF</button>
+                        </div>
+                    </div>
+
+                    <div class="report-card">
+                        <div class="report-icon" style="background:rgba(239,68,68,0.1);color:var(--danger);"><i
+                                data-lucide="alert-triangle" style="width:28px;height:28px;"></i></div>
+                        <h4 class="report-title">Risk Assessment Summary</h4>
+                        <p class="report-desc">Enterprise-wide risk evaluation highlighting vulnerabilities in internal
+                            controls and financial processes.</p>
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <span class="badge badge-warning">In Progress</span>
+                            <button class="btn btn-ghost btn-sm" disabled><i data-lucide="clock"
+                                    style="width:14px;height:14px;"></i> Pending</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity Chart -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3 class="panel-title">Report Generation Trend</h3>
+                        <select class="filter-select">
+                            <option>Last 6 Months</option>
+                            <option>Last 12 Months</option>
+                        </select>
+                    </div>
+                    <div class="panel-body">
+                        <div class="chart-placeholder" style="height:180px;padding-bottom:30px;">
+                            <div class="chart-bar" data-height="40%"><span class="chart-bar-label">Sep</span></div>
+                            <div class="chart-bar" data-height="60%"><span class="chart-bar-label">Oct</span></div>
+                            <div class="chart-bar" data-height="50%"><span class="chart-bar-label">Nov</span></div>
+                            <div class="chart-bar" data-height="80%"><span class="chart-bar-label">Dec</span></div>
+                            <div class="chart-bar" data-height="70%"><span class="chart-bar-label">Jan</span></div>
+                            <div class="chart-bar" data-height="90%"><span class="chart-bar-label">Feb</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

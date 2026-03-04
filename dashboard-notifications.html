@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications | ForensicEdge Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: ['selector', '[data-theme="dark"]'], theme: { extend: { colors: { primary: { DEFAULT: '#0B1120', light: '#1E293B', dark: '#060A14' }, gold: { DEFAULT: '#D4A843', light: '#E8C97A', dark: '#B8922E' }, teal: { DEFAULT: '#14B8A6', light: '#2DD4BF' } }, fontFamily: { heading: ['Outfit', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }</script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i data-lucide="shield-check" style="width:20px;height:20px;color:#fff;"></i>
+                </div>
+                <div class="sidebar-brand">Forensic<span>Edge</span></div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-label">Main</div>
+                    <a href="dashboard.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span
+                            class="nav-text">Dashboard</span></a>
+                    <a href="dashboard-matters.html" class="nav-item"><i data-lucide="briefcase"></i><span
+                            class="nav-text">Matters & Cases</span><span class="nav-badge">5</span></a>
+                    <a href="dashboard-documents.html" class="nav-item"><i data-lucide="file-lock-2"></i><span
+                            class="nav-text">Document Vault</span></a>
+                    <a href="dashboard-progress.html" class="nav-item"><i data-lucide="git-branch"></i><span
+                            class="nav-text">Investigation Progress</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-label">Analytics</div>
+                    <a href="dashboard-reports.html" class="nav-item"><i data-lucide="bar-chart-3"></i><span
+                            class="nav-text">Reports</span></a>
+                    <a href="dashboard-notifications.html" class="nav-item active"><i data-lucide="bell"></i><span
+                            class="nav-text">Notifications</span><span class="nav-badge">3</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-label">Account</div>
+                    <a href="dashboard-profile.html" class="nav-item"><i data-lucide="user-circle"></i><span
+                            class="nav-text">Profile & Settings</span></a>
+                    <a href="login.html" class="nav-item"><i data-lucide="log-out"></i><span class="nav-text">Sign
+                            Out</span></a>
+                </div>
+            </nav>
+            <div class="sidebar-user">
+                <div class="sidebar-user-avatar">JD</div>
+                <div class="sidebar-user-info">
+                    <div class="sidebar-user-name">James Donovan</div>
+                    <div class="sidebar-user-role">Client • Premium</div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <button class="sidebar-toggle"><i data-lucide="panel-left-close"
+                            style="width:18px;height:18px;"></i></button>
+                    <h1 class="page-title">Notifications</h1>
+                </div>
+                <div class="top-bar-right">
+                    <button class="btn btn-ghost btn-sm"
+                        onclick="document.querySelectorAll('.notification-item').forEach(i=>i.classList.remove('unread'))">
+                        <i data-lucide="check-check" style="width:16px;height:16px;"></i> Mark all read
+                    </button>
+                    <button class="theme-toggle"><i data-lucide="moon" style="width:18px;height:18px;"></i></button>
+                    <div class="avatar" style="width:36px;height:36px;font-size:0.8rem;">JD</div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <!-- Filter Tabs -->
+                <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-6);flex-wrap:wrap;">
+                    <button class="btn btn-primary btn-sm">All (8)</button>
+                    <button class="btn btn-ghost btn-sm">Unread (3)</button>
+                    <button class="btn btn-ghost btn-sm">Cases</button>
+                    <button class="btn btn-ghost btn-sm">Documents</button>
+                    <button class="btn btn-ghost btn-sm">System</button>
+                </div>
+
+                <div class="panel">
+                    <!-- Today -->
+                    <div
+                        style="padding:var(--space-3) var(--space-5);background:var(--gray-50);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-secondary);border-bottom:1px solid var(--border-color);">
+                        Today
+                    </div>
+
+                    <div class="notification-item unread">
+                        <div class="notification-icon-wrap"
+                            style="background:rgba(34,197,94,0.1);color:var(--success);">
+                            <i data-lucide="briefcase" style="width:18px;height:18px;"></i>
+                        </div>
+                        <div style="flex:1;">
+                            <div class="notif-text"><strong>Case #FA-2026-038</strong> has been updated. Status changed
+                                to <span class="badge badge-warning">In Progress</span></div>
+                            <div class="notif-time">2 hours ago</div>
+                        </div>
+                    </div>
+
+                    <div class="notification-item unread">
+                        <div class="notification-icon-wrap" style="background:rgba(59,130,246,0.1);color:var(--info);">
+                            <i data-lucide="file-text" style="width:18px;height:18px;"></i>
+                        </div>
+                        <div style="flex:1;">
+                            <div class="notif-text"><strong>New document</strong> "Q4_Financial_Statement.pdf" uploaded
+                                to your Document Vault.</div>
+                            <div class="notif-time">5 hours ago</div>
+                        </div>
+                    </div>
+
+                    <div class="notification-item unread">
+                        <div class="notification-icon-wrap"
+                            style="background:rgba(212,168,67,0.1);color:var(--accent-gold);">
+                            <i data-lucide="clipboard-check" style="width:18px;height:18px;"></i>
+                        </div>
+                        <div style="flex:1;">
+                            <div class="notif-text"><strong>Investigation Report</strong> for Case #FA-2026-031 is ready
+                                for your review. <a href="dashboard-reports.html"
+                                    style="color:var(--accent-gold);font-weight:600;">View Report →</a></div>
+                            <div class="notif-time">8 hours ago</div>
+                        </div>
+                    </div>
+
+                    <!-- Yesterday -->
+                    <div
+                        style="padding:var(--space-3) var(--space-5);background:var(--gray-50);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-secondary);border-bottom:1px solid var(--border-color);border-top:1px solid var(--border-color);">
+                        Yesterday
+                    </div>
+
+                    <div class="notification-item">
+                        <div class="notification-icon-wrap"
+                            style="background:rgba(245,158,11,0.1);color:var(--warning);">
+                            <i data-lucide="alert-circle" style="width:18px;height:18px;"></i>
+                        </div>
+                        <div style="flex:1;">
+                            <div class="notif-text"><strong>Deadline reminder:</strong> Document submission for Case
+                                #FA-2026-029 is due in 5 days.</div>
+                            <div class="notif-time">Yesterday at 3:15 PM</div>
+                        </div>
+                    </div>
+
+                    <div class="notification-item">
+                        <div class="notification-icon-wrap"
+                            style="background:rgba(20,184,166,0.1);color:var(--accent-teal);">
+                            <i data-lucide="users" style="width:18px;height:18px;"></i>
+                        </div>
+                        <div style="flex:1;">
+                            <div class="notif-text"><strong>Sarah Kensington</strong> has been assigned as Lead
+                                Investigator for your Asset Tracing case.</div>
+                            <div class="notif-time">Yesterday at 10:30 AM</div>
+                        </div>
+                    </div>
+
+                    <!-- Earlier -->
+                    <div
+                        style="padding:var(--space-3) var(--space-5);background:var(--gray-50);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-secondary);border-bottom:1px solid var(--border-color);border-top:1px solid var(--border-color);">
+                        Earlier This Week
+                    </div>
+
+                    <div class="notification-item">
+                        <div class="notification-icon-wrap"
+                            style="background:rgba(34,197,94,0.1);color:var(--success);">
+                            <i data-lucide="shield-check" style="width:18px;height:18px;"></i>
+                        </div>
+                        <div style="flex:1;">
+                            <div class="notif-text"><strong>Security update:</strong> Two-factor authentication has been
+                                enabled on your account.</div>
+                            <div class="notif-time">Feb 28, 2026</div>
+                        </div>
+                    </div>
+
+                    <div class="notification-item">
+                        <div class="notification-icon-wrap" style="background:rgba(59,130,246,0.1);color:var(--info);">
+                            <i data-lucide="message-circle" style="width:18px;height:18px;"></i>
+                        </div>
+                        <div style="flex:1;">
+                            <div class="notif-text"><strong>New message</strong> from your case team regarding the
+                                Meridian Corp investigation. Please review at your earliest convenience.</div>
+                            <div class="notif-time">Feb 27, 2026</div>
+                        </div>
+                    </div>
+
+                    <div class="notification-item">
+                        <div class="notification-icon-wrap" style="background:rgba(168,85,247,0.1);color:#A855F7;">
+                            <i data-lucide="zap" style="width:18px;height:18px;"></i>
+                        </div>
+                        <div style="flex:1;">
+                            <div class="notif-text"><strong>System maintenance</strong> completed. All services are
+                                operating normally.</div>
+                            <div class="notif-time">Feb 26, 2026</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

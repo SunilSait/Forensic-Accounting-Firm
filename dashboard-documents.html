@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Vault | ForensicEdge Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: ['selector', '[data-theme="dark"]'], theme: { extend: { colors: { primary: { DEFAULT: '#0B1120', light: '#1E293B', dark: '#060A14' }, gold: { DEFAULT: '#D4A843', light: '#E8C97A', dark: '#B8922E' }, teal: { DEFAULT: '#14B8A6', light: '#2DD4BF' } }, fontFamily: { heading: ['Outfit', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }</script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i data-lucide="shield-check" style="width:20px;height:20px;color:#fff;"></i>
+                </div>
+                <div class="sidebar-brand">Forensic<span>Edge</span></div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-label">Main</div>
+                    <a href="dashboard.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span
+                            class="nav-text">Dashboard</span></a>
+                    <a href="dashboard-matters.html" class="nav-item"><i data-lucide="briefcase"></i><span
+                            class="nav-text">Matters & Cases</span><span class="nav-badge">5</span></a>
+                    <a href="dashboard-documents.html" class="nav-item active"><i data-lucide="file-lock-2"></i><span
+                            class="nav-text">Document Vault</span></a>
+                    <a href="dashboard-progress.html" class="nav-item"><i data-lucide="git-branch"></i><span
+                            class="nav-text">Investigation Progress</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-label">Analytics</div>
+                    <a href="dashboard-reports.html" class="nav-item"><i data-lucide="bar-chart-3"></i><span
+                            class="nav-text">Reports</span></a>
+                    <a href="dashboard-notifications.html" class="nav-item"><i data-lucide="bell"></i><span
+                            class="nav-text">Notifications</span><span class="nav-badge">3</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-label">Account</div>
+                    <a href="dashboard-profile.html" class="nav-item"><i data-lucide="user-circle"></i><span
+                            class="nav-text">Profile & Settings</span></a>
+                    <a href="login.html" class="nav-item"><i data-lucide="log-out"></i><span class="nav-text">Sign
+                            Out</span></a>
+                </div>
+            </nav>
+            <div class="sidebar-user">
+                <div class="sidebar-user-avatar">JD</div>
+                <div class="sidebar-user-info">
+                    <div class="sidebar-user-name">James Donovan</div>
+                    <div class="sidebar-user-role">Client • Premium</div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <button class="sidebar-toggle"><i data-lucide="panel-left-close"
+                            style="width:18px;height:18px;"></i></button>
+                    <h1 class="page-title">Document Vault</h1>
+                </div>
+                <div class="top-bar-right">
+                    <div class="top-bar-search"><i data-lucide="search" style="width:16px;height:16px;"></i><input
+                            type="text" placeholder="Search documents..."></div>
+                    <a href="dashboard-notifications.html" class="top-bar-icon"><i data-lucide="bell"
+                            style="width:18px;height:18px;"></i><span class="notification-dot"></span></a>
+                    <button class="theme-toggle"><i data-lucide="moon" style="width:18px;height:18px;"></i></button>
+                    <div class="avatar" style="width:36px;height:36px;font-size:0.8rem;">JD</div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <!-- Security Banner -->
+                <div
+                    style="background:linear-gradient(135deg, rgba(212,168,67,0.08), rgba(20,184,166,0.06));border:1px solid rgba(212,168,67,0.15);border-radius:var(--radius-xl);padding:var(--space-5) var(--space-6);margin-bottom:var(--space-6);display:flex;align-items:center;gap:var(--space-4);">
+                    <div
+                        style="width:40px;height:40px;border-radius:var(--radius-md);background:rgba(212,168,67,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                        <i data-lucide="shield" style="width:20px;height:20px;color:var(--accent-gold);"></i>
+                    </div>
+                    <div>
+                        <div style="font-weight:600;font-size:0.9rem;">End-to-End Encrypted Vault</div>
+                        <div style="font-size:0.8rem;color:var(--text-secondary);">All documents are encrypted with
+                            AES-256 and transmitted over secure TLS connections.</div>
+                    </div>
+                </div>
+
+                <!-- Upload Zone -->
+                <div class="upload-zone animate-fadeInUp">
+                    <i data-lucide="cloud-upload"
+                        style="width:48px;height:48px;display:block;margin:0 auto var(--space-3);"></i>
+                    <p class="upload-zone-text"><strong>Click to upload</strong> or drag and drop files here</p>
+                    <p style="font-size:0.75rem;color:var(--gray-400);margin-top:8px;">Supports PDF, XLSX, DOC, JPG, PNG
+                        • Max 50MB per file</p>
+                </div>
+
+                <!-- Document Categories -->
+                <h3
+                    style="font-family:var(--font-heading);font-size:1.1rem;font-weight:700;margin-bottom:var(--space-4);">
+                    Document Categories</h3>
+                <div class="doc-grid" style="margin-bottom:var(--space-8);">
+                    <div class="doc-card">
+                        <div class="doc-icon pdf"><i data-lucide="folder" style="width:24px;height:24px;"></i></div>
+                        <div class="doc-name">Financial Statements</div>
+                        <div class="doc-size">12 files • 24.5 MB</div>
+                    </div>
+                    <div class="doc-card">
+                        <div class="doc-icon xlsx"><i data-lucide="folder" style="width:24px;height:24px;"></i></div>
+                        <div class="doc-name">Tax Records</div>
+                        <div class="doc-size">8 files • 15.2 MB</div>
+                    </div>
+                    <div class="doc-card">
+                        <div class="doc-icon doc"><i data-lucide="folder" style="width:24px;height:24px;"></i></div>
+                        <div class="doc-name">Legal Documents</div>
+                        <div class="doc-size">6 files • 9.8 MB</div>
+                    </div>
+                    <div class="doc-card">
+                        <div class="doc-icon img"><i data-lucide="folder" style="width:24px;height:24px;"></i></div>
+                        <div class="doc-name">Evidence</div>
+                        <div class="doc-size">15 files • 45.1 MB</div>
+                    </div>
+                    <div class="doc-card">
+                        <div class="doc-icon" style="background:rgba(212,168,67,0.1);color:var(--accent-gold);"><i
+                                data-lucide="folder" style="width:24px;height:24px;"></i></div>
+                        <div class="doc-name">Audit Reports</div>
+                        <div class="doc-size">4 files • 8.3 MB</div>
+                    </div>
+                    <div class="doc-card">
+                        <div class="doc-icon" style="background:rgba(20,184,166,0.1);color:var(--accent-teal);"><i
+                                data-lucide="folder" style="width:24px;height:24px;"></i></div>
+                        <div class="doc-name">Correspondence</div>
+                        <div class="doc-size">9 files • 3.7 MB</div>
+                    </div>
+                </div>
+
+                <!-- Recent Uploads Table -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3 class="panel-title">Recent Uploads</h3>
+                        <div style="display:flex;gap:var(--space-3);">
+                            <select class="filter-select">
+                                <option>All Types</option>
+                                <option>PDF</option>
+                                <option>XLSX</option>
+                                <option>DOC</option>
+                                <option>Image</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>File Name</th>
+                                    <th>Category</th>
+                                    <th>Size</th>
+                                    <th>Uploaded</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="display:flex;align-items:center;gap:10px;">
+                                        <div class="doc-icon pdf" style="width:32px;height:32px;margin:0;"><i
+                                                data-lucide="file-text" style="width:16px;height:16px;"></i></div>
+                                        <span style="font-weight:600;">Q4_Financial_Statement.pdf</span>
+                                    </td>
+                                    <td>Financial Statements</td>
+                                    <td>2.4 MB</td>
+                                    <td>Mar 02, 2026</td>
+                                    <td><span class="badge badge-success">Verified</span></td>
+                                    <td><button class="btn btn-ghost btn-sm"><i data-lucide="download"
+                                                style="width:14px;height:14px;"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td style="display:flex;align-items:center;gap:10px;">
+                                        <div class="doc-icon xlsx" style="width:32px;height:32px;margin:0;"><i
+                                                data-lucide="file-spreadsheet" style="width:16px;height:16px;"></i>
+                                        </div>
+                                        <span style="font-weight:600;">Transaction_Ledger_2025.xlsx</span>
+                                    </td>
+                                    <td>Financial Statements</td>
+                                    <td>5.1 MB</td>
+                                    <td>Mar 01, 2026</td>
+                                    <td><span class="badge badge-warning">Processing</span></td>
+                                    <td><button class="btn btn-ghost btn-sm"><i data-lucide="download"
+                                                style="width:14px;height:14px;"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td style="display:flex;align-items:center;gap:10px;">
+                                        <div class="doc-icon doc" style="width:32px;height:32px;margin:0;"><i
+                                                data-lucide="file" style="width:16px;height:16px;"></i></div>
+                                        <span style="font-weight:600;">Witness_Deposition_Draft.docx</span>
+                                    </td>
+                                    <td>Legal Documents</td>
+                                    <td>1.8 MB</td>
+                                    <td>Feb 28, 2026</td>
+                                    <td><span class="badge badge-success">Verified</span></td>
+                                    <td><button class="btn btn-ghost btn-sm"><i data-lucide="download"
+                                                style="width:14px;height:14px;"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td style="display:flex;align-items:center;gap:10px;">
+                                        <div class="doc-icon pdf" style="width:32px;height:32px;margin:0;"><i
+                                                data-lucide="file-text" style="width:16px;height:16px;"></i></div>
+                                        <span style="font-weight:600;">Audit_Trail_Report_FA-038.pdf</span>
+                                    </td>
+                                    <td>Audit Reports</td>
+                                    <td>3.2 MB</td>
+                                    <td>Feb 26, 2026</td>
+                                    <td><span class="badge badge-success">Verified</span></td>
+                                    <td><button class="btn btn-ghost btn-sm"><i data-lucide="download"
+                                                style="width:14px;height:14px;"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td style="display:flex;align-items:center;gap:10px;">
+                                        <div class="doc-icon img" style="width:32px;height:32px;margin:0;"><i
+                                                data-lucide="image" style="width:16px;height:16px;"></i></div>
+                                        <span style="font-weight:600;">Bank_Statement_Screenshot.png</span>
+                                    </td>
+                                    <td>Evidence</td>
+                                    <td>856 KB</td>
+                                    <td>Feb 24, 2026</td>
+                                    <td><span class="badge badge-info">Under Review</span></td>
+                                    <td><button class="btn btn-ghost btn-sm"><i data-lucide="download"
+                                                style="width:14px;height:14px;"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>
