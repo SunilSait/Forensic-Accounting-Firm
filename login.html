@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <script>if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); }</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Secure client portal login - ForensicEdge forensic accounting dashboard.">
     <title>Client Portal Login | ForensicEdge</title>
@@ -66,11 +68,15 @@
         <i class="fas fa-arrow-left"></i> Back to Home
     </a>
 
-    <!-- Theme Toggle -->
-    <button onclick="toggleTheme()"
-        class="absolute top-6 right-6 z-20 p-2 rounded-full text-slate-400 hover:text-white transition-colors">
-        <i id="theme-icon" class="fas fa-moon"></i>
-    </button>
+    <!-- Theme Toggle & LTR/RTL -->
+    <div class="absolute top-6 right-6 z-20 flex items-center gap-2">
+        <button onclick="toggleDir()"
+            class="text-xs font-bold border border-slate-600 text-slate-400 px-2 py-1 rounded hover:border-primary hover:text-white transition-all">LTR
+            / RTL</button>
+        <button onclick="toggleTheme()" class="p-2 rounded-full text-slate-400 hover:text-white transition-colors">
+            <i id="theme-icon" class="fas fa-moon"></i>
+        </button>
+    </div>
 
     <!-- Login Card -->
     <div class="relative z-10 w-full max-w-md mx-4 anim-up">
@@ -178,6 +184,20 @@
         function togglePw() { const p = document.getElementById('login-password'); const i = document.getElementById('pw-icon'); if (p.type === 'password') { p.type = 'text'; i.className = 'fas fa-eye-slash text-sm'; } else { p.type = 'password'; i.className = 'fas fa-eye text-sm'; } }
         function toggleTheme() { const h = document.documentElement; const i = document.getElementById('theme-icon'); if (h.classList.contains('dark')) { h.classList.remove('dark'); localStorage.setItem('theme', 'light'); i.className = 'fas fa-moon'; } else { h.classList.add('dark'); localStorage.setItem('theme', 'dark'); i.className = 'fas fa-sun'; } }
         selectPortal('user');
+    </script>
+
+    <script>
+        // LTR/RTL Direction Toggle
+        function toggleDir() {
+            const html = document.documentElement;
+            const newDir = html.dir === 'ltr' ? 'rtl' : 'ltr';
+            html.dir = newDir;
+            localStorage.setItem('site-direction', newDir);
+        }
+        (function () {
+            const savedDir = localStorage.getItem('site-direction');
+            document.documentElement.dir = savedDir || 'ltr';
+        })();
     </script>
 </body>
 

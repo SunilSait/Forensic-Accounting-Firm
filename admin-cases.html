@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Cases | Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#D4A843', dark: '#0B1120', teal: '#14B8A6' }, fontFamily: { heading: ['Outfit', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <script>if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); }</script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Outfit', sans-serif
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .anim-up {
+            animation: fadeInUp .6s ease-out forwards;
+            opacity: 0
+        }
+
+        .d1 {
+            animation-delay: .1s
+        }
+
+        .d2 {
+            animation-delay: .2s
+        }
+
+        .d3 {
+            animation-delay: .3s
+        }
+
+        .d4 {
+            animation-delay: .4s
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white">
+    <div class="flex min-h-screen">
+        <aside id="sidebar"
+            class="fixed lg:sticky top-0 left-0 z-50 h-screen w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-shrink-0 flex flex-col transition-transform duration-300 -translate-x-full lg:translate-x-0">
+            <div class="py-6 px-6 border-b border-slate-100 dark:border-slate-800">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-red-500 rounded-xl flex items-center justify-center text-white"><i
+                            class="fas fa-cogs"></i></div>
+                    <div><span class="font-bold text-lg font-heading">Admin<span
+                                class="text-red-500">Panel</span></span>
+                        <div class="text-[10px] text-slate-400 uppercase tracking-widest">ForensicEdge</div>
+                    </div>
+                </div>
+            </div>
+            <nav class="flex-1 overflow-y-auto py-6 px-4 space-y-1">
+                <div class="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Main</div>
+                <a href="admin-dashboard.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
+                        class="fas fa-tachometer-alt w-5 text-center"></i> Dashboard</a>
+                <a href="admin-users.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
+                        class="fas fa-users w-5 text-center"></i> User Management</a>
+                <a href="admin-cases.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-xl bg-red-500/10 text-red-500 font-medium"><i
+                        class="fas fa-briefcase w-5 text-center"></i> All Cases</a>
+                <div class="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest !mt-6">Analytics
+                </div>
+                <a href="admin-revenue.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
+                        class="fas fa-chart-line w-5 text-center"></i> Revenue</a>
+                <a href="admin-audit-logs.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
+                        class="fas fa-clipboard-check w-5 text-center"></i> Audit Logs</a>
+                <div class="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest !mt-6">System</div>
+                <a href="admin-billing.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
+                        class="fas fa-file-invoice-dollar w-5 text-center"></i> Billing</a>
+                <a href="admin-settings.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
+                        class="fas fa-cog w-5 text-center"></i> Settings</a>
+                <a href="admin-roles.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
+                        class="fas fa-user-shield w-5 text-center"></i> Roles &amp; Access</a>
+            </nav>
+            <div class="p-4 border-t border-slate-100 dark:border-slate-800">
+                <div class="flex items-center gap-3 p-2">
+                    <div
+                        class="w-10 h-10 bg-red-500/20 text-red-500 rounded-full flex items-center justify-center font-bold text-sm">
+                        AD</div>
+                    <div class="flex-1">
+                        <div class="font-bold text-sm">Admin User</div>
+                        <div class="text-[10px] text-slate-400">Super Administrator</div>
+                    </div><a href="login.html" class="text-slate-400 hover:text-red-500"><i
+                            class="fas fa-sign-out-alt"></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <div class="flex-1 flex flex-col min-h-screen">
+            <header
+                class="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-6 py-3">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4"><button onclick="toggleSidebar()"
+                            class="lg:hidden p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i
+                                class="fas fa-bars"></i></button>
+                        <div>
+                            <h1 class="font-heading font-bold text-lg">All Cases</h1>
+                            <p class="text-[11px] text-slate-400">Manage all investigations & cases</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="relative hidden md:block"><i
+                                class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i><input
+                                type="text" placeholder="Search cases..."
+                                class="pl-10 pr-4 py-2 w-64 rounded-xl bg-slate-100 dark:bg-slate-800 border-none outline-none text-sm">
+                        </div>
+                        <button onclick="toggleTheme()"
+                            class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i id="theme-icon"
+                                class="fas fa-moon"></i></button>
+                        <div
+                            class="w-9 h-9 bg-red-500/20 text-red-500 rounded-full flex items-center justify-center font-bold text-xs">
+                            AD</div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="flex-1 p-6 overflow-y-auto">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 anim-up">
+                    <h2 class="text-2xl font-heading font-black">Case Management</h2>
+                    <button
+                        class="mt-4 md:mt-0 px-4 py-2 bg-red-500 text-white rounded-xl text-sm font-bold hover:bg-red-600 transition-all"><i
+                            class="fas fa-plus mr-2"></i>New Case</button>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
+                    <div
+                        class="anim-up d1 p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <div
+                            class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-3">
+                            <i class="fas fa-briefcase text-xl"></i></div>
+                        <div class="text-3xl font-black">1,247</div>
+                        <div class="text-xs text-slate-500 mt-1 uppercase tracking-wider">Total Cases</div>
+                    </div>
+                    <div
+                        class="anim-up d2 p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <div
+                            class="w-12 h-12 bg-green-500/10 text-green-500 rounded-2xl flex items-center justify-center mb-3">
+                            <i class="fas fa-spinner text-xl"></i></div>
+                        <div class="text-3xl font-black">156</div>
+                        <div class="text-xs text-slate-500 mt-1 uppercase tracking-wider">Active</div>
+                    </div>
+                    <div
+                        class="anim-up d3 p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <div
+                            class="w-12 h-12 bg-blue-500/10 text-blue-500 rounded-2xl flex items-center justify-center mb-3">
+                            <i class="fas fa-check-circle text-xl"></i></div>
+                        <div class="text-3xl font-black">1,047</div>
+                        <div class="text-xs text-slate-500 mt-1 uppercase tracking-wider">Closed</div>
+                    </div>
+                    <div
+                        class="anim-up d4 p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <div
+                            class="w-12 h-12 bg-yellow-500/10 text-yellow-500 rounded-2xl flex items-center justify-center mb-3">
+                            <i class="fas fa-clock text-xl"></i></div>
+                        <div class="text-3xl font-black">44</div>
+                        <div class="text-xs text-slate-500 mt-1 uppercase tracking-wider">Pending Review</div>
+                    </div>
+                </div>
+
+                <div
+                    class="anim-up d2 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+                    <div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                        <h3 class="font-heading font-bold text-lg">Active Cases</h3>
+                        <div class="flex gap-2"><button
+                                class="px-3 py-1 text-xs rounded-lg text-red-500 bg-red-500/10">Active</button><button
+                                class="px-3 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800">All</button></div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="text-left text-[10px] uppercase tracking-widest text-slate-400">
+                                    <th class="px-6 py-4">Case ID</th>
+                                    <th class="px-6 py-4">Case Name</th>
+                                    <th class="px-6 py-4">Client</th>
+                                    <th class="px-6 py-4">Type</th>
+                                    <th class="px-6 py-4">Assigned</th>
+                                    <th class="px-6 py-4">Status</th>
+                                    <th class="px-6 py-4">Priority</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <tr
+                                    class="border-t border-slate-50 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                                    <td class="px-6 py-4 font-mono text-xs text-primary">FA-2026-038</td>
+                                    <td class="px-6 py-4 font-bold">Meridian Corp Fraud Review</td>
+                                    <td class="px-6 py-4">James Donovan</td>
+                                    <td class="px-6 py-4">Fraud</td>
+                                    <td class="px-6 py-4">Tom Lawson</td>
+                                    <td class="px-6 py-4"><span
+                                            class="px-2 py-1 text-xs font-bold rounded-full bg-yellow-500/10 text-yellow-600">In
+                                            Progress</span></td>
+                                    <td class="px-6 py-4"><span
+                                            class="px-2 py-1 text-xs font-bold rounded-full bg-red-500/10 text-red-500">High</span>
+                                    </td>
+                                </tr>
+                                <tr
+                                    class="border-t border-slate-50 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                                    <td class="px-6 py-4 font-mono text-xs text-primary">FA-2026-035</td>
+                                    <td class="px-6 py-4 font-bold">Apex Financial Audit</td>
+                                    <td class="px-6 py-4">Sarah Kensington</td>
+                                    <td class="px-6 py-4">Audit</td>
+                                    <td class="px-6 py-4">Ana Martinez</td>
+                                    <td class="px-6 py-4"><span
+                                            class="px-2 py-1 text-xs font-bold rounded-full bg-blue-500/10 text-blue-500">Under
+                                            Review</span></td>
+                                    <td class="px-6 py-4"><span
+                                            class="px-2 py-1 text-xs font-bold rounded-full bg-yellow-500/10 text-yellow-600">Medium</span>
+                                    </td>
+                                </tr>
+                                <tr
+                                    class="border-t border-slate-50 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                                    <td class="px-6 py-4 font-mono text-xs text-primary">FA-2026-031</td>
+                                    <td class="px-6 py-4 font-bold">Kensington Litigation Support</td>
+                                    <td class="px-6 py-4">Sarah Kensington</td>
+                                    <td class="px-6 py-4">Litigation</td>
+                                    <td class="px-6 py-4">Karen Black</td>
+                                    <td class="px-6 py-4"><span
+                                            class="px-2 py-1 text-xs font-bold rounded-full bg-green-500/10 text-green-600">Report
+                                            Ready</span></td>
+                                    <td class="px-6 py-4"><span
+                                            class="px-2 py-1 text-xs font-bold rounded-full bg-green-500/10 text-green-600">Low</span>
+                                    </td>
+                                </tr>
+                                <tr
+                                    class="border-t border-slate-50 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                                    <td class="px-6 py-4 font-mono text-xs text-primary">FA-2026-029</td>
+                                    <td class="px-6 py-4 font-bold">Global Assets Recovery</td>
+                                    <td class="px-6 py-4">Robert Nakamura</td>
+                                    <td class="px-6 py-4">Asset Tracing</td>
+                                    <td class="px-6 py-4">Tom Lawson</td>
+                                    <td class="px-6 py-4"><span
+                                            class="px-2 py-1 text-xs font-bold rounded-full bg-yellow-500/10 text-yellow-600">In
+                                            Progress</span></td>
+                                    <td class="px-6 py-4"><span
+                                            class="px-2 py-1 text-xs font-bold rounded-full bg-red-500/10 text-red-500">High</span>
+                                    </td>
+                                </tr>
+                                <tr
+                                    class="border-t border-slate-50 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                                    <td class="px-6 py-4 font-mono text-xs text-primary">FA-2026-027</td>
+                                    <td class="px-6 py-4 font-bold">TechVentures Compliance Check</td>
+                                    <td class="px-6 py-4">Diana Palmer</td>
+                                    <td class="px-6 py-4">Compliance</td>
+                                    <td class="px-6 py-4">Karen Black</td>
+                                    <td class="px-6 py-4"><span
+                                            class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Pending</span>
+                                    </td>
+                                    <td class="px-6 py-4"><span
+                                            class="px-2 py-1 text-xs font-bold rounded-full bg-yellow-500/10 text-yellow-600">Medium</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script>
+        function toggleSidebar() { const s = document.getElementById('sidebar'); s.classList.toggle('-translate-x-full'); }
+        function toggleTheme() { const h = document.documentElement; const i = document.getElementById('theme-icon'); if (h.classList.contains('dark')) { h.classList.remove('dark'); localStorage.setItem('theme', 'light'); i.className = 'fas fa-moon'; } else { h.classList.add('dark'); localStorage.setItem('theme', 'dark'); i.className = 'fas fa-sun'; } }
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); document.getElementById('theme-icon').className = 'fas fa-sun'; }
+    </script>
+</body>
+
+</html>

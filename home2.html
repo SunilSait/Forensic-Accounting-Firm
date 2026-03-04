@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <script>if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); }</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="ForensicEdge - Precision forensic accounting. Alternative home experience with modern design.">
@@ -144,7 +146,7 @@
                     <span class="font-bold text-xl tracking-tight font-heading">Forensic<span
                             class="text-primary">Edge</span></span>
                 </a>
-                <div class="hidden lg:flex space-x-8 items-center">
+                <div class="hidden lg:flex gap-8 items-center">
                     <a href="index.html" class="nav-link hover:text-primary transition-colors">Home 1</a>
                     <a href="home2.html" class="nav-link hover:text-primary transition-colors">Home 2</a>
                     <a href="about.html" class="nav-link hover:text-primary transition-colors">About</a>
@@ -163,6 +165,10 @@
                     <button onclick="toggleTheme()"
                         class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"><i id="theme-icon"
                             class="fas fa-moon"></i></button>
+                    <button onclick="toggleDir()"
+                        class="text-xs font-bold border px-2 py-1 rounded hover:border-primary transition-all">
+                        LTR / RTL
+                    </button>
                     <a href="login.html"><button
                             class="bg-primary text-white px-5 py-2 rounded-full font-medium hover:opacity-90 transition-all">Client
                             Portal</button></a>
@@ -189,9 +195,13 @@
                 <a href="contact.html"
                     class="nav-link block py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800 hover:text-primary">Contact</a>
             </div>
-            <div class="mt-8"><a href="login.html" class="block"><button
+            <div class="mt-8 space-y-4"><a href="login.html" class="block"><button
                         class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg">Client
-                        Portal</button></a></div>
+                        Portal</button></a>
+                <button onclick="toggleDir()"
+                    class="w-full border border-slate-300 dark:border-slate-700 py-3 rounded-xl font-medium">Switch
+                    LTR/RTL</button>
+            </div>
         </div>
     </nav>
 
@@ -607,6 +617,20 @@
             const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); }); }, { threshold: 0.1 });
             document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
         });
+    </script>
+
+    <script>
+        // LTR/RTL Direction Toggle
+        function toggleDir() {
+            const html = document.documentElement;
+            const newDir = html.dir === 'ltr' ? 'rtl' : 'ltr';
+            html.dir = newDir;
+            localStorage.setItem('site-direction', newDir);
+        }
+        (function () {
+            const savedDir = localStorage.getItem('site-direction');
+            document.documentElement.dir = savedDir || 'ltr';
+        })();
     </script>
 </body>
 

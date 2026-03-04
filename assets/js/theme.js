@@ -2,7 +2,7 @@
 // THEME TOGGLE - Dark/Light Mode
 // ============================================
 
-(function() {
+(function () {
   const STORAGE_KEY = 'faf-theme';
 
   function getPreferred() {
@@ -15,11 +15,37 @@
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem(STORAGE_KEY, theme);
 
-    // Update toggle icon
+    // Update toggle icons — works with both Lucide SVGs and Font Awesome <i> tags
     document.querySelectorAll('.theme-toggle').forEach(btn => {
+      // Handle Lucide SVG icons (rendered from <i data-lucide="...">)
+      const svg = btn.querySelector('svg');
+      if (svg) {
+        // Replace the SVG with a new <i> tag so Lucide can re-render
+        const newIcon = document.createElement('i');
+        newIcon.setAttribute('data-lucide', theme === 'dark' ? 'sun' : 'moon');
+        newIcon.style.width = '18px';
+        newIcon.style.height = '18px';
+        svg.replaceWith(newIcon);
+        // Re-render Lucide icons
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+        }
+        return;
+      }
+
+      // Handle standard <i> tags (Font Awesome or Lucide pre-render)
       const icon = btn.querySelector('i');
       if (icon) {
-        icon.className = theme === 'dark' ? 'lucide lucide-sun' : 'lucide lucide-moon';
+        if (icon.hasAttribute('data-lucide')) {
+          // Lucide icon that hasn't been rendered yet
+          icon.setAttribute('data-lucide', theme === 'dark' ? 'sun' : 'moon');
+          if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+          }
+        } else {
+          // Font Awesome icon
+          icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
       }
     });
   }

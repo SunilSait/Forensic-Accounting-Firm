@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <script>if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); }</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="ForensicEdge client resources - Knowledge base, guides, FAQ, and forensic methodology documentation.">
@@ -118,7 +120,7 @@
                         class="font-bold text-xl tracking-tight font-heading">Forensic<span
                             class="text-primary">Edge</span></span>
                 </a>
-                <div class="hidden lg:flex space-x-8 items-center"><a href="index.html"
+                <div class="hidden lg:flex gap-8 items-center"><a href="index.html"
                         class="nav-link hover:text-primary">Home 1</a><a href="home2.html"
                         class="nav-link hover:text-primary">Home 2</a><a href="about.html"
                         class="nav-link hover:text-primary">About</a><a href="services.html"
@@ -132,7 +134,9 @@
                             class="fas fa-bars"></i></button></div>
                 <div class="hidden lg:flex items-center gap-4"><button onclick="toggleTheme()"
                         class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"><i id="theme-icon"
-                            class="fas fa-moon"></i></button><a href="login.html"><button
+                            class="fas fa-moon"></i></button><button onclick="toggleDir()"
+                        class="text-xs font-bold border px-2 py-1 rounded hover:border-primary transition-all">LTR /
+                        RTL</button><a href="login.html"><button
                             class="bg-primary text-white px-5 py-2 rounded-full font-medium hover:opacity-90 transition-all">Client
                             Portal</button></a></div>
             </div>
@@ -153,9 +157,11 @@
                     class="nav-link block py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800 hover:text-primary">Resources</a><a
                     href="contact.html" class="nav-link block py-3 text-lg font-medium hover:text-primary">Contact</a>
             </div>
-            <div class="mt-8"><a href="login.html" class="block"><button
+            <div class="mt-8 space-y-4"><a href="login.html" class="block"><button
                         class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg">Client
-                        Portal</button></a></div>
+                        Portal</button></a><button onclick="toggleDir()"
+                    class="w-full border border-slate-300 dark:border-slate-700 py-3 rounded-xl font-medium">Switch
+                    LTR/RTL</button></div>
         </div>
     </nav>
     <script>
@@ -187,7 +193,8 @@
                     <h1 class="text-4xl md:text-6xl font-black text-slate-900 dark:text-white mb-6 leading-tight">Client
                         <span
                             class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-yellow-400">Knowledge
-                            Base</span></h1>
+                            Base</span>
+                    </h1>
                     <p
                         class="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                         Your comprehensive guide to working with ForensicEdge. From case initiation to final resolution,
@@ -210,7 +217,8 @@
                         class="group p-6 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary transition-all shadow-sm">
                         <div
                             class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-all">
-                            <i class="fas fa-clipboard-list"></i></div>
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
                         <h4 class="font-bold dark:text-white text-sm">Getting Started</h4>
                         <p class="text-xs text-slate-500 mt-1">Begin your case in 5 minutes.</p>
                     </a>
@@ -218,7 +226,8 @@
                         class="group p-6 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-blue-400 transition-all shadow-sm">
                         <div
                             class="w-10 h-10 rounded-xl bg-blue-400/10 text-blue-400 flex items-center justify-center mb-4 group-hover:bg-blue-400 group-hover:text-white transition-all">
-                            <i class="fas fa-file-alt"></i></div>
+                            <i class="fas fa-file-alt"></i>
+                        </div>
                         <h4 class="font-bold dark:text-white text-sm">Evidence Handling</h4>
                         <p class="text-xs text-slate-500 mt-1">Document submission guides.</p>
                     </a>
@@ -226,7 +235,8 @@
                         class="group p-6 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-purple-500 transition-all shadow-sm">
                         <div
                             class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-500 flex items-center justify-center mb-4 group-hover:bg-purple-500 group-hover:text-white transition-all">
-                            <i class="fas fa-chart-bar"></i></div>
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
                         <h4 class="font-bold dark:text-white text-sm">Reporting</h4>
                         <p class="text-xs text-slate-500 mt-1">Understanding your reports.</p>
                     </a>
@@ -234,7 +244,8 @@
                         class="group p-6 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-green-500 transition-all shadow-sm">
                         <div
                             class="w-10 h-10 rounded-xl bg-green-500/10 text-green-500 flex items-center justify-center mb-4 group-hover:bg-green-500 group-hover:text-white transition-all">
-                            <i class="fas fa-headset"></i></div>
+                            <i class="fas fa-headset"></i>
+                        </div>
                         <h4 class="font-bold dark:text-white text-sm">Support</h4>
                         <p class="text-xs text-slate-500 mt-1">Get help from our team.</p>
                     </a>
@@ -355,7 +366,8 @@
                     class="reveal-up p-8 rounded-[2rem] bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-all group">
                     <div
                         class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all">
-                        <i class="fas fa-book text-xl"></i></div>
+                        <i class="fas fa-book text-xl"></i>
+                    </div>
                     <h4 class="font-bold dark:text-white mb-2">Case Handling Guides</h4>
                     <p class="text-xs text-slate-500 leading-relaxed">Step-by-step instructions for submitting evidence,
                         tracking progress, and interpreting findings.</p>
@@ -364,7 +376,8 @@
                     class="reveal-up delay-100 p-8 rounded-[2rem] bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-all group">
                     <div
                         class="w-12 h-12 bg-blue-500/10 text-blue-500 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
-                        <i class="fas fa-file-contract text-xl"></i></div>
+                        <i class="fas fa-file-contract text-xl"></i>
+                    </div>
                     <h4 class="font-bold dark:text-white mb-2">Compliance Templates</h4>
                     <p class="text-xs text-slate-500 leading-relaxed">AML, KYC, and regulatory compliance templates
                         customized for your industry requirements.</p>
@@ -373,7 +386,8 @@
                     class="reveal-up delay-200 p-8 rounded-[2rem] bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-all group">
                     <div
                         class="w-12 h-12 bg-green-500/10 text-green-500 rounded-xl flex items-center justify-center mb-6 group-hover:bg-green-500 group-hover:text-white transition-all">
-                        <i class="fas fa-user-shield text-xl"></i></div>
+                        <i class="fas fa-user-shield text-xl"></i>
+                    </div>
                     <h4 class="font-bold dark:text-white mb-2">Security & Privacy</h4>
                     <p class="text-xs text-slate-500 leading-relaxed">Our security policies, data handling procedures,
                         and privacy certifications documentation.</p>
@@ -400,7 +414,8 @@
                             types of cases does ForensicEdge handle?</span>
                         <div id="faq-icon-1"
                             class="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center transition-transform duration-300">
-                            <i class="fas fa-plus text-xs text-primary"></i></div>
+                            <i class="fas fa-plus text-xs text-primary"></i>
+                        </div>
                     </button>
                     <div id="faq-ans-1" class="faq-answer">
                         <div
@@ -418,7 +433,8 @@
                             I submit documents securely?</span>
                         <div id="faq-icon-2"
                             class="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center transition-transform duration-300">
-                            <i class="fas fa-plus text-xs text-primary"></i></div>
+                            <i class="fas fa-plus text-xs text-primary"></i>
+                        </div>
                     </button>
                     <div id="faq-ans-2" class="faq-answer">
                         <div
@@ -436,7 +452,8 @@
                             track my investigation progress in real-time?</span>
                         <div id="faq-icon-3"
                             class="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center transition-transform duration-300">
-                            <i class="fas fa-plus text-xs text-primary"></i></div>
+                            <i class="fas fa-plus text-xs text-primary"></i>
+                        </div>
                     </button>
                     <div id="faq-ans-3" class="faq-answer">
                         <div
@@ -454,7 +471,8 @@
                             qualifications do your examiners hold?</span>
                         <div id="faq-icon-4"
                             class="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center transition-transform duration-300">
-                            <i class="fas fa-plus text-xs text-primary"></i></div>
+                            <i class="fas fa-plus text-xs text-primary"></i>
+                        </div>
                     </button>
                     <div id="faq-ans-4" class="faq-answer">
                         <div
@@ -544,6 +562,20 @@
         function toggleTheme() { const h = document.documentElement; const i = document.getElementById('theme-icon'); const m = document.getElementById('theme-icon-mobile'); if (h.classList.contains('dark')) { h.classList.remove('dark'); localStorage.setItem('theme', 'light'); if (i) i.className = 'fas fa-moon'; if (m) m.className = 'fas fa-moon'; } else { h.classList.add('dark'); localStorage.setItem('theme', 'dark'); if (i) i.className = 'fas fa-sun'; if (m) m.className = 'fas fa-sun'; } }
         if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); const i = document.getElementById('theme-icon'); if (i) i.className = 'fas fa-sun'; }
         document.addEventListener("DOMContentLoaded", () => { const o = new IntersectionObserver((es) => { es.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); }); }, { threshold: 0.1 }); document.querySelectorAll('.reveal-up').forEach(el => o.observe(el)); });
+    </script>
+
+    <script>
+        // LTR/RTL Direction Toggle
+        function toggleDir() {
+            const html = document.documentElement;
+            const newDir = html.dir === 'ltr' ? 'rtl' : 'ltr';
+            html.dir = newDir;
+            localStorage.setItem('site-direction', newDir);
+        }
+        (function () {
+            const savedDir = localStorage.getItem('site-direction');
+            document.documentElement.dir = savedDir || 'ltr';
+        })();
     </script>
 </body>
 

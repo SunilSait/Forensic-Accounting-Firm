@@ -14,8 +14,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>tailwind.config = { darkMode: ['selector', '[data-theme="dark"]'], theme: { extend: { colors: { primary: { DEFAULT: '#0B1120', light: '#1E293B', dark: '#060A14' }, gold: { DEFAULT: '#D4A843', light: '#E8C97A', dark: '#B8922E' }, teal: { DEFAULT: '#14B8A6', light: '#2DD4BF' } }, fontFamily: { heading: ['Outfit', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }</script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/dashboard.css">
+    <script>var t = localStorage.getItem('faf-theme'); if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.setAttribute('data-theme', 'dark'); }</script>
 </head>
 
 <body>
@@ -226,7 +228,8 @@
                                     <div class="activity-dot" style="background:var(--success);"></div>
                                     <div>
                                         <div class="activity-text"><strong>Case #FA-2026-038</strong> status changed to
-                                            <span class="badge badge-success">Active</span></div>
+                                            <span class="badge badge-success">Active</span>
+                                        </div>
                                         <div class="activity-time">2 hours ago</div>
                                     </div>
                                 </div>

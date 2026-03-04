@@ -3,6 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <script>
+    // Prevent white flash: apply dark mode before any content renders
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
     content="ForensicEdge - Premier forensic accounting and fraud investigation services. Uncovering financial truth with precision and integrity.">
@@ -163,7 +170,7 @@
               class="text-primary">Edge</span></span>
         </a>
 
-        <div class="hidden lg:flex space-x-8 items-center">
+        <div class="hidden lg:flex gap-8 items-center">
           <a href="index.html" class="nav-link hover:text-primary transition-colors">Home 1</a>
           <a href="home2.html" class="nav-link hover:text-primary transition-colors">Home 2</a>
           <a href="about.html" class="nav-link hover:text-primary transition-colors">About</a>
@@ -184,6 +191,10 @@
         <div class="hidden lg:flex items-center gap-4">
           <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
             <i id="theme-icon" class="fas fa-moon"></i>
+          </button>
+          <button onclick="toggleDir()"
+            class="text-xs font-bold border px-2 py-1 rounded hover:border-primary transition-all">
+            LTR / RTL
           </button>
           <a href="login.html">
             <button
@@ -215,10 +226,13 @@
         <a href="contact.html"
           class="nav-link block py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800 hover:text-primary">Contact</a>
       </div>
-      <div class="mt-8">
+      <div class="mt-8 space-y-4">
         <a href="login.html" class="block">
           <button class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg">Client Portal</button>
         </a>
+        <button onclick="toggleDir()"
+          class="w-full border border-slate-300 dark:border-slate-700 py-3 rounded-xl font-medium">Switch
+          LTR/RTL</button>
       </div>
     </div>
   </nav>
@@ -352,7 +366,7 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div
-          class="reveal-up group relative p-1 rounded-3xl bg-gradient-to-b from-slate-200 to-transparent dark:from-slate-700 dark:to-transparent hover:from-primary transition-all duration-500">
+          class="reveal-up group relative p-1 rounded-3xl bg-gradient-to-b from-slate-200 to-transparent dark:from-slate-700 dark:to-transparent hover:from-primary dark:hover:from-primary transition-all duration-500">
           <div class="bg-white dark:bg-slate-900 rounded-[22px] p-8 h-full">
             <div
               class="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -365,7 +379,7 @@
         </div>
 
         <div
-          class="reveal-up delay-100 group relative p-1 rounded-3xl bg-gradient-to-b from-slate-200 to-transparent dark:from-slate-700 dark:to-transparent hover:from-primary transition-all duration-500">
+          class="reveal-up delay-100 group relative p-1 rounded-3xl bg-gradient-to-b from-slate-200 to-transparent dark:from-slate-700 dark:to-transparent hover:from-primary dark:hover:from-primary transition-all duration-500">
           <div class="bg-white dark:bg-slate-900 rounded-[22px] p-8 h-full">
             <div
               class="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -378,7 +392,7 @@
         </div>
 
         <div
-          class="reveal-up delay-200 group relative p-1 rounded-3xl bg-gradient-to-b from-slate-200 to-transparent dark:from-slate-700 dark:to-transparent hover:from-primary transition-all duration-500">
+          class="reveal-up delay-200 group relative p-1 rounded-3xl bg-gradient-to-b from-slate-200 to-transparent dark:from-slate-700 dark:to-transparent hover:from-primary dark:hover:from-primary transition-all duration-500">
           <div class="bg-white dark:bg-slate-900 rounded-[22px] p-8 h-full">
             <div
               class="w-14 h-14 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -391,7 +405,7 @@
         </div>
 
         <div
-          class="reveal-up delay-300 group relative p-1 rounded-3xl bg-gradient-to-b from-slate-200 to-transparent dark:from-slate-700 dark:to-transparent hover:from-primary transition-all duration-500">
+          class="reveal-up delay-300 group relative p-1 rounded-3xl bg-gradient-to-b from-slate-200 to-transparent dark:from-slate-700 dark:to-transparent hover:from-primary dark:hover:from-primary transition-all duration-500">
           <div class="bg-white dark:bg-slate-900 rounded-[22px] p-8 h-full">
             <div
               class="w-14 h-14 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -404,7 +418,7 @@
         </div>
 
         <div
-          class="reveal-up delay-400 group relative p-1 rounded-3xl bg-gradient-to-b from-slate-200 to-transparent dark:from-slate-700 dark:to-transparent hover:from-primary transition-all duration-500">
+          class="reveal-up delay-400 group relative p-1 rounded-3xl bg-gradient-to-b from-slate-200 to-transparent dark:from-slate-700 dark:to-transparent hover:from-primary dark:hover:from-primary transition-all duration-500">
           <div class="bg-white dark:bg-slate-900 rounded-[22px] p-8 h-full">
             <div
               class="w-14 h-14 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -950,6 +964,18 @@
       }, { threshold: 0.1 });
       document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
     });
+
+    // LTR/RTL Direction Toggle
+    function toggleDir() {
+      const html = document.documentElement;
+      const newDir = html.dir === 'ltr' ? 'rtl' : 'ltr';
+      html.dir = newDir;
+      localStorage.setItem('site-direction', newDir);
+    }
+    (function () {
+      const savedDir = localStorage.getItem('site-direction');
+      document.documentElement.dir = savedDir || 'ltr';
+    })();
   </script>
 </body>
 

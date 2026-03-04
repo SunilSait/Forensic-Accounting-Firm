@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <script>if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); }</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="ForensicEdge forensic accounting services - fraud investigation, litigation support, asset tracing, and compliance.">
@@ -102,7 +104,7 @@
                         class="font-bold text-xl tracking-tight font-heading">Forensic<span
                             class="text-primary">Edge</span></span>
                 </a>
-                <div class="hidden lg:flex space-x-8 items-center"><a href="index.html"
+                <div class="hidden lg:flex gap-8 items-center"><a href="index.html"
                         class="nav-link hover:text-primary">Home 1</a><a href="home2.html"
                         class="nav-link hover:text-primary">Home 2</a><a href="about.html"
                         class="nav-link hover:text-primary">About</a><a href="services.html"
@@ -115,7 +117,9 @@
                         class="text-2xl p-2"><i id="menu-toggle-icon" class="fas fa-bars"></i></button></div>
                 <div class="hidden lg:flex items-center gap-4"><button onclick="toggleTheme()"
                         class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"><i id="theme-icon"
-                            class="fas fa-moon"></i></button><a href="login.html"><button
+                            class="fas fa-moon"></i></button><button onclick="toggleDir()"
+                        class="text-xs font-bold border px-2 py-1 rounded hover:border-primary transition-all">LTR /
+                        RTL</button><a href="login.html"><button
                             class="bg-primary text-white px-5 py-2 rounded-full font-medium hover:opacity-90 transition-all">Client
                             Portal</button></a></div>
             </div>
@@ -135,9 +139,11 @@
                     href="documentation.html"
                     class="nav-link block py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800">Resources</a><a
                     href="contact.html" class="nav-link block py-3 text-lg font-medium">Contact</a></div>
-            <div class="mt-8"><a href="login.html" class="block"><button
+            <div class="mt-8 space-y-4"><a href="login.html" class="block"><button
                         class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg">Client
-                        Portal</button></a></div>
+                        Portal</button></a><button onclick="toggleDir()"
+                    class="w-full border border-slate-300 dark:border-slate-700 py-3 rounded-xl font-medium">Switch
+                    LTR/RTL</button></div>
         </div>
     </nav>
     <script>function handleActiveNav() { const p = window.location.pathname; document.querySelectorAll('.nav-link').forEach(l => { const h = l.getAttribute('href'); if (p.endsWith(h)) l.classList.add('nav-link-active'); else l.classList.remove('nav-link-active'); }); } function toggleMenu() { const m = document.getElementById('mobile-menu'); const i = document.getElementById('menu-toggle-icon'); const h = m.classList.toggle('hidden'); if (h) i.classList.replace('fa-times', 'fa-bars'); else i.classList.replace('fa-bars', 'fa-times'); } window.addEventListener('DOMContentLoaded', handleActiveNav); window.addEventListener('resize', () => { if (window.innerWidth >= 1024) { document.getElementById('mobile-menu').classList.add('hidden'); document.getElementById('menu-toggle-icon').classList.replace('fa-times', 'fa-bars'); } });</script>
@@ -338,6 +344,20 @@
         function toggleTheme() { const h = document.documentElement; const i = document.getElementById('theme-icon'); const m = document.getElementById('theme-icon-mobile'); if (h.classList.contains('dark')) { h.classList.remove('dark'); localStorage.setItem('theme', 'light'); if (i) i.className = 'fas fa-moon'; if (m) m.className = 'fas fa-moon'; } else { h.classList.add('dark'); localStorage.setItem('theme', 'dark'); if (i) i.className = 'fas fa-sun'; if (m) m.className = 'fas fa-sun'; } }
         if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); const i = document.getElementById('theme-icon'); if (i) i.className = 'fas fa-sun'; }
         document.addEventListener("DOMContentLoaded", () => { const o = new IntersectionObserver((es) => { es.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); }); }, { threshold: 0.1 }); document.querySelectorAll('.reveal-up').forEach(el => o.observe(el)); });
+    </script>
+
+    <script>
+        // LTR/RTL Direction Toggle
+        function toggleDir() {
+            const html = document.documentElement;
+            const newDir = html.dir === 'ltr' ? 'rtl' : 'ltr';
+            html.dir = newDir;
+            localStorage.setItem('site-direction', newDir);
+        }
+        (function () {
+            const savedDir = localStorage.getItem('site-direction');
+            document.documentElement.dir = savedDir || 'ltr';
+        })();
     </script>
 </body>
 

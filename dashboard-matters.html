@@ -14,7 +14,9 @@
     <script>tailwind.config = { darkMode: ['selector', '[data-theme="dark"]'], theme: { extend: { colors: { primary: { DEFAULT: '#0B1120', light: '#1E293B', dark: '#060A14' }, gold: { DEFAULT: '#D4A843', light: '#E8C97A', dark: '#B8922E' }, teal: { DEFAULT: '#14B8A6', light: '#2DD4BF' } }, fontFamily: { heading: ['Outfit', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }</script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
     <link rel="stylesheet" href="assets/css/dashboard.css">
+    <script>var t = localStorage.getItem('faf-theme'); if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.setAttribute('data-theme', 'dark'); }</script>
 </head>
 
 <body>
@@ -169,7 +171,8 @@
                     <div style="margin-top:var(--space-4);">
                         <div
                             style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--text-secondary);margin-bottom:6px;">
-                            <span>Progress</span><span>82%</span></div>
+                            <span>Progress</span><span>82%</span>
+                        </div>
                         <div class="progress-bar">
                             <div class="progress-fill" data-width="82%"></div>
                         </div>
@@ -201,7 +204,8 @@
                     <div style="margin-top:var(--space-4);">
                         <div
                             style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--text-secondary);margin-bottom:6px;">
-                            <span>Progress</span><span>100%</span></div>
+                            <span>Progress</span><span>100%</span>
+                        </div>
                         <div class="progress-bar">
                             <div class="progress-fill" data-width="100%"></div>
                         </div>
@@ -233,7 +237,8 @@
                     <div style="margin-top:var(--space-4);">
                         <div
                             style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--text-secondary);margin-bottom:6px;">
-                            <span>Progress</span><span>48%</span></div>
+                            <span>Progress</span><span>48%</span>
+                        </div>
                         <div class="progress-bar">
                             <div class="progress-fill" data-width="48%"></div>
                         </div>
@@ -265,7 +270,8 @@
                     <div style="margin-top:var(--space-4);">
                         <div
                             style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--text-secondary);margin-bottom:6px;">
-                            <span>Progress</span><span>0%</span></div>
+                            <span>Progress</span><span>0%</span>
+                        </div>
                         <div class="progress-bar">
                             <div class="progress-fill" data-width="0%"></div>
                         </div>
