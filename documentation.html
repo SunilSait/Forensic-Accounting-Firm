@@ -642,6 +642,42 @@
     <!-- FOOTER -->
     <footer class="bg-white dark:bg-slate-900 pt-20 pb-10 border-t border-slate-200 dark:border-slate-800">
         <div class="max-w-7xl mx-auto px-4">
+            <!-- NEWSLETTER -->
+            <div
+                class="mb-16 relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 dark:from-slate-800 dark:via-slate-700 dark:to-slate-800 p-8 md:p-12">
+                <div
+                    class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 w-48 h-48 bg-teal/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2">
+                </div>
+                <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
+                    <div class="flex-1 text-center md:text-left">
+                        <div class="flex items-center justify-center md:justify-start gap-3 mb-4">
+                            <div class="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-envelope-open-text text-primary"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Stay Informed</h3>
+                        </div>
+                        <p class="text-slate-400 text-sm leading-relaxed max-w-md">Get the latest forensic accounting
+                            insights, regulatory updates, and case studies delivered to your inbox.</p>
+                    </div>
+                    <div class="w-full md:w-auto flex-shrink-0">
+                        <form class="flex flex-col sm:flex-row gap-3"
+                            onsubmit="event.preventDefault(); this.querySelector('button').innerText='Subscribed ✓'; this.querySelector('button').classList.add('bg-green-500'); this.querySelector('input').value='';">
+                            <input type="email" placeholder="Enter your email" required
+                                class="w-full sm:w-72 px-5 py-3.5 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm backdrop-blur-sm">
+                            <button type="submit"
+                                class="px-8 py-3.5 bg-primary text-white font-bold rounded-xl hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:scale-95 transition-all text-sm whitespace-nowrap">
+                                Subscribe <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </form>
+                        <p class="text-slate-500 text-xs mt-3 text-center sm:text-left"><i
+                                class="fas fa-lock mr-1 text-green-500"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div><a href="index.html" class="flex items-center gap-2 mb-6">
                         <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white"><i
@@ -676,7 +712,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold mb-6 uppercase text-xs tracking-widest">Contact</h4>
+                    <h4 class="font-bold mb-6 uppercase text-xs tracking-widest">Contact Info</h4>
                     <ul class="space-y-4 text-slate-500">
                         <li class="flex items-center gap-3"><i class="fas fa-envelope text-primary"></i>
                             info@forensicedge.com</li>
@@ -687,6 +723,23 @@
                                 class="fas fa-map-marker-alt text-primary flex-shrink-0"></i> 250 Park
                             Ave, New York</li>
                     </ul>
+                    <!-- Newsletter -->
+                    <div class="mt-8">
+                        <h4 class="font-bold mb-4 uppercase text-xs tracking-widest">Newsletter</h4>
+                        <p class="text-slate-500 text-xs mb-3 leading-relaxed">Get forensic insights & updates delivered
+                            to your inbox.</p>
+                        <form class="flex gap-2"
+                            onsubmit="event.preventDefault(); this.querySelector('button').innerHTML='✓'; this.querySelector('button').classList.add('bg-green-500','border-green-500'); this.querySelector('input').value='';">
+                            <input type="email" placeholder="Your email" required
+                                class="w-full px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-slate-900 dark:text-white placeholder-slate-400">
+                            <button type="submit"
+                                class="px-4 py-2 bg-primary text-white rounded-lg text-sm font-bold hover:opacity-90 active:scale-95 transition-all flex-shrink-0">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                        <p class="text-slate-400 text-[10px] mt-2"><i class="fas fa-lock mr-1 text-green-500"></i>No
+                            spam. Unsubscribe anytime.</p>
+                    </div>
                 </div>
             </div>
             <div class="text-center pt-10 border-t border-slate-100 dark:border-slate-800 text-slate-400 text-sm">&copy;
