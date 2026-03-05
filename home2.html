@@ -130,10 +130,89 @@
                 transform: scale(1);
             }
         }
+
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Dropdown Styles */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .nav-dropdown .dropdown-toggle .chevron-icon {
+            width: 12px;
+            height: 12px;
+            transition: transform 0.3s;
+        }
+
+        .nav-dropdown:hover .dropdown-toggle .chevron-icon {
+            transform: rotate(180deg);
+        }
+
+        .nav-dropdown .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 180px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s;
+            margin-top: 8px;
+        }
+
+        .dark .nav-dropdown .dropdown-menu {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            margin-top: 0;
+        }
+
+        .nav-dropdown .dropdown-menu a {
+            display: block;
+            padding: 8px 14px;
+            font-size: 14px;
+            border-radius: 8px;
+            color: #475569;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .dark .nav-dropdown .dropdown-menu a {
+            color: #94a3b8;
+        }
+
+        .nav-dropdown .dropdown-menu a:hover {
+            background: #f1f5f9;
+            color: #D4A843;
+        }
+
+        .dark .nav-dropdown .dropdown-menu a:hover {
+            background: #334155;
+            color: #D4A843;
+        }
     </style>
 </head>
 
-<body class="bg-white text-slate-900 dark:bg-slate-900 dark:text-white transition-all">
+<body class="bg-white text-slate-900 dark:bg-slate-900 dark:text-white transition-all overflow-x-hidden">
 
     <!-- ========== NAVBAR ========== -->
     <nav
@@ -146,14 +225,43 @@
                     <span class="font-bold text-xl tracking-tight font-heading">Forensic<span
                             class="text-primary">Edge</span></span>
                 </a>
-                <div class="hidden lg:flex gap-8 items-center">
-                    <a href="index.html" class="nav-link hover:text-primary transition-colors">Home 1</a>
-                    <a href="home2.html" class="nav-link hover:text-primary transition-colors">Home 2</a>
-                    <a href="about.html" class="nav-link hover:text-primary transition-colors">About</a>
-                    <a href="services.html" class="nav-link hover:text-primary transition-colors">Services</a>
-                    <a href="pricing.html" class="nav-link hover:text-primary transition-colors">Pricing</a>
-                    <a href="documentation.html" class="nav-link hover:text-primary transition-colors">Resources</a>
-                    <a href="contact.html" class="nav-link hover:text-primary transition-colors">Contact</a>
+                <div class="hidden lg:flex gap-4 xl:gap-8 items-center">
+                    <div class="nav-dropdown">
+                        <a href="index.html"
+                            class="nav-link dropdown-toggle hover:text-primary transition-colors whitespace-nowrap text-sm xl:text-base">Home
+                            <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="index.html">Home 1</a>
+                            <a href="home2.html">Home 2</a>
+                        </div>
+                    </div>
+                    <a href="about.html"
+                        class="nav-link hover:text-primary transition-colors whitespace-nowrap text-sm xl:text-base">About</a>
+                    <a href="services.html"
+                        class="nav-link hover:text-primary transition-colors whitespace-nowrap text-sm xl:text-base">Services</a>
+                    <a href="pricing.html"
+                        class="nav-link hover:text-primary transition-colors whitespace-nowrap text-sm xl:text-base">Pricing</a>
+                    <a href="documentation.html"
+                        class="nav-link hover:text-primary transition-colors whitespace-nowrap text-sm xl:text-base">Resources</a>
+                    <a href="contact.html"
+                        class="nav-link hover:text-primary transition-colors whitespace-nowrap text-sm xl:text-base">Contact</a>
+                    <div class="nav-dropdown">
+                        <a href="#"
+                            class="nav-link dropdown-toggle hover:text-primary transition-colors whitespace-nowrap text-sm xl:text-base">Dashboard
+                            <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="dashboard.html">User Dashboard</a>
+                            <a href="admin-dashboard.html">Admin Dashboard</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="lg:hidden flex items-center gap-2">
                     <button onclick="toggleTheme()" class="p-2 rounded-full"><i id="theme-icon-mobile"
@@ -169,21 +277,29 @@
                         class="text-xs font-bold border px-2 py-1 rounded hover:border-primary transition-all">
                         LTR / RTL
                     </button>
-                    <a href="login.html"><button
-                            class="bg-primary text-white px-5 py-2 rounded-full font-medium hover:opacity-90 transition-all">Client
-                            Portal</button></a>
+                    <a href="register.html"><button
+                            class="bg-primary text-white px-5 py-2 rounded-full font-medium hover:opacity-90 transition-all">Get
+                            Started</button></a>
                 </div>
             </div>
         </div>
         <div id="mobile-menu"
             class="hidden lg:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 py-8 shadow-xl">
             <div class="flex flex-col space-y-2">
-                <a href="index.html"
-                    class="nav-link block py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800 hover:text-primary">Home
-                    1</a>
-                <a href="home2.html"
-                    class="nav-link block py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800 hover:text-primary">Home
-                    2</a>
+                <div class="mobile-dropdown">
+                    <button onclick="toggleMobileDropdown(this)"
+                        class="w-full flex items-center justify-between py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800 hover:text-primary">
+                        Home <i class="fas fa-chevron-down text-xs transition-transform"></i>
+                    </button>
+                    <div class="hidden pl-4 pb-2 space-y-1">
+                        <a href="index.html"
+                            class="nav-link block py-2 text-base text-slate-500 dark:text-slate-400 hover:text-primary">Home
+                            1</a>
+                        <a href="home2.html"
+                            class="nav-link block py-2 text-base text-slate-500 dark:text-slate-400 hover:text-primary">Home
+                            2</a>
+                    </div>
+                </div>
                 <a href="about.html"
                     class="nav-link block py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800 hover:text-primary">About</a>
                 <a href="services.html"
@@ -194,10 +310,23 @@
                     class="nav-link block py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800 hover:text-primary">Resources</a>
                 <a href="contact.html"
                     class="nav-link block py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800 hover:text-primary">Contact</a>
+                <div class="mobile-dropdown">
+                    <button onclick="toggleMobileDropdown(this)"
+                        class="w-full flex items-center justify-between py-3 text-lg font-medium border-b border-slate-100 dark:border-slate-800 hover:text-primary">
+                        Dashboard <i class="fas fa-chevron-down text-xs transition-transform"></i>
+                    </button>
+                    <div class="hidden pl-4 pb-2 space-y-1">
+                        <a href="dashboard.html"
+                            class="nav-link block py-2 text-base text-slate-500 dark:text-slate-400 hover:text-primary">User
+                            Dashboard</a>
+                        <a href="admin-dashboard.html"
+                            class="nav-link block py-2 text-base text-slate-500 dark:text-slate-400 hover:text-primary">Admin
+                            Dashboard</a>
+                    </div>
+                </div>
             </div>
-            <div class="mt-8 space-y-4"><a href="login.html" class="block"><button
-                        class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg">Client
-                        Portal</button></a>
+            <div class="mt-8 space-y-4"><a href="register.html" class="block"><button
+                        class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg">Get Started</button></a>
                 <button onclick="toggleDir()"
                     class="w-full border border-slate-300 dark:border-slate-700 py-3 rounded-xl font-medium">Switch
                     LTR/RTL</button>
@@ -207,6 +336,7 @@
 
     <script>
         function handleActiveNav() { const p = window.location.pathname; document.querySelectorAll('.nav-link').forEach(l => { const h = l.getAttribute('href'); if (p.endsWith(h)) l.classList.add('nav-link-active'); else l.classList.remove('nav-link-active'); }); }
+        function toggleMobileDropdown(btn) { const s = btn.nextElementSibling; const i = btn.querySelector('i'); s.classList.toggle('hidden'); i.style.transform = s.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)'; }
         function toggleMenu() { const m = document.getElementById('mobile-menu'); const i = document.getElementById('menu-toggle-icon'); const h = m.classList.toggle('hidden'); if (h) i.classList.replace('fa-times', 'fa-bars'); else i.classList.replace('fa-bars', 'fa-times'); }
         window.addEventListener('DOMContentLoaded', handleActiveNav);
         window.addEventListener('resize', () => { if (window.innerWidth >= 1024) { document.getElementById('mobile-menu').classList.add('hidden'); document.getElementById('menu-toggle-icon').classList.replace('fa-times', 'fa-bars'); } });
@@ -234,14 +364,14 @@
                     </div>
 
                     <h1
-                        class="reveal-up delay-100 text-4xl sm:text-5xl lg:text-7xl font-black text-slate-900 dark:text-white mb-8 leading-[1.05]">
+                        class="reveal-up delay-100 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-slate-900 dark:text-white mb-8 leading-[1.05]">
                         Where <span class="text-primary">Numbers</span> Tell the <span class="text-primary">Story</span>
                     </h1>
 
                     <p
                         class="reveal-up delay-200 text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                         Advanced forensic accounting powered by cutting-edge analytics. We decode complex financial data
-                        to uncover the truth.
+                        to uncover the truth
                     </p>
 
                     <div class="reveal-up delay-300 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -258,40 +388,40 @@
 
                 <!-- Floating Stats Cards -->
                 <div class="reveal-up delay-400 relative hidden lg:block">
-                    <div class="float-anim relative">
+                    <div class="float-anim relative" style="min-height: 420px;">
                         <!-- Card 1 -->
                         <div
-                            class="absolute top-0 left-0 bg-white dark:bg-white/10 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-3xl p-6 w-64 shadow-xl dark:shadow-2xl">
+                            class="absolute top-0 left-0 bg-white dark:bg-white/10 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-3xl p-5 xl:p-6 w-56 xl:w-64 shadow-xl dark:shadow-2xl">
                             <div class="flex items-center gap-3 mb-4">
                                 <div class="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center"><i
                                         class="fas fa-chart-line text-green-500 dark:text-green-400"></i></div>
                                 <div class="text-xs text-slate-400 uppercase tracking-widest">Recovery Rate</div>
                             </div>
-                            <div class="text-3xl font-black text-slate-900 dark:text-white">94.7%</div>
+                            <div class="text-2xl xl:text-3xl font-black text-slate-900 dark:text-white">94.7%</div>
                             <div class="text-xs text-green-500 dark:text-green-400 mt-2"><i
                                     class="fas fa-arrow-up mr-1"></i> +2.3% this
                                 quarter</div>
                         </div>
                         <!-- Card 2 -->
-                        <div class="absolute top-32 right-0 bg-white dark:bg-white/10 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-3xl p-6 w-64 shadow-xl dark:shadow-2xl"
+                        <div class="absolute top-28 xl:top-32 right-0 bg-white dark:bg-white/10 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-3xl p-5 xl:p-6 w-56 xl:w-64 shadow-xl dark:shadow-2xl"
                             style="animation-delay: -2s;">
                             <div class="flex items-center gap-3 mb-4">
                                 <div class="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center"><i
                                         class="fas fa-users text-primary"></i></div>
                                 <div class="text-xs text-slate-400 uppercase tracking-widest">Active Clients</div>
                             </div>
-                            <div class="text-3xl font-black text-slate-900 dark:text-white">500+</div>
+                            <div class="text-2xl xl:text-3xl font-black text-slate-900 dark:text-white">500+</div>
                             <div class="text-xs text-primary mt-2"><i class="fas fa-globe mr-1"></i> Worldwide</div>
                         </div>
                         <!-- Card 3 -->
-                        <div class="absolute top-64 left-8 bg-white dark:bg-white/10 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-3xl p-6 w-64 shadow-xl dark:shadow-2xl"
+                        <div class="absolute top-56 xl:top-64 left-4 xl:left-8 bg-white dark:bg-white/10 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-3xl p-5 xl:p-6 w-56 xl:w-64 shadow-xl dark:shadow-2xl"
                             style="animation-delay: -4s;">
                             <div class="flex items-center gap-3 mb-4">
                                 <div class="w-10 h-10 bg-blue-500/20 rounded-xl flex items-center justify-center"><i
                                         class="fas fa-shield-alt text-blue-500 dark:text-blue-400"></i></div>
                                 <div class="text-xs text-slate-400 uppercase tracking-widest">Certifications</div>
                             </div>
-                            <div class="text-3xl font-black text-slate-900 dark:text-white">12+</div>
+                            <div class="text-2xl xl:text-3xl font-black text-slate-900 dark:text-white">12+</div>
                             <div class="text-xs text-blue-500 dark:text-blue-400 mt-2"><i
                                     class="fas fa-certificate mr-1"></i> ISO & SOC
                                 Certified</div>
@@ -360,23 +490,27 @@
             <!-- Row 2: Visual Left, Text Right -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center reveal-up">
                 <div
-                    class="order-2 lg:order-1 bg-gradient-to-br from-primary/10 to-teal/10 rounded-3xl p-8 border border-primary/10 shadow-xl">
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 text-center shadow-sm">
-                            <div class="text-4xl font-black text-primary mb-2">98%</div>
-                            <div class="text-xs text-slate-500 uppercase tracking-wider">Accuracy Rate</div>
+                    class="order-2 lg:order-1 bg-gradient-to-br from-primary/10 to-teal/10 rounded-3xl p-4 sm:p-8 border border-primary/10 shadow-xl">
+                    <div class="grid grid-cols-2 gap-3 sm:gap-6">
+                        <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 text-center shadow-sm">
+                            <div class="text-2xl sm:text-4xl font-black text-primary mb-2">98%</div>
+                            <div class="text-[10px] sm:text-xs text-slate-500 uppercase tracking-wider">Accuracy Rate
+                            </div>
                         </div>
-                        <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 text-center shadow-sm">
-                            <div class="text-4xl font-black text-teal mb-2">48h</div>
-                            <div class="text-xs text-slate-500 uppercase tracking-wider">Avg Response</div>
+                        <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 text-center shadow-sm">
+                            <div class="text-2xl sm:text-4xl font-black text-teal mb-2">48h</div>
+                            <div class="text-[10px] sm:text-xs text-slate-500 uppercase tracking-wider">Avg Response
+                            </div>
                         </div>
-                        <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 text-center shadow-sm">
-                            <div class="text-4xl font-black text-blue-500 mb-2">25+</div>
-                            <div class="text-xs text-slate-500 uppercase tracking-wider">Years of Expertise</div>
+                        <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 text-center shadow-sm">
+                            <div class="text-2xl sm:text-4xl font-black text-blue-500 mb-2">25+</div>
+                            <div class="text-[10px] sm:text-xs text-slate-500 uppercase tracking-wider leading-tight">
+                                Years of Expertise</div>
                         </div>
-                        <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 text-center shadow-sm">
-                            <div class="text-4xl font-black text-green-500 mb-2">100%</div>
-                            <div class="text-xs text-slate-500 uppercase tracking-wider">Confidential</div>
+                        <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 text-center shadow-sm">
+                            <div class="text-2xl sm:text-4xl font-black text-green-500 mb-2">100%</div>
+                            <div class="text-[10px] sm:text-xs text-slate-500 uppercase tracking-wider">Confidential
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -549,7 +683,7 @@
     <!-- ========== FOOTER ========== -->
     <footer class="bg-white dark:bg-slate-900 pt-20 pb-10 border-t border-slate-200 dark:border-slate-800">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div>
                     <a href="index.html" class="flex items-center gap-2 mb-6">
                         <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white"><i
@@ -578,15 +712,20 @@
                         <li><a href="home2.html" class="hover:text-primary">Home 2</a></li>
                         <li><a href="about.html" class="hover:text-primary">About Us</a></li>
                         <li><a href="services.html" class="hover:text-primary">Services</a></li>
+                        <li><a href="pricing.html" class="hover:text-primary">Pricing</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-bold mb-6 uppercase text-xs tracking-widest">Resources</h4>
                     <ul class="space-y-4 text-slate-500">
-                        <li><a href="pricing.html" class="hover:text-primary">Pricing</a></li>
-                        <li><a href="documentation.html" class="hover:text-primary">Resources</a></li>
                         <li><a href="contact.html" class="hover:text-primary">Contact</a></li>
-                        <li><a href="login.html" class="hover:text-primary">Client Portal</a></li>
+                        <li><a href="coming-soon.html" class="hover:text-primary">Coming Soon</a></li>
+                        <li><a href="404.html" class="hover:text-primary">404</a></li>
+                    </ul>
+                    <h4 class="font-bold mt-8 mb-4 uppercase text-xs tracking-widest">Dashboard</h4>
+                    <ul class="space-y-4 text-slate-500">
+                        <li><a href="dashboard.html" class="hover:text-primary">User Dashboard</a></li>
+                        <li><a href="admin-dashboard.html" class="hover:text-primary">Admin Dashboard</a></li>
                     </ul>
                 </div>
                 <div>
@@ -594,9 +733,11 @@
                     <ul class="space-y-4 text-slate-500">
                         <li class="flex items-center gap-3"><i class="fas fa-envelope text-primary"></i>
                             info@forensicedge.com</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-phone text-primary"></i> +1 (123) 456-7890
+                        <li class="flex items-center gap-3"><i class="fas fa-phone text-primary flex-shrink-0"></i> <a
+                                href="tel:+11234567890" class="hover:text-primary">+1 (123) 456-7890</a>
                         </li>
-                        <li class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-primary"></i> 250 Park
+                        <li class="flex items-center gap-3"><i
+                                class="fas fa-map-marker-alt text-primary flex-shrink-0"></i> 250 Park
                             Avenue, New York</li>
                     </ul>
                 </div>

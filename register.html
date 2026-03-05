@@ -6,8 +6,9 @@
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
     <script>if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); }</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Secure client portal login - ForensicEdge forensic accounting dashboard.">
-    <title>Client Portal Login | ForensicEdge</title>
+    <meta name="description"
+        content="Create your ForensicEdge account - Access forensic accounting tools and secure client portal.">
+    <title>Register | ForensicEdge</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#D4A843', dark: '#0B1120', teal: '#14B8A6' }, fontFamily: { heading: ['Outfit', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -54,8 +55,6 @@
     </style>
 </head>
 
-<!-- Dark Mode Body -->
-
 <body class="dark:bg-slate-900 bg-slate-100 relative overflow-x-hidden transition-colors">
     <!-- Background -->
     <div class="absolute inset-0 z-0">
@@ -85,28 +84,37 @@
         </button>
     </div>
 
-    <!-- Login Card -->
-    <div class="relative z-10 w-full max-w-md px-3 sm:px-4 anim-up">
+    <!-- Register Card -->
+    <div class="relative z-10 w-full max-w-md px-4 anim-up">
         <div
-            class="dark:bg-white/[0.07] bg-white backdrop-blur-xl dark:border-white/10 border-slate-200 border rounded-2xl sm:rounded-[2rem] p-5 sm:p-10 shadow-2xl dark:shadow-2xl shadow-slate-200/50">
+            class="dark:bg-white/[0.07] bg-white backdrop-blur-xl dark:border-white/10 border-slate-200 border rounded-2xl sm:rounded-[2rem] p-6 sm:p-10 shadow-2xl dark:shadow-2xl shadow-slate-200/50">
             <!-- Logo -->
-            <div class="text-center mb-10">
+            <div class="text-center mb-8">
                 <div class="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                     <i class="fas fa-shield-alt text-primary text-2xl"></i>
                 </div>
-                <h1 class="text-2xl sm:text-3xl font-black dark:text-white text-slate-900 font-heading">Welcome Back
-                </h1>
-                <p class="dark:text-slate-400 text-slate-500 text-sm mt-2">Sign in to your secure portal</p>
+                <h1 class="text-3xl font-black dark:text-white text-slate-900 font-heading">Create Account</h1>
+                <p class="dark:text-slate-400 text-slate-500 text-sm mt-2">Join ForensicEdge and get started</p>
             </div>
 
             <!-- Form -->
-            <form id="login-form" class="space-y-5">
+            <form id="register-form" class="space-y-5">
+                <div>
+                    <label
+                        class="text-xs dark:text-slate-400 text-slate-500 font-bold uppercase tracking-widest mb-2 block">Full
+                        Name</label>
+                    <div class="relative">
+                        <i class="fas fa-user absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
+                        <input type="text" placeholder="John Doe" required id="register-name"
+                            class="w-full dark:bg-white/5 bg-slate-50 dark:border-white/10 border-slate-200 border rounded-xl pl-11 pr-4 py-3.5 dark:text-white text-slate-900 dark:placeholder-slate-500 placeholder-slate-400 outline-none focus:ring-2 focus:ring-primary transition-all text-sm">
+                    </div>
+                </div>
                 <div>
                     <label
                         class="text-xs dark:text-slate-400 text-slate-500 font-bold uppercase tracking-widest mb-2 block">Email</label>
                     <div class="relative">
                         <i class="fas fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
-                        <input type="email" placeholder="you@company.com" required id="login-email"
+                        <input type="email" placeholder="you@company.com" required id="register-email"
                             class="w-full dark:bg-white/5 bg-slate-50 dark:border-white/10 border-slate-200 border rounded-xl pl-11 pr-4 py-3.5 dark:text-white text-slate-900 dark:placeholder-slate-500 placeholder-slate-400 outline-none focus:ring-2 focus:ring-primary transition-all text-sm">
                     </div>
                 </div>
@@ -115,44 +123,42 @@
                         class="text-xs dark:text-slate-400 text-slate-500 font-bold uppercase tracking-widest mb-2 block">Password</label>
                     <div class="relative">
                         <i class="fas fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
-                        <input type="password" placeholder="Enter your password" required id="login-password"
+                        <input type="password" placeholder="Create a strong password" required id="register-password"
                             class="w-full dark:bg-white/5 bg-slate-50 dark:border-white/10 border-slate-200 border rounded-xl pl-11 pr-12 py-3.5 dark:text-white text-slate-900 dark:placeholder-slate-500 placeholder-slate-400 outline-none focus:ring-2 focus:ring-primary transition-all text-sm">
-                        <button type="button" onclick="togglePw()"
+                        <button type="button" onclick="togglePw('register-password', 'pw-icon-1')"
                             class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-primary transition-colors"><i
-                                id="pw-icon" class="fas fa-eye text-sm"></i></button>
+                                id="pw-icon-1" class="fas fa-eye text-sm"></i></button>
+                    </div>
+                </div>
+                <div>
+                    <label
+                        class="text-xs dark:text-slate-400 text-slate-500 font-bold uppercase tracking-widest mb-2 block">Confirm
+                        Password</label>
+                    <div class="relative">
+                        <i class="fas fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
+                        <input type="password" placeholder="Confirm your password" required id="register-confirm"
+                            class="w-full dark:bg-white/5 bg-slate-50 dark:border-white/10 border-slate-200 border rounded-xl pl-11 pr-12 py-3.5 dark:text-white text-slate-900 dark:placeholder-slate-500 placeholder-slate-400 outline-none focus:ring-2 focus:ring-primary transition-all text-sm">
+                        <button type="button" onclick="togglePw('register-confirm', 'pw-icon-2')"
+                            class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-primary transition-colors"><i
+                                id="pw-icon-2" class="fas fa-eye text-sm"></i></button>
                     </div>
                 </div>
 
-                <div class="flex flex-col xs:flex-row items-start xs:items-center justify-between gap-2 text-sm">
-                    <label class="flex items-center gap-2 dark:text-slate-400 text-slate-500 cursor-pointer"><input
-                            type="checkbox" class="accent-primary w-4 h-4"> Remember me</label>
-                    <a href="#" class="text-primary hover:underline font-medium whitespace-nowrap">Forgot password?</a>
+                <div class="flex items-center gap-2 text-sm">
+                    <input type="checkbox" required class="accent-primary w-4 h-4">
+                    <span class="dark:text-slate-400 text-slate-500">I agree to the <a href="#"
+                            class="text-primary hover:underline font-medium">Terms of Service</a> and <a href="#"
+                            class="text-primary hover:underline font-medium">Privacy Policy</a></span>
                 </div>
 
-                <button type="submit" id="login-submit"
+                <button type="submit" id="register-submit"
                     class="w-full bg-primary text-white py-4 rounded-2xl font-black text-lg hover:opacity-90 transition-all active:scale-[0.98] shadow-xl shadow-primary/20">
-                    <i class="fas fa-sign-in-alt mr-2"></i> Sign In
+                    <i class="fas fa-user-plus mr-2"></i> Create Account
                 </button>
             </form>
 
-            <div class="flex items-center gap-4 my-8">
-                <div class="flex-1 h-px dark:bg-white/10 bg-slate-200"></div><span
-                    class="text-xs dark:text-slate-500 text-slate-400 font-bold uppercase">or
-                    continue with</span>
-                <div class="flex-1 h-px dark:bg-white/10 bg-slate-200"></div>
-            </div>
-
-            <div class="grid grid-cols-2 gap-3">
-                <button
-                    class="py-3 rounded-xl dark:border-white/10 border-slate-200 border dark:bg-white/5 bg-slate-50 dark:text-white text-slate-700 font-medium text-sm dark:hover:bg-white/10 hover:bg-slate-100 transition-all"><i
-                        class="fas fa-fingerprint mr-2 text-primary"></i> Biometric</button>
-                <button
-                    class="py-3 rounded-xl dark:border-white/10 border-slate-200 border dark:bg-white/5 bg-slate-50 dark:text-white text-slate-700 font-medium text-sm dark:hover:bg-white/10 hover:bg-slate-100 transition-all"><i
-                        class="fas fa-mobile-alt mr-2 text-teal"></i> 2FA Code</button>
-            </div>
-
-            <p class="text-center mt-6 text-sm dark:text-slate-400 text-slate-500">Don't have an account? <a
-                    href="register.html" class="text-primary font-bold hover:underline">Register</a></p>
+            <p class="text-center mt-6 text-sm dark:text-slate-400 text-slate-500">Already have an account? <a
+                    href="login.html" class="text-primary font-bold hover:underline">Sign In</a></p>
 
             <p class="text-center mt-4 text-xs dark:text-slate-500 text-slate-400"><i
                     class="fas fa-shield-alt mr-1 text-green-500"></i>
@@ -161,14 +167,20 @@
     </div>
 
     <script>
-        document.getElementById('login-form').addEventListener('submit', function (e) {
+        document.getElementById('register-form').addEventListener('submit', function (e) {
             e.preventDefault();
-            const btn = document.getElementById('login-submit');
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Signing in...';
+            const pw = document.getElementById('register-password').value;
+            const confirm = document.getElementById('register-confirm').value;
+            if (pw !== confirm) {
+                alert('Passwords do not match!');
+                return;
+            }
+            const btn = document.getElementById('register-submit');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Creating account...';
             btn.disabled = true;
-            setTimeout(() => { window.location.href = 'dashboard.html'; }, 1500);
+            setTimeout(() => { window.location.href = 'login.html'; }, 1500);
         });
-        function togglePw() { const p = document.getElementById('login-password'); const i = document.getElementById('pw-icon'); if (p.type === 'password') { p.type = 'text'; i.className = 'fas fa-eye-slash text-sm'; } else { p.type = 'password'; i.className = 'fas fa-eye text-sm'; } }
+        function togglePw(fieldId, iconId) { const p = document.getElementById(fieldId); const i = document.getElementById(iconId); if (p.type === 'password') { p.type = 'text'; i.className = 'fas fa-eye-slash text-sm'; } else { p.type = 'password'; i.className = 'fas fa-eye text-sm'; } }
         function toggleTheme() { const h = document.documentElement; const i = document.getElementById('theme-icon'); if (h.classList.contains('dark')) { h.classList.remove('dark'); localStorage.setItem('theme', 'light'); i.className = 'fas fa-moon'; } else { h.classList.add('dark'); localStorage.setItem('theme', 'dark'); i.className = 'fas fa-sun'; } }
     </script>
 
