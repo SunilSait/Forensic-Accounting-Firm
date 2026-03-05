@@ -58,18 +58,18 @@
 </head>
 
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white">
-    <div class="flex min-h-screen">
+    <div class="flex min-h-screen overflow-x-hidden">
         <aside id="sidebar"
             class="fixed lg:sticky top-0 left-0 z-50 h-screen w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-shrink-0 flex flex-col transition-transform duration-300 -translate-x-full lg:translate-x-0">
             <div class="py-6 px-6 border-b border-slate-100 dark:border-slate-800">
-                <div class="flex items-center gap-3">
+                <a href="index.html" class="flex items-center gap-3" style="text-decoration:none;color:inherit;">
                     <div class="w-10 h-10 bg-red-500 rounded-xl flex items-center justify-center text-white"><i
                             class="fas fa-cogs"></i></div>
                     <div><span class="font-bold text-lg font-heading">Admin<span
                                 class="text-red-500">Panel</span></span>
                         <div class="text-[10px] text-slate-400 uppercase tracking-widest">ForensicEdge</div>
                     </div>
-                </div>
+                </a>
             </div>
             <nav class="flex-1 overflow-y-auto py-6 px-4 space-y-1">
                 <div class="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Main</div>
@@ -115,7 +115,7 @@
             </div>
         </aside>
 
-        <div class="flex-1 flex flex-col min-h-screen">
+        <div class="flex-1 flex flex-col min-h-screen min-w-0 overflow-x-hidden">
             <header
                 class="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-6 py-3">
                 <div class="flex items-center justify-between">
@@ -133,6 +133,7 @@
                                 type="text" placeholder="Search logs..."
                                 class="pl-10 pr-4 py-2 w-64 rounded-xl bg-slate-100 dark:bg-slate-800 border-none outline-none text-sm">
                         </div>
+                        <button onclick="toggleDir()" class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-bold" title="Switch LTR/RTL">LTR/RTL</button>
                         <button onclick="toggleTheme()"
                             class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i id="theme-icon"
                                 class="fas fa-moon"></i></button>
@@ -163,7 +164,8 @@
                             class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                             <div
                                 class="w-8 h-8 rounded-full bg-green-500/10 text-green-500 flex-shrink-0 flex items-center justify-center">
-                                <i class="fas fa-sign-in-alt text-xs"></i></div>
+                                <i class="fas fa-sign-in-alt text-xs"></i>
+                            </div>
                             <div class="flex-1">
                                 <div class="text-sm font-medium">User <strong>James Donovan</strong> logged in</div>
                                 <div class="text-[10px] text-slate-400 mt-1">Today, 10:42 AM → IP: 192.168.1.xx</div>
@@ -174,7 +176,8 @@
                             class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                             <div
                                 class="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex-shrink-0 flex items-center justify-center">
-                                <i class="fas fa-upload text-xs"></i></div>
+                                <i class="fas fa-upload text-xs"></i>
+                            </div>
                             <div class="flex-1">
                                 <div class="text-sm font-medium">3 documents uploaded to <strong>Case
                                         FA-2026-038</strong></div>
@@ -186,7 +189,8 @@
                             class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                             <div
                                 class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
-                                <i class="fas fa-user-plus text-xs"></i></div>
+                                <i class="fas fa-user-plus text-xs"></i>
+                            </div>
                             <div class="flex-1">
                                 <div class="text-sm font-medium">New user <strong>Diana Palmer</strong> registered</div>
                                 <div class="text-[10px] text-slate-400 mt-1">Yesterday → Enterprise tier</div>
@@ -197,7 +201,8 @@
                             class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                             <div
                                 class="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex-shrink-0 flex items-center justify-center">
-                                <i class="fas fa-exclamation-triangle text-xs"></i></div>
+                                <i class="fas fa-exclamation-triangle text-xs"></i>
+                            </div>
                             <div class="flex-1">
                                 <div class="text-sm font-medium"><strong>Failed login attempt</strong> from unknown IP
                                 </div>
@@ -210,7 +215,8 @@
                             class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                             <div
                                 class="w-8 h-8 rounded-full bg-purple-500/10 text-purple-500 flex-shrink-0 flex items-center justify-center">
-                                <i class="fas fa-key text-xs"></i></div>
+                                <i class="fas fa-key text-xs"></i>
+                            </div>
                             <div class="flex-1">
                                 <div class="text-sm font-medium">Admin <strong>password policy</strong> updated</div>
                                 <div class="text-[10px] text-slate-400 mt-1">Mar 02, 2026 → System config change</div>
@@ -221,7 +227,8 @@
                             class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                             <div
                                 class="w-8 h-8 rounded-full bg-teal/10 text-teal flex-shrink-0 flex items-center justify-center">
-                                <i class="fas fa-database text-xs"></i></div>
+                                <i class="fas fa-database text-xs"></i>
+                            </div>
                             <div class="flex-1">
                                 <div class="text-sm font-medium">Database <strong>backup completed</strong> successfully
                                 </div>
@@ -233,10 +240,12 @@
                             class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                             <div
                                 class="w-8 h-8 rounded-full bg-green-500/10 text-green-500 flex-shrink-0 flex items-center justify-center">
-                                <i class="fas fa-check-circle text-xs"></i></div>
+                                <i class="fas fa-check-circle text-xs"></i>
+                            </div>
                             <div class="flex-1">
                                 <div class="text-sm font-medium">Case <strong>FA-2026-025</strong> marked as
-                                    <strong>closed</strong></div>
+                                    <strong>closed</strong>
+                                </div>
                                 <div class="text-[10px] text-slate-400 mt-1">Feb 28, 2026 → Resolved by Tom L.</div>
                             </div><span
                                 class="text-[10px] text-green-500 bg-green-500/10 px-2 py-1 rounded-full font-bold">Case</span>
@@ -250,6 +259,20 @@
         function toggleSidebar() { const s = document.getElementById('sidebar'); s.classList.toggle('-translate-x-full'); }
         function toggleTheme() { const h = document.documentElement; const i = document.getElementById('theme-icon'); if (h.classList.contains('dark')) { h.classList.remove('dark'); localStorage.setItem('theme', 'light'); i.className = 'fas fa-moon'; } else { h.classList.add('dark'); localStorage.setItem('theme', 'dark'); i.className = 'fas fa-sun'; } }
         if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); document.getElementById('theme-icon').className = 'fas fa-sun'; }
+    </script>
+
+    <script>
+        // LTR/RTL Direction Toggle
+        function toggleDir() {
+            const html = document.documentElement;
+            const newDir = html.dir === 'ltr' ? 'rtl' : 'ltr';
+            html.dir = newDir;
+            localStorage.setItem('site-direction', newDir);
+        }
+        (function () {
+            const savedDir = localStorage.getItem('site-direction');
+            document.documentElement.dir = savedDir || 'ltr';
+        })();
     </script>
 </body>
 

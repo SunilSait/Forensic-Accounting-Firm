@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" dir="ltr" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -23,11 +23,11 @@
     <div class="dashboard-wrapper">
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header">
+            <a href="index.html" class="sidebar-header" style="text-decoration:none;color:inherit;">
                 <div class="sidebar-logo"><i data-lucide="shield-check" style="width:20px;height:20px;color:#fff;"></i>
                 </div>
                 <div class="sidebar-brand">Forensic<span>Edge</span></div>
-            </div>
+            </a>
             <nav class="sidebar-nav">
                 <div class="nav-section">
                     <div class="nav-label">Main</div>
@@ -76,6 +76,7 @@
                             type="text" placeholder="Search cases..."></div>
                     <a href="dashboard-notifications.html" class="top-bar-icon"><i data-lucide="bell"
                             style="width:18px;height:18px;"></i><span class="notification-dot"></span></a>
+                    <button onclick="toggleDir()" class="theme-toggle" aria-label="Toggle direction" title="Switch LTR/RTL" style="width:auto;font-size:0.65rem;font-weight:700;padding:0 10px;">LTR/RTL</button>
                     <button class="theme-toggle" aria-label="Toggle theme"><i data-lucide="moon"
                             style="width:18px;height:18px;"></i></button>
                     <div class="avatar" style="width:36px;height:36px;font-size:0.8rem;">JD</div>
@@ -284,6 +285,20 @@
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/dashboard.js"></script>
     <script>lucide.createIcons();</script>
+
+    <script>
+        // LTR/RTL Direction Toggle
+        function toggleDir() {
+            const html = document.documentElement;
+            const newDir = html.dir === 'ltr' ? 'rtl' : 'ltr';
+            html.dir = newDir;
+            localStorage.setItem('site-direction', newDir);
+        }
+        (function () {
+            const savedDir = localStorage.getItem('site-direction');
+            document.documentElement.dir = savedDir || 'ltr';
+        })();
+    </script>
 </body>
 
 </html>

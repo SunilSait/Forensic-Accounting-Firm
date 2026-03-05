@@ -702,6 +702,64 @@
     margin-top: var(--space-2);
 }
 
+/* ---------- 404 & Coming Soon — Light Theme ---------- */
+[data-theme="light"] .error-page,
+[data-theme="light"] .coming-soon-page {
+    background: var(--gray-50);
+}
+
+[data-theme="light"] .error-page .hero-bg,
+[data-theme="light"] .coming-soon-page .hero-bg {
+    background: radial-gradient(ellipse at 70% 30%, rgba(212, 168, 67, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(20, 184, 166, 0.04) 0%, transparent 50%);
+}
+
+[data-theme="light"] .error-page .hero-grid-pattern,
+[data-theme="light"] .coming-soon-page .hero-grid-pattern {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px) !important;
+}
+
+[data-theme="light"] .error-title {
+    color: var(--gray-900);
+}
+
+[data-theme="light"] .error-desc {
+    color: var(--gray-600);
+}
+
+[data-theme="light"] .countdown-item {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: var(--gray-200);
+}
+
+[data-theme="light"] .countdown-label {
+    color: var(--gray-600);
+}
+
+[data-theme="light"] .error-page .btn-secondary,
+[data-theme="light"] .coming-soon-page .btn-secondary {
+    background: var(--white);
+    border-color: var(--gray-200);
+    color: var(--gray-700);
+}
+
+[data-theme="light"] .error-page .btn-secondary:hover,
+[data-theme="light"] .coming-soon-page .btn-secondary:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+}
+
+[data-theme="light"] .coming-soon-page .form-input {
+    background: rgba(0, 0, 0, 0.04) !important;
+    border-color: var(--gray-200) !important;
+    color: var(--gray-900) !important;
+}
+
+[data-theme="light"] .coming-soon-page .form-input::placeholder {
+    color: var(--gray-400);
+}
+
 /* ---------- About Page ---------- */
 .page-hero {
     background: var(--primary);

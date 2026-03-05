@@ -63,20 +63,20 @@
 </head>
 
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white transition-all">
-    <div class="flex min-h-screen">
+    <div class="flex min-h-screen overflow-x-hidden">
 
         <!-- ========== SIDEBAR ========== -->
         <aside id="sidebar"
             class="fixed lg:sticky top-0 left-0 z-50 h-screen w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-shrink-0 flex flex-col transition-transform duration-300 -translate-x-full lg:translate-x-0">
             <div class="py-6 px-6 border-b border-slate-100 dark:border-slate-800">
-                <div class="flex items-center gap-3">
+                <a href="index.html" class="flex items-center gap-3" style="text-decoration:none;color:inherit;">
                     <div class="w-10 h-10 bg-red-500 rounded-xl flex items-center justify-center text-white"><i
                             class="fas fa-cogs"></i></div>
                     <div><span class="font-bold text-lg font-heading">Admin<span
                                 class="text-red-500">Panel</span></span>
                         <div class="text-[10px] text-slate-400 uppercase tracking-widest">ForensicEdge</div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <nav class="flex-1 overflow-y-auto py-6 px-4 space-y-1">
@@ -128,7 +128,7 @@
         </aside>
 
         <!-- ========== MAIN CONTENT ========== -->
-        <div class="flex-1 flex flex-col min-h-screen">
+        <div class="flex-1 flex flex-col min-h-screen min-w-0 overflow-x-hidden">
             <header
                 class="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-6 py-3">
                 <div class="flex items-center justify-between">
@@ -148,6 +148,7 @@
                             <input type="text" placeholder="Search users..."
                                 class="pl-10 pr-4 py-2 w-64 rounded-xl bg-slate-100 dark:bg-slate-800 border-none outline-none text-sm">
                         </div>
+                        <button onclick="toggleDir()" class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-bold" title="Switch LTR/RTL">LTR/RTL</button>
                         <button onclick="toggleTheme()"
                             class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i id="theme-icon"
                                 class="fas fa-moon"></i></button>
@@ -178,7 +179,8 @@
                         <div class="flex items-center gap-4 mb-3">
                             <div
                                 class="w-12 h-12 bg-blue-500/10 text-blue-500 rounded-2xl flex items-center justify-center">
-                                <i class="fas fa-users text-xl"></i></div>
+                                <i class="fas fa-users text-xl"></i>
+                            </div>
                         </div>
                         <div class="text-3xl font-black">524</div>
                         <div class="text-xs text-slate-500 mt-1 uppercase tracking-wider">Total Users</div>
@@ -188,7 +190,8 @@
                         <div class="flex items-center gap-4 mb-3">
                             <div
                                 class="w-12 h-12 bg-green-500/10 text-green-500 rounded-2xl flex items-center justify-center">
-                                <i class="fas fa-user-check text-xl"></i></div>
+                                <i class="fas fa-user-check text-xl"></i>
+                            </div>
                         </div>
                         <div class="text-3xl font-black">489</div>
                         <div class="text-xs text-slate-500 mt-1 uppercase tracking-wider">Active</div>
@@ -198,7 +201,8 @@
                         <div class="flex items-center gap-4 mb-3">
                             <div
                                 class="w-12 h-12 bg-yellow-500/10 text-yellow-500 rounded-2xl flex items-center justify-center">
-                                <i class="fas fa-user-clock text-xl"></i></div>
+                                <i class="fas fa-user-clock text-xl"></i>
+                            </div>
                         </div>
                         <div class="text-3xl font-black">28</div>
                         <div class="text-xs text-slate-500 mt-1 uppercase tracking-wider">Pending</div>
@@ -208,7 +212,8 @@
                         <div class="flex items-center gap-4 mb-3">
                             <div
                                 class="w-12 h-12 bg-red-500/10 text-red-500 rounded-2xl flex items-center justify-center">
-                                <i class="fas fa-user-slash text-xl"></i></div>
+                                <i class="fas fa-user-slash text-xl"></i>
+                            </div>
                         </div>
                         <div class="text-3xl font-black">7</div>
                         <div class="text-xs text-slate-500 mt-1 uppercase tracking-wider">Suspended</div>
@@ -376,6 +381,20 @@
         function toggleSidebar() { const s = document.getElementById('sidebar'); s.classList.toggle('-translate-x-full'); }
         function toggleTheme() { const h = document.documentElement; const i = document.getElementById('theme-icon'); if (h.classList.contains('dark')) { h.classList.remove('dark'); localStorage.setItem('theme', 'light'); i.className = 'fas fa-moon'; } else { h.classList.add('dark'); localStorage.setItem('theme', 'dark'); i.className = 'fas fa-sun'; } }
         if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); document.getElementById('theme-icon').className = 'fas fa-sun'; }
+    </script>
+
+    <script>
+        // LTR/RTL Direction Toggle
+        function toggleDir() {
+            const html = document.documentElement;
+            const newDir = html.dir === 'ltr' ? 'rtl' : 'ltr';
+            html.dir = newDir;
+            localStorage.setItem('site-direction', newDir);
+        }
+        (function () {
+            const savedDir = localStorage.getItem('site-direction');
+            document.documentElement.dir = savedDir || 'ltr';
+        })();
     </script>
 </body>
 

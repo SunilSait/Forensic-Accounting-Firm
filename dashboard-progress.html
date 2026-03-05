@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" dir="ltr" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -23,11 +23,11 @@
     <div class="dashboard-wrapper">
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header">
+            <a href="index.html" class="sidebar-header" style="text-decoration:none;color:inherit;">
                 <div class="sidebar-logo"><i data-lucide="shield-check" style="width:20px;height:20px;color:#fff;"></i>
                 </div>
                 <div class="sidebar-brand">Forensic<span>Edge</span></div>
-            </div>
+            </a>
             <nav class="sidebar-nav">
                 <div class="nav-section">
                     <div class="nav-label">Main</div>
@@ -76,6 +76,7 @@
                             type="text" placeholder="Search..."></div>
                     <a href="dashboard-notifications.html" class="top-bar-icon"><i data-lucide="bell"
                             style="width:18px;height:18px;"></i><span class="notification-dot"></span></a>
+                    <button onclick="toggleDir()" class="theme-toggle" aria-label="Toggle direction" title="Switch LTR/RTL" style="width:auto;font-size:0.65rem;font-weight:700;padding:0 10px;">LTR/RTL</button>
                     <button class="theme-toggle"><i data-lucide="moon" style="width:18px;height:18px;"></i></button>
                     <div class="avatar" style="width:36px;height:36px;font-size:0.8rem;">JD</div>
                 </div>
@@ -83,18 +84,23 @@
 
             <div class="dashboard-content">
                 <!-- Case Selector -->
-                <div
-                    style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-6);flex-wrap:wrap;gap:var(--space-4);">
-                    <div>
-                        <select class="filter-select" style="font-size:0.9rem;padding:0.6rem 2.5rem 0.6rem 1rem;">
-                            <option>FA-2026-038 — Meridian Corp Fraud Review</option>
-                            <option>FA-2026-035 — Apex Financial Audit</option>
-                            <option>FA-2026-029 — Global Assets Recovery</option>
+                <div class="progress-case-selector">
+                    <div class="progress-select-wrap">
+                        <select class="filter-select" id="caseSelector"
+                            style="font-size:0.9rem;padding:0.6rem 2.5rem 0.6rem 1rem;width:100%;"
+                            onchange="switchCase(this)">
+                            <option value="0" data-name="Meridian Corp Fraud Review" data-pct="65"
+                                data-start="Feb 12, 2026" data-end="Mar 30, 2026">FA-2026-038 — Meridian Corp Fraud
+                                Review</option>
+                            <option value="1" data-name="Apex Financial Audit" data-pct="42" data-start="Jan 20, 2026"
+                                data-end="Apr 15, 2026">FA-2026-035 — Apex Financial Audit</option>
+                            <option value="2" data-name="Global Assets Recovery" data-pct="78" data-start="Dec 05, 2025"
+                                data-end="Mar 10, 2026">FA-2026-029 — Global Assets Recovery</option>
                         </select>
                     </div>
                     <div style="display:flex;gap:var(--space-3);align-items:center;">
                         <span style="font-size:0.85rem;color:var(--text-secondary);">Overall Completion:</span>
-                        <span
+                        <span id="overallPct"
                             style="font-family:var(--font-heading);font-weight:800;font-size:1.25rem;color:var(--accent-gold);">65%</span>
                     </div>
                 </div>
@@ -103,15 +109,17 @@
                 <div class="panel" style="margin-bottom:var(--space-8);">
                     <div class="panel-body">
                         <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:8px;">
-                            <span style="font-weight:600;">Meridian Corp Fraud Review</span>
-                            <span style="color:var(--accent-gold);font-weight:700;">65%</span>
+                            <span id="caseName" style="font-weight:600;">Meridian Corp Fraud Review</span>
+                            <span id="casePct" style="color:var(--accent-gold);font-weight:700;">65%</span>
                         </div>
                         <div class="progress-bar" style="height:12px;">
-                            <div class="progress-fill" data-width="65%" style="height:12px;"></div>
+                            <div class="progress-fill" id="caseFill" data-width="65%" style="height:12px;width:65%;">
+                            </div>
                         </div>
                         <div
                             style="display:flex;justify-content:space-between;margin-top:12px;font-size:0.8rem;color:var(--text-secondary);">
-                            <span>Started: Feb 12, 2026</span><span>Est. Completion: Mar 30, 2026</span>
+                            <span id="caseStart">Started: Feb 12, 2026</span><span id="caseEnd">Est. Completion: Mar 30,
+                                2026</span>
                         </div>
                     </div>
                 </div>
@@ -305,7 +313,38 @@
     </div>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/dashboard.js"></script>
-    <script>lucide.createIcons();</script>
+    <script>
+        lucide.createIcons();
+        function switchCase(sel) {
+            const opt = sel.options[sel.selectedIndex];
+            const name = opt.getAttribute('data-name');
+            const pct = opt.getAttribute('data-pct');
+            const start = opt.getAttribute('data-start');
+            const end = opt.getAttribute('data-end');
+            document.getElementById('overallPct').textContent = pct + '%';
+            document.getElementById('caseName').textContent = name;
+            document.getElementById('casePct').textContent = pct + '%';
+            const fill = document.getElementById('caseFill');
+            fill.style.width = pct + '%';
+            fill.setAttribute('data-width', pct + '%');
+            document.getElementById('caseStart').textContent = 'Started: ' + start;
+            document.getElementById('caseEnd').textContent = 'Est. Completion: ' + end;
+        }
+    </script>
+
+    <script>
+        // LTR/RTL Direction Toggle
+        function toggleDir() {
+            const html = document.documentElement;
+            const newDir = html.dir === 'ltr' ? 'rtl' : 'ltr';
+            html.dir = newDir;
+            localStorage.setItem('site-direction', newDir);
+        }
+        (function () {
+            const savedDir = localStorage.getItem('site-direction');
+            document.documentElement.dir = savedDir || 'ltr';
+        })();
+    </script>
 </body>
 
 </html>

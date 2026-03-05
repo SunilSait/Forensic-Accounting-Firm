@@ -67,25 +67,30 @@
             style="background-image: radial-gradient(#D4A843 1px, transparent 1px); background-size: 30px 30px;"></div>
     </div>
 
-    <!-- Back to Home -->
-    <a href="index.html"
-        class="absolute top-6 left-6 z-20 flex items-center gap-2 dark:text-slate-400 text-slate-600 text-sm hover:text-primary transition-colors">
-        <i class="fas fa-arrow-left"></i> Back to Home
-    </a>
-
-    <!-- Theme Toggle & LTR/RTL -->
-    <div class="absolute top-6 right-6 z-20 flex items-center gap-2">
-        <button onclick="toggleDir()"
-            class="text-xs font-bold border dark:border-slate-600 border-slate-300 dark:text-slate-400 text-slate-600 px-2 py-1 rounded hover:border-primary hover:text-primary transition-all">LTR
-            / RTL</button>
-        <button onclick="toggleTheme()"
-            class="p-2 rounded-full dark:text-slate-400 text-slate-600 hover:text-primary transition-colors">
-            <i id="theme-icon" class="fas fa-moon"></i>
-        </button>
+    <!-- Header Bar -->
+    <div class="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-4 sm:px-6 py-5 sm:py-6">
+        <!-- Logo / Home Link -->
+        <a href="index.html" class="flex items-center gap-2 no-underline hover:opacity-80 transition-opacity">
+            <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white text-sm">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <span class="font-bold text-lg tracking-tight font-heading dark:text-white text-slate-900">Forensic<span
+                    class="text-primary">Edge</span></span>
+        </a>
+        <!-- Theme Toggle & LTR/RTL -->
+        <div class="flex items-center gap-2">
+            <button onclick="toggleDir()"
+                class="text-xs font-bold border dark:border-slate-600 border-slate-300 dark:text-slate-400 text-slate-600 px-2 py-1 rounded hover:border-primary hover:text-primary transition-all">LTR
+                / RTL</button>
+            <button onclick="toggleTheme()"
+                class="p-2 rounded-full dark:text-slate-400 text-slate-600 hover:text-primary transition-colors">
+                <i id="theme-icon" class="fas fa-moon"></i>
+            </button>
+        </div>
     </div>
 
     <!-- Register Card -->
-    <div class="relative z-10 w-full max-w-md px-4 anim-up">
+    <div class="relative z-10 w-full max-w-md px-4 pt-20 sm:pt-8 anim-up">
         <div
             class="dark:bg-white/[0.07] bg-white backdrop-blur-xl dark:border-white/10 border-slate-200 border rounded-2xl sm:rounded-[2rem] p-6 sm:p-10 shadow-2xl dark:shadow-2xl shadow-slate-200/50">
             <!-- Logo -->
