@@ -77,18 +77,18 @@
 
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white transition-all">
 
-    <div class="flex min-h-screen overflow-x-hidden">
+    <div class="flex h-screen overflow-hidden">
 
         <!-- ========== SIDEBAR ========== -->
         <aside id="sidebar"
             class="fixed lg:sticky top-0 left-0 z-50 h-screen w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-shrink-0 flex flex-col transition-transform duration-300 -translate-x-full lg:translate-x-0">
             <div class="py-6 px-6 border-b border-slate-100 dark:border-slate-800">
                 <a href="index.html" class="flex items-center gap-3" style="text-decoration:none;color:inherit;">
-                    <div class="w-10 h-10 bg-red-500 rounded-xl flex items-center justify-center text-white"><i
-                            class="fas fa-cogs"></i></div>
-                    <div><span class="font-bold text-lg font-heading">Admin<span
-                                class="text-red-500">Panel</span></span>
-                        <div class="text-[10px] text-slate-400 uppercase tracking-widest">ForensicEdge</div>
+                    <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white"><i
+                            class="fas fa-shield-alt"></i></div>
+                    <div><span class="font-bold text-lg font-heading">Forensic<span
+                                class="text-primary">Edge</span></span>
+                        <div class="text-[10px] text-slate-400 uppercase tracking-widest">Admin Panel</div>
                     </div>
                 </a>
             </div>
@@ -96,7 +96,7 @@
             <nav class="flex-1 overflow-y-auto py-6 px-4 space-y-1">
                 <div class="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Main</div>
                 <a href="admin-dashboard.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl bg-red-500/10 text-red-500 font-medium"><i
+                    class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/10 text-primary font-medium"><i
                         class="fas fa-tachometer-alt w-5 text-center"></i> Dashboard</a>
                 <a href="admin-users.html"
                     class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
@@ -129,20 +129,20 @@
             <div class="p-4 border-t border-slate-100 dark:border-slate-800">
                 <div class="flex items-center gap-3 p-2">
                     <div
-                        class="w-10 h-10 bg-red-500/20 text-red-500 rounded-full flex items-center justify-center font-bold text-sm">
+                        class="w-10 h-10 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-sm">
                         AD</div>
                     <div class="flex-1">
                         <div class="font-bold text-sm">Admin User</div>
                         <div class="text-[10px] text-slate-400">Super Administrator</div>
                     </div>
-                    <a href="login.html" class="text-slate-400 hover:text-red-500 transition-colors"><i
+                    <a href="login.html" class="text-slate-400 hover:text-primary transition-colors"><i
                             class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
         </aside>
 
         <!-- ========== MAIN CONTENT ========== -->
-        <div class="flex-1 flex flex-col min-h-screen min-w-0 overflow-x-hidden">
+        <div class="flex-1 flex flex-col h-screen min-w-0 overflow-y-auto">
             <!-- Top Bar -->
             <header
                 class="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-6 py-3">
@@ -165,13 +165,13 @@
                         </div>
                         <button class="relative p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i
                                 class="fas fa-bell"></i><span
-                                class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span></button>
+                                class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span></button>
                         <button onclick="toggleDir()" class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-bold" title="Switch LTR/RTL">LTR/RTL</button>
                         <button onclick="toggleTheme()"
                             class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i id="theme-icon"
                                 class="fas fa-moon"></i></button>
                         <div
-                            class="w-9 h-9 bg-red-500/20 text-red-500 rounded-full flex items-center justify-center font-bold text-xs">
+                            class="w-9 h-9 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-xs">
                             AD</div>
                     </div>
                 </div>
@@ -189,7 +189,7 @@
                             class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-xl text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-all"><i
                                 class="fas fa-download mr-2"></i> Export Data</button>
                         <button
-                            class="px-4 py-2 bg-red-500 text-white rounded-xl text-sm font-bold hover:bg-red-600 transition-all"><i
+                            class="px-4 py-2 bg-primary text-white rounded-xl text-sm font-bold hover:bg-primary/80 transition-all"><i
                                 class="fas fa-plus mr-2"></i> New User</button>
                     </div>
                 </div>
@@ -200,10 +200,10 @@
                         class="anim-up d1 p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all">
                         <div class="flex items-center gap-4 mb-4">
                             <div
-                                class="w-12 h-12 bg-blue-500/10 text-blue-500 rounded-2xl flex items-center justify-center">
+                                class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center">
                                 <i class="fas fa-users text-xl"></i>
                             </div><span
-                                class="text-xs font-bold text-green-500 bg-green-500/10 px-2 py-1 rounded-full"><i
+                                class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-full"><i
                                     class="fas fa-arrow-up mr-1"></i>12%</span>
                         </div>
                         <div class="text-3xl font-black">524</div>
@@ -225,10 +225,10 @@
                         class="anim-up d3 p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all">
                         <div class="flex items-center gap-4 mb-4">
                             <div
-                                class="w-12 h-12 bg-green-500/10 text-green-500 rounded-2xl flex items-center justify-center">
+                                class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center">
                                 <i class="fas fa-dollar-sign text-xl"></i>
                             </div><span
-                                class="text-xs font-bold text-green-500 bg-green-500/10 px-2 py-1 rounded-full"><i
+                                class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-full"><i
                                     class="fas fa-arrow-up mr-1"></i>23%</span>
                         </div>
                         <div class="text-3xl font-black">$2.4M</div>
@@ -238,7 +238,7 @@
                         class="anim-up d4 p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all">
                         <div class="flex items-center gap-4 mb-4">
                             <div
-                                class="w-12 h-12 bg-purple-500/10 text-purple-500 rounded-2xl flex items-center justify-center">
+                                class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center">
                                 <i class="fas fa-shield-alt text-xl"></i>
                             </div>
                         </div>
@@ -287,11 +287,11 @@
                                             </div>
                                         </td>
                                         <td class="px-6 py-4"><span
-                                                class="px-2 py-1 text-xs font-bold rounded-full bg-blue-500/10 text-blue-500">Client</span>
+                                                class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Client</span>
                                         </td>
                                         <td class="px-6 py-4"><span class="flex items-center gap-2"><span
-                                                    class="w-2 h-2 bg-green-500 rounded-full"></span><span
-                                                    class="text-green-600 font-medium text-xs">Active</span></span></td>
+                                                    class="w-2 h-2 bg-primary rounded-full"></span><span
+                                                    class="text-primary font-medium text-xs">Active</span></span></td>
                                         <td class="px-6 py-4 font-bold">12</td>
                                         <td class="px-6 py-4 text-slate-400 text-xs">Today, 10:42 AM</td>
                                         <td class="px-6 py-4"><button
@@ -303,7 +303,7 @@
                                         <td class="px-6 py-4">
                                             <div class="flex items-center gap-3">
                                                 <div
-                                                    class="w-9 h-9 rounded-full bg-teal/20 text-teal flex items-center justify-center font-bold text-xs">
+                                                    class="w-9 h-9 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">
                                                     SK</div>
                                                 <div>
                                                     <div class="font-bold">Sarah Kensington</div>
@@ -312,11 +312,11 @@
                                             </div>
                                         </td>
                                         <td class="px-6 py-4"><span
-                                                class="px-2 py-1 text-xs font-bold rounded-full bg-blue-500/10 text-blue-500">Client</span>
+                                                class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Client</span>
                                         </td>
                                         <td class="px-6 py-4"><span class="flex items-center gap-2"><span
-                                                    class="w-2 h-2 bg-green-500 rounded-full"></span><span
-                                                    class="text-green-600 font-medium text-xs">Active</span></span></td>
+                                                    class="w-2 h-2 bg-primary rounded-full"></span><span
+                                                    class="text-primary font-medium text-xs">Active</span></span></td>
                                         <td class="px-6 py-4 font-bold">8</td>
                                         <td class="px-6 py-4 text-slate-400 text-xs">Yesterday, 3:18 PM</td>
                                         <td class="px-6 py-4"><button
@@ -328,7 +328,7 @@
                                         <td class="px-6 py-4">
                                             <div class="flex items-center gap-3">
                                                 <div
-                                                    class="w-9 h-9 rounded-full bg-purple-500/20 text-purple-500 flex items-center justify-center font-bold text-xs">
+                                                    class="w-9 h-9 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">
                                                     RN</div>
                                                 <div>
                                                     <div class="font-bold">Robert Nakamura</div>
@@ -340,8 +340,8 @@
                                                 class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Premium</span>
                                         </td>
                                         <td class="px-6 py-4"><span class="flex items-center gap-2"><span
-                                                    class="w-2 h-2 bg-green-500 rounded-full"></span><span
-                                                    class="text-green-600 font-medium text-xs">Active</span></span></td>
+                                                    class="w-2 h-2 bg-primary rounded-full"></span><span
+                                                    class="text-primary font-medium text-xs">Active</span></span></td>
                                         <td class="px-6 py-4 font-bold">15</td>
                                         <td class="px-6 py-4 text-slate-400 text-xs">Mar 03, 2:05 PM</td>
                                         <td class="px-6 py-4"><button
@@ -353,7 +353,7 @@
                                         <td class="px-6 py-4">
                                             <div class="flex items-center gap-3">
                                                 <div
-                                                    class="w-9 h-9 rounded-full bg-red-500/20 text-red-500 flex items-center justify-center font-bold text-xs">
+                                                    class="w-9 h-9 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">
                                                     DP</div>
                                                 <div>
                                                     <div class="font-bold">Diana Palmer</div>
@@ -362,11 +362,11 @@
                                             </div>
                                         </td>
                                         <td class="px-6 py-4"><span
-                                                class="px-2 py-1 text-xs font-bold rounded-full bg-red-500/10 text-red-500">Enterprise</span>
+                                                class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Enterprise</span>
                                         </td>
                                         <td class="px-6 py-4"><span class="flex items-center gap-2"><span
-                                                    class="w-2 h-2 bg-yellow-500 rounded-full"></span><span
-                                                    class="text-yellow-600 font-medium text-xs">Pending</span></span>
+                                                    class="w-2 h-2 bg-primary rounded-full"></span><span
+                                                    class="text-primary font-medium text-xs">Pending</span></span>
                                         </td>
                                         <td class="px-6 py-4 font-bold">3</td>
                                         <td class="px-6 py-4 text-slate-400 text-xs">Feb 28, 9:12 AM</td>
@@ -394,25 +394,25 @@
                                 </div>
                                 <div>
                                     <div class="flex justify-between text-xs mb-2"><span class="text-slate-500">Asset
-                                            Tracing</span><span class="font-bold text-teal">28%</span></div>
+                                            Tracing</span><span class="font-bold text-primary">28%</span></div>
                                     <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full">
-                                        <div class="h-full bg-teal rounded-full" style="width:28%"></div>
+                                        <div class="h-full bg-primary rounded-full" style="width:28%"></div>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="flex justify-between text-xs mb-2"><span
                                             class="text-slate-500">Litigation Support</span><span
-                                            class="font-bold text-blue-500">18%</span></div>
+                                            class="font-bold text-primary">18%</span></div>
                                     <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full">
-                                        <div class="h-full bg-blue-500 rounded-full" style="width:18%"></div>
+                                        <div class="h-full bg-primary rounded-full" style="width:18%"></div>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="flex justify-between text-xs mb-2"><span
                                             class="text-slate-500">Compliance</span><span
-                                            class="font-bold text-purple-500">12%</span></div>
+                                            class="font-bold text-primary">12%</span></div>
                                     <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full">
-                                        <div class="h-full bg-purple-500 rounded-full" style="width:12%"></div>
+                                        <div class="h-full bg-primary rounded-full" style="width:12%"></div>
                                     </div>
                                 </div>
                             </div>
@@ -426,7 +426,7 @@
                                     class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all cursor-pointer">
                                     <div class="flex items-center gap-3">
                                         <div
-                                            class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-500 flex items-center justify-center text-xs font-bold">
+                                            class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs font-bold">
                                             TL</div>
                                         <div>
                                             <div class="font-medium text-sm">Tom Lawson</div>
@@ -440,28 +440,28 @@
                                     class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all cursor-pointer">
                                     <div class="flex items-center gap-3">
                                         <div
-                                            class="w-8 h-8 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center text-xs font-bold">
+                                            class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs font-bold">
                                             AM</div>
                                         <div>
                                             <div class="font-medium text-sm">Ana Martinez</div>
                                             <div class="text-[10px] text-slate-400">Forensic Analyst</div>
                                         </div>
                                     </div>
-                                    <span class="text-xs font-bold bg-teal/10 text-teal px-2 py-1 rounded">4
+                                    <span class="text-xs font-bold bg-primary/10 text-primary px-2 py-1 rounded">4
                                         cases</span>
                                 </div>
                                 <div
                                     class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all cursor-pointer">
                                     <div class="flex items-center gap-3">
                                         <div
-                                            class="w-8 h-8 rounded-full bg-purple-500/20 text-purple-500 flex items-center justify-center text-xs font-bold">
+                                            class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs font-bold">
                                             KB</div>
                                         <div>
                                             <div class="font-medium text-sm">Karen Black</div>
                                             <div class="text-[10px] text-slate-400">Compliance Lead</div>
                                         </div>
                                     </div>
-                                    <span class="text-xs font-bold bg-purple-500/10 text-purple-500 px-2 py-1 rounded">3
+                                    <span class="text-xs font-bold bg-primary/10 text-primary px-2 py-1 rounded">3
                                         cases</span>
                                 </div>
                             </div>
@@ -483,7 +483,7 @@
                             <div
                                 class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                                 <div
-                                    class="w-8 h-8 rounded-full bg-green-500/10 text-green-500 flex-shrink-0 flex items-center justify-center">
+                                    class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
                                     <i class="fas fa-sign-in-alt text-xs"></i>
                                 </div>
                                 <div class="flex-1">
@@ -495,7 +495,7 @@
                             <div
                                 class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                                 <div
-                                    class="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex-shrink-0 flex items-center justify-center">
+                                    class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
                                     <i class="fas fa-upload text-xs"></i>
                                 </div>
                                 <div class="flex-1">
@@ -519,7 +519,7 @@
                             <div
                                 class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                                 <div
-                                    class="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex-shrink-0 flex items-center justify-center">
+                                    class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
                                     <i class="fas fa-exclamation-triangle text-xs"></i>
                                 </div>
                                 <div class="flex-1">
@@ -532,7 +532,7 @@
                             <div
                                 class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                                 <div
-                                    class="w-8 h-8 rounded-full bg-purple-500/10 text-purple-500 flex-shrink-0 flex items-center justify-center">
+                                    class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
                                     <i class="fas fa-key text-xs"></i>
                                 </div>
                                 <div class="flex-1">
@@ -570,7 +570,7 @@
                                         <td class="px-6 py-4 font-medium">Meridian Corp</td>
                                         <td class="px-6 py-4 font-bold">$12,500</td>
                                         <td class="px-6 py-4"><span
-                                                class="px-2 py-1 text-xs font-bold rounded-full bg-green-500/10 text-green-600">Paid</span>
+                                                class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Paid</span>
                                         </td>
                                     </tr>
                                     <tr
@@ -579,7 +579,7 @@
                                         <td class="px-6 py-4 font-medium">Kensington Law</td>
                                         <td class="px-6 py-4 font-bold">$8,750</td>
                                         <td class="px-6 py-4"><span
-                                                class="px-2 py-1 text-xs font-bold rounded-full bg-green-500/10 text-green-600">Paid</span>
+                                                class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Paid</span>
                                         </td>
                                     </tr>
                                     <tr
@@ -588,7 +588,7 @@
                                         <td class="px-6 py-4 font-medium">Pinnacle Holdings</td>
                                         <td class="px-6 py-4 font-bold">$24,000</td>
                                         <td class="px-6 py-4"><span
-                                                class="px-2 py-1 text-xs font-bold rounded-full bg-yellow-500/10 text-yellow-600">Pending</span>
+                                                class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Pending</span>
                                         </td>
                                     </tr>
                                     <tr
@@ -597,7 +597,7 @@
                                         <td class="px-6 py-4 font-medium">GlobalBank</td>
                                         <td class="px-6 py-4 font-bold">$45,000</td>
                                         <td class="px-6 py-4"><span
-                                                class="px-2 py-1 text-xs font-bold rounded-full bg-yellow-500/10 text-yellow-600">Pending</span>
+                                                class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Pending</span>
                                         </td>
                                     </tr>
                                     <tr
@@ -606,7 +606,7 @@
                                         <td class="px-6 py-4 font-medium">TechVentures</td>
                                         <td class="px-6 py-4 font-bold">$6,200</td>
                                         <td class="px-6 py-4"><span
-                                                class="px-2 py-1 text-xs font-bold rounded-full bg-red-500/10 text-red-500">Overdue</span>
+                                                class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Overdue</span>
                                         </td>
                                     </tr>
                                 </tbody>

@@ -178,7 +178,7 @@ h6 {
 }
 
 .text-teal {
-  color: var(--accent-teal);
+  color: var(--accent-gold);
 }
 
 .text-muted {
@@ -303,23 +303,23 @@ h6 {
 }
 
 .badge-success {
-  background: rgba(34, 197, 94, 0.12);
-  color: var(--success);
+  background: rgba(212, 168, 67, 0.12);
+  color: var(--accent-gold);
 }
 
 .badge-warning {
-  background: rgba(245, 158, 11, 0.12);
-  color: var(--warning);
+  background: rgba(212, 168, 67, 0.12);
+  color: var(--accent-gold);
 }
 
 .badge-danger {
-  background: rgba(239, 68, 68, 0.12);
-  color: var(--danger);
+  background: rgba(212, 168, 67, 0.12);
+  color: var(--accent-gold);
 }
 
 .badge-info {
-  background: rgba(59, 130, 246, 0.12);
-  color: var(--info);
+  background: rgba(212, 168, 67, 0.12);
+  color: var(--accent-gold);
 }
 
 .badge-gold {
@@ -417,7 +417,7 @@ textarea.form-input {
   width: 40px;
   height: 40px;
   border-radius: var(--radius-full);
-  background: linear-gradient(135deg, var(--accent-gold), var(--accent-teal));
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -454,7 +454,7 @@ textarea.form-input {
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--accent-gold), var(--accent-teal));
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-gold));
   border-radius: var(--radius-full);
   transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
 }

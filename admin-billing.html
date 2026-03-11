@@ -58,16 +58,16 @@
 </head>
 
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white">
-    <div class="flex min-h-screen overflow-x-hidden">
+    <div class="flex h-screen overflow-hidden">
         <aside id="sidebar"
             class="fixed lg:sticky top-0 left-0 z-50 h-screen w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-shrink-0 flex flex-col transition-transform duration-300 -translate-x-full lg:translate-x-0">
             <div class="py-6 px-6 border-b border-slate-100 dark:border-slate-800">
                 <a href="index.html" class="flex items-center gap-3" style="text-decoration:none;color:inherit;">
-                    <div class="w-10 h-10 bg-red-500 rounded-xl flex items-center justify-center text-white"><i
-                            class="fas fa-cogs"></i></div>
-                    <div><span class="font-bold text-lg font-heading">Admin<span
-                                class="text-red-500">Panel</span></span>
-                        <div class="text-[10px] text-slate-400 uppercase tracking-widest">ForensicEdge</div>
+                    <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white"><i
+                            class="fas fa-shield-alt"></i></div>
+                    <div><span class="font-bold text-lg font-heading">Forensic<span
+                                class="text-primary">Edge</span></span>
+                        <div class="text-[10px] text-slate-400 uppercase tracking-widest">Admin Panel</div>
                     </div>
                 </a>
             </div>
@@ -92,7 +92,7 @@
                         class="fas fa-clipboard-check w-5 text-center"></i> Audit Logs</a>
                 <div class="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest !mt-6">System</div>
                 <a href="admin-billing.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl bg-red-500/10 text-red-500 font-medium"><i
+                    class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/10 text-primary font-medium"><i
                         class="fas fa-file-invoice-dollar w-5 text-center"></i> Billing</a>
                 <a href="admin-settings.html"
                     class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
@@ -104,18 +104,18 @@
             <div class="p-4 border-t border-slate-100 dark:border-slate-800">
                 <div class="flex items-center gap-3 p-2">
                     <div
-                        class="w-10 h-10 bg-red-500/20 text-red-500 rounded-full flex items-center justify-center font-bold text-sm">
+                        class="w-10 h-10 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-sm">
                         AD</div>
                     <div class="flex-1">
                         <div class="font-bold text-sm">Admin User</div>
                         <div class="text-[10px] text-slate-400">Super Administrator</div>
-                    </div><a href="login.html" class="text-slate-400 hover:text-red-500"><i
+                    </div><a href="login.html" class="text-slate-400 hover:text-primary"><i
                             class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
         </aside>
 
-        <div class="flex-1 flex flex-col min-h-screen min-w-0 overflow-x-hidden">
+        <div class="flex-1 flex flex-col h-screen min-w-0 overflow-y-auto">
             <header
                 class="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-6 py-3">
                 <div class="flex items-center justify-between">
@@ -132,7 +132,7 @@
                             class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i id="theme-icon"
                                 class="fas fa-moon"></i></button>
                         <div
-                            class="w-9 h-9 bg-red-500/20 text-red-500 rounded-full flex items-center justify-center font-bold text-xs">
+                            class="w-9 h-9 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-xs">
                             AD</div>
                     </div>
                 </div>
@@ -142,7 +142,7 @@
                 <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 anim-up">
                     <h2 class="text-2xl font-heading font-black">Billing Overview</h2>
                     <button
-                        class="mt-4 md:mt-0 px-4 py-2 bg-red-500 text-white rounded-xl text-sm font-bold hover:bg-red-600 transition-all"><i
+                        class="mt-4 md:mt-0 px-4 py-2 bg-primary text-white rounded-xl text-sm font-bold hover:bg-primary/80 transition-all"><i
                             class="fas fa-plus mr-2"></i>New Invoice</button>
                 </div>
 
@@ -171,7 +171,7 @@
                                     <td class="px-6 py-4 font-bold">$12,500</td>
                                     <td class="px-6 py-4 text-slate-400 text-xs">Mar 01, 2026</td>
                                     <td class="px-6 py-4"><span
-                                            class="px-2 py-1 text-xs font-bold rounded-full bg-green-500/10 text-green-600">Paid</span>
+                                            class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Paid</span>
                                     </td>
                                     <td class="px-6 py-4"><button
                                             class="px-3 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800">View</button>
@@ -184,7 +184,7 @@
                                     <td class="px-6 py-4 font-bold">$8,750</td>
                                     <td class="px-6 py-4 text-slate-400 text-xs">Feb 28, 2026</td>
                                     <td class="px-6 py-4"><span
-                                            class="px-2 py-1 text-xs font-bold rounded-full bg-green-500/10 text-green-600">Paid</span>
+                                            class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Paid</span>
                                     </td>
                                     <td class="px-6 py-4"><button
                                             class="px-3 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800">View</button>
@@ -197,7 +197,7 @@
                                     <td class="px-6 py-4 font-bold">$24,000</td>
                                     <td class="px-6 py-4 text-slate-400 text-xs">Feb 25, 2026</td>
                                     <td class="px-6 py-4"><span
-                                            class="px-2 py-1 text-xs font-bold rounded-full bg-yellow-500/10 text-yellow-600">Pending</span>
+                                            class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Pending</span>
                                     </td>
                                     <td class="px-6 py-4"><button
                                             class="px-3 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800">View</button>
@@ -210,7 +210,7 @@
                                     <td class="px-6 py-4 font-bold">$45,000</td>
                                     <td class="px-6 py-4 text-slate-400 text-xs">Feb 20, 2026</td>
                                     <td class="px-6 py-4"><span
-                                            class="px-2 py-1 text-xs font-bold rounded-full bg-yellow-500/10 text-yellow-600">Pending</span>
+                                            class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Pending</span>
                                     </td>
                                     <td class="px-6 py-4"><button
                                             class="px-3 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800">View</button>
@@ -223,7 +223,7 @@
                                     <td class="px-6 py-4 font-bold">$6,200</td>
                                     <td class="px-6 py-4 text-slate-400 text-xs">Feb 15, 2026</td>
                                     <td class="px-6 py-4"><span
-                                            class="px-2 py-1 text-xs font-bold rounded-full bg-red-500/10 text-red-500">Overdue</span>
+                                            class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Overdue</span>
                                     </td>
                                     <td class="px-6 py-4"><button
                                             class="px-3 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800">View</button>

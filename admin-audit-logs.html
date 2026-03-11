@@ -58,16 +58,16 @@
 </head>
 
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white">
-    <div class="flex min-h-screen overflow-x-hidden">
+    <div class="flex h-screen overflow-hidden">
         <aside id="sidebar"
             class="fixed lg:sticky top-0 left-0 z-50 h-screen w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-shrink-0 flex flex-col transition-transform duration-300 -translate-x-full lg:translate-x-0">
             <div class="py-6 px-6 border-b border-slate-100 dark:border-slate-800">
                 <a href="index.html" class="flex items-center gap-3" style="text-decoration:none;color:inherit;">
-                    <div class="w-10 h-10 bg-red-500 rounded-xl flex items-center justify-center text-white"><i
-                            class="fas fa-cogs"></i></div>
-                    <div><span class="font-bold text-lg font-heading">Admin<span
-                                class="text-red-500">Panel</span></span>
-                        <div class="text-[10px] text-slate-400 uppercase tracking-widest">ForensicEdge</div>
+                    <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white"><i
+                            class="fas fa-shield-alt"></i></div>
+                    <div><span class="font-bold text-lg font-heading">Forensic<span
+                                class="text-primary">Edge</span></span>
+                        <div class="text-[10px] text-slate-400 uppercase tracking-widest">Admin Panel</div>
                     </div>
                 </a>
             </div>
@@ -88,7 +88,7 @@
                     class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
                         class="fas fa-chart-line w-5 text-center"></i> Revenue</a>
                 <a href="admin-audit-logs.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl bg-red-500/10 text-red-500 font-medium"><i
+                    class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/10 text-primary font-medium"><i
                         class="fas fa-clipboard-check w-5 text-center"></i> Audit Logs</a>
                 <div class="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest !mt-6">System</div>
                 <a href="admin-billing.html"
@@ -104,18 +104,18 @@
             <div class="p-4 border-t border-slate-100 dark:border-slate-800">
                 <div class="flex items-center gap-3 p-2">
                     <div
-                        class="w-10 h-10 bg-red-500/20 text-red-500 rounded-full flex items-center justify-center font-bold text-sm">
+                        class="w-10 h-10 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-sm">
                         AD</div>
                     <div class="flex-1">
                         <div class="font-bold text-sm">Admin User</div>
                         <div class="text-[10px] text-slate-400">Super Administrator</div>
-                    </div><a href="login.html" class="text-slate-400 hover:text-red-500"><i
+                    </div><a href="login.html" class="text-slate-400 hover:text-primary"><i
                             class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
         </aside>
 
-        <div class="flex-1 flex flex-col min-h-screen min-w-0 overflow-x-hidden">
+        <div class="flex-1 flex flex-col h-screen min-w-0 overflow-y-auto">
             <header
                 class="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-6 py-3">
                 <div class="flex items-center justify-between">
@@ -138,7 +138,7 @@
                             class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i id="theme-icon"
                                 class="fas fa-moon"></i></button>
                         <div
-                            class="w-9 h-9 bg-red-500/20 text-red-500 rounded-full flex items-center justify-center font-bold text-xs">
+                            class="w-9 h-9 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-xs">
                             AD</div>
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                     <div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
                         <h3 class="font-heading font-bold">Recent Activity</h3>
                         <div class="flex gap-2"><button
-                                class="px-3 py-1 text-xs rounded-lg text-red-500 bg-red-500/10">All</button><button
+                                class="px-3 py-1 text-xs rounded-lg text-primary bg-primary/10">All</button><button
                                 class="px-3 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800">Logins</button><button
                                 class="px-3 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800">Security</button>
                         </div>
@@ -163,19 +163,19 @@
                         <div
                             class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                             <div
-                                class="w-8 h-8 rounded-full bg-green-500/10 text-green-500 flex-shrink-0 flex items-center justify-center">
+                                class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
                                 <i class="fas fa-sign-in-alt text-xs"></i>
                             </div>
                             <div class="flex-1">
                                 <div class="text-sm font-medium">User <strong>James Donovan</strong> logged in</div>
                                 <div class="text-[10px] text-slate-400 mt-1">Today, 10:42 AM → IP: 192.168.1.xx</div>
                             </div><span
-                                class="text-[10px] text-green-500 bg-green-500/10 px-2 py-1 rounded-full font-bold">Auth</span>
+                                class="text-[10px] text-primary bg-primary/10 px-2 py-1 rounded-full font-bold">Auth</span>
                         </div>
                         <div
                             class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                             <div
-                                class="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex-shrink-0 flex items-center justify-center">
+                                class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
                                 <i class="fas fa-upload text-xs"></i>
                             </div>
                             <div class="flex-1">
@@ -183,7 +183,7 @@
                                         FA-2026-038</strong></div>
                                 <div class="text-[10px] text-slate-400 mt-1">Today, 9:15 AM → by Sarah K.</div>
                             </div><span
-                                class="text-[10px] text-blue-500 bg-blue-500/10 px-2 py-1 rounded-full font-bold">Data</span>
+                                class="text-[10px] text-primary bg-primary/10 px-2 py-1 rounded-full font-bold">Data</span>
                         </div>
                         <div
                             class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
@@ -200,7 +200,7 @@
                         <div
                             class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                             <div
-                                class="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex-shrink-0 flex items-center justify-center">
+                                class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
                                 <i class="fas fa-exclamation-triangle text-xs"></i>
                             </div>
                             <div class="flex-1">
@@ -209,24 +209,24 @@
                                 <div class="text-[10px] text-slate-400 mt-1">Yesterday, 11:22 PM → IP: 203.45.xx.xx
                                     (blocked)</div>
                             </div><span
-                                class="text-[10px] text-red-500 bg-red-500/10 px-2 py-1 rounded-full font-bold">Alert</span>
+                                class="text-[10px] text-primary bg-primary/10 px-2 py-1 rounded-full font-bold">Alert</span>
                         </div>
                         <div
                             class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                             <div
-                                class="w-8 h-8 rounded-full bg-purple-500/10 text-purple-500 flex-shrink-0 flex items-center justify-center">
+                                class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
                                 <i class="fas fa-key text-xs"></i>
                             </div>
                             <div class="flex-1">
                                 <div class="text-sm font-medium">Admin <strong>password policy</strong> updated</div>
                                 <div class="text-[10px] text-slate-400 mt-1">Mar 02, 2026 → System config change</div>
                             </div><span
-                                class="text-[10px] text-purple-500 bg-purple-500/10 px-2 py-1 rounded-full font-bold">Config</span>
+                                class="text-[10px] text-primary bg-primary/10 px-2 py-1 rounded-full font-bold">Config</span>
                         </div>
                         <div
                             class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                             <div
-                                class="w-8 h-8 rounded-full bg-teal/10 text-teal flex-shrink-0 flex items-center justify-center">
+                                class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
                                 <i class="fas fa-database text-xs"></i>
                             </div>
                             <div class="flex-1">
@@ -234,12 +234,12 @@
                                 </div>
                                 <div class="text-[10px] text-slate-400 mt-1">Mar 01, 2026 → 14.2 GB archived</div>
                             </div><span
-                                class="text-[10px] text-teal bg-teal/10 px-2 py-1 rounded-full font-bold">System</span>
+                                class="text-[10px] text-primary bg-primary/10 px-2 py-1 rounded-full font-bold">System</span>
                         </div>
                         <div
                             class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                             <div
-                                class="w-8 h-8 rounded-full bg-green-500/10 text-green-500 flex-shrink-0 flex items-center justify-center">
+                                class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
                                 <i class="fas fa-check-circle text-xs"></i>
                             </div>
                             <div class="flex-1">
@@ -248,7 +248,7 @@
                                 </div>
                                 <div class="text-[10px] text-slate-400 mt-1">Feb 28, 2026 → Resolved by Tom L.</div>
                             </div><span
-                                class="text-[10px] text-green-500 bg-green-500/10 px-2 py-1 rounded-full font-bold">Case</span>
+                                class="text-[10px] text-primary bg-primary/10 px-2 py-1 rounded-full font-bold">Case</span>
                         </div>
                     </div>
                 </div>

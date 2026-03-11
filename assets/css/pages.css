@@ -191,7 +191,7 @@
 }
 
 .hero h1 span {
-    background: linear-gradient(135deg, var(--accent-gold), var(--accent-teal));
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -276,7 +276,7 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--accent-gold), var(--accent-teal));
+    background: linear-gradient(90deg, var(--accent-gold), var(--accent-gold));
     transform: scaleX(0);
     transform-origin: left;
     transition: transform var(--transition-base);
@@ -648,7 +648,7 @@
     font-family: var(--font-heading);
     font-size: clamp(6rem, 15vw, 12rem);
     font-weight: 900;
-    background: linear-gradient(135deg, var(--accent-gold), var(--accent-teal));
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -774,7 +774,7 @@
 }
 
 .page-hero h1 span {
-    background: linear-gradient(135deg, var(--accent-gold), var(--accent-teal));
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -813,7 +813,7 @@
     height: 80px;
     border-radius: var(--radius-full);
     margin: 0 auto var(--space-4);
-    background: linear-gradient(135deg, var(--accent-gold), var(--accent-teal));
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -866,7 +866,7 @@
 
 .service-visual i {
     font-size: 4rem;
-    background: linear-gradient(135deg, var(--accent-gold), var(--accent-teal));
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

@@ -63,18 +63,18 @@
 </head>
 
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white transition-all">
-    <div class="flex min-h-screen overflow-x-hidden">
+    <div class="flex h-screen overflow-hidden">
 
         <!-- ========== SIDEBAR ========== -->
         <aside id="sidebar"
             class="fixed lg:sticky top-0 left-0 z-50 h-screen w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-shrink-0 flex flex-col transition-transform duration-300 -translate-x-full lg:translate-x-0">
             <div class="py-6 px-6 border-b border-slate-100 dark:border-slate-800">
                 <a href="index.html" class="flex items-center gap-3" style="text-decoration:none;color:inherit;">
-                    <div class="w-10 h-10 bg-red-500 rounded-xl flex items-center justify-center text-white"><i
-                            class="fas fa-cogs"></i></div>
-                    <div><span class="font-bold text-lg font-heading">Admin<span
-                                class="text-red-500">Panel</span></span>
-                        <div class="text-[10px] text-slate-400 uppercase tracking-widest">ForensicEdge</div>
+                    <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white"><i
+                            class="fas fa-shield-alt"></i></div>
+                    <div><span class="font-bold text-lg font-heading">Forensic<span
+                                class="text-primary">Edge</span></span>
+                        <div class="text-[10px] text-slate-400 uppercase tracking-widest">Admin Panel</div>
                     </div>
                 </a>
             </div>
@@ -85,7 +85,7 @@
                     class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
                         class="fas fa-tachometer-alt w-5 text-center"></i> Dashboard</a>
                 <a href="admin-users.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl bg-red-500/10 text-red-500 font-medium"><i
+                    class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/10 text-primary font-medium"><i
                         class="fas fa-users w-5 text-center"></i> User Management</a>
                 <a href="admin-cases.html"
                     class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
@@ -115,20 +115,20 @@
             <div class="p-4 border-t border-slate-100 dark:border-slate-800">
                 <div class="flex items-center gap-3 p-2">
                     <div
-                        class="w-10 h-10 bg-red-500/20 text-red-500 rounded-full flex items-center justify-center font-bold text-sm">
+                        class="w-10 h-10 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-sm">
                         AD</div>
                     <div class="flex-1">
                         <div class="font-bold text-sm">Admin User</div>
                         <div class="text-[10px] text-slate-400">Super Administrator</div>
                     </div>
-                    <a href="login.html" class="text-slate-400 hover:text-red-500 transition-colors"><i
+                    <a href="login.html" class="text-slate-400 hover:text-primary transition-colors"><i
                             class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
         </aside>
 
         <!-- ========== MAIN CONTENT ========== -->
-        <div class="flex-1 flex flex-col min-h-screen min-w-0 overflow-x-hidden">
+        <div class="flex-1 flex flex-col h-screen min-w-0 overflow-y-auto">
             <header
                 class="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-6 py-3">
                 <div class="flex items-center justify-between">
@@ -153,7 +153,7 @@
                             class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i id="theme-icon"
                                 class="fas fa-moon"></i></button>
                         <div
-                            class="w-9 h-9 bg-red-500/20 text-red-500 rounded-full flex items-center justify-center font-bold text-xs">
+                            class="w-9 h-9 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-xs">
                             AD</div>
                     </div>
                 </div>
@@ -167,7 +167,7 @@
                             class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-xl text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-all"><i
                                 class="fas fa-filter mr-2"></i>Filter</button>
                         <button
-                            class="px-4 py-2 bg-red-500 text-white rounded-xl text-sm font-bold hover:bg-red-600 transition-all"><i
+                            class="px-4 py-2 bg-primary text-white rounded-xl text-sm font-bold hover:bg-primary/80 transition-all"><i
                                 class="fas fa-plus mr-2"></i>Add User</button>
                     </div>
                 </div>
@@ -178,7 +178,7 @@
                         class="anim-up d1 p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
                         <div class="flex items-center gap-4 mb-3">
                             <div
-                                class="w-12 h-12 bg-blue-500/10 text-blue-500 rounded-2xl flex items-center justify-center">
+                                class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center">
                                 <i class="fas fa-users text-xl"></i>
                             </div>
                         </div>
@@ -189,7 +189,7 @@
                         class="anim-up d2 p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
                         <div class="flex items-center gap-4 mb-3">
                             <div
-                                class="w-12 h-12 bg-green-500/10 text-green-500 rounded-2xl flex items-center justify-center">
+                                class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center">
                                 <i class="fas fa-user-check text-xl"></i>
                             </div>
                         </div>
@@ -200,7 +200,7 @@
                         class="anim-up d3 p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
                         <div class="flex items-center gap-4 mb-3">
                             <div
-                                class="w-12 h-12 bg-yellow-500/10 text-yellow-500 rounded-2xl flex items-center justify-center">
+                                class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center">
                                 <i class="fas fa-user-clock text-xl"></i>
                             </div>
                         </div>
@@ -211,7 +211,7 @@
                         class="anim-up d4 p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
                         <div class="flex items-center gap-4 mb-3">
                             <div
-                                class="w-12 h-12 bg-red-500/10 text-red-500 rounded-2xl flex items-center justify-center">
+                                class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center">
                                 <i class="fas fa-user-slash text-xl"></i>
                             </div>
                         </div>
@@ -227,7 +227,7 @@
                         <h3 class="font-heading font-bold text-lg">User Directory</h3>
                         <div class="flex gap-2">
                             <button class="px-3 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800">All</button>
-                            <button class="px-3 py-1 text-xs rounded-lg text-red-500 bg-red-500/10">Clients</button>
+                            <button class="px-3 py-1 text-xs rounded-lg text-primary bg-primary/10">Clients</button>
                             <button class="px-3 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800">Staff</button>
                         </div>
                     </div>
@@ -258,11 +258,11 @@
                                         </div>
                                     </td>
                                     <td class="px-6 py-4"><span
-                                            class="px-2 py-1 text-xs font-bold rounded-full bg-blue-500/10 text-blue-500">Client</span>
+                                            class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Client</span>
                                     </td>
                                     <td class="px-6 py-4"><span class="flex items-center gap-2"><span
-                                                class="w-2 h-2 bg-green-500 rounded-full"></span><span
-                                                class="text-green-600 font-medium text-xs">Active</span></span></td>
+                                                class="w-2 h-2 bg-primary rounded-full"></span><span
+                                                class="text-primary font-medium text-xs">Active</span></span></td>
                                     <td class="px-6 py-4 font-bold">12</td>
                                     <td class="px-6 py-4 text-slate-400 text-xs">Today, 10:42 AM</td>
                                     <td class="px-6 py-4"><button
@@ -274,7 +274,7 @@
                                     <td class="px-6 py-4">
                                         <div class="flex items-center gap-3">
                                             <div
-                                                class="w-9 h-9 rounded-full bg-teal/20 text-teal flex items-center justify-center font-bold text-xs">
+                                                class="w-9 h-9 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">
                                                 SK</div>
                                             <div>
                                                 <div class="font-bold">Sarah Kensington</div>
@@ -283,11 +283,11 @@
                                         </div>
                                     </td>
                                     <td class="px-6 py-4"><span
-                                            class="px-2 py-1 text-xs font-bold rounded-full bg-blue-500/10 text-blue-500">Client</span>
+                                            class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Client</span>
                                     </td>
                                     <td class="px-6 py-4"><span class="flex items-center gap-2"><span
-                                                class="w-2 h-2 bg-green-500 rounded-full"></span><span
-                                                class="text-green-600 font-medium text-xs">Active</span></span></td>
+                                                class="w-2 h-2 bg-primary rounded-full"></span><span
+                                                class="text-primary font-medium text-xs">Active</span></span></td>
                                     <td class="px-6 py-4 font-bold">8</td>
                                     <td class="px-6 py-4 text-slate-400 text-xs">Yesterday, 3:18 PM</td>
                                     <td class="px-6 py-4"><button
@@ -299,7 +299,7 @@
                                     <td class="px-6 py-4">
                                         <div class="flex items-center gap-3">
                                             <div
-                                                class="w-9 h-9 rounded-full bg-purple-500/20 text-purple-500 flex items-center justify-center font-bold text-xs">
+                                                class="w-9 h-9 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">
                                                 RN</div>
                                             <div>
                                                 <div class="font-bold">Robert Nakamura</div>
@@ -311,8 +311,8 @@
                                             class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Premium</span>
                                     </td>
                                     <td class="px-6 py-4"><span class="flex items-center gap-2"><span
-                                                class="w-2 h-2 bg-green-500 rounded-full"></span><span
-                                                class="text-green-600 font-medium text-xs">Active</span></span></td>
+                                                class="w-2 h-2 bg-primary rounded-full"></span><span
+                                                class="text-primary font-medium text-xs">Active</span></span></td>
                                     <td class="px-6 py-4 font-bold">15</td>
                                     <td class="px-6 py-4 text-slate-400 text-xs">Mar 03, 2:05 PM</td>
                                     <td class="px-6 py-4"><button
@@ -324,7 +324,7 @@
                                     <td class="px-6 py-4">
                                         <div class="flex items-center gap-3">
                                             <div
-                                                class="w-9 h-9 rounded-full bg-red-500/20 text-red-500 flex items-center justify-center font-bold text-xs">
+                                                class="w-9 h-9 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">
                                                 DP</div>
                                             <div>
                                                 <div class="font-bold">Diana Palmer</div>
@@ -333,11 +333,11 @@
                                         </div>
                                     </td>
                                     <td class="px-6 py-4"><span
-                                            class="px-2 py-1 text-xs font-bold rounded-full bg-red-500/10 text-red-500">Enterprise</span>
+                                            class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Enterprise</span>
                                     </td>
                                     <td class="px-6 py-4"><span class="flex items-center gap-2"><span
-                                                class="w-2 h-2 bg-yellow-500 rounded-full"></span><span
-                                                class="text-yellow-600 font-medium text-xs">Pending</span></span></td>
+                                                class="w-2 h-2 bg-primary rounded-full"></span><span
+                                                class="text-primary font-medium text-xs">Pending</span></span></td>
                                     <td class="px-6 py-4 font-bold">3</td>
                                     <td class="px-6 py-4 text-slate-400 text-xs">Feb 28, 9:12 AM</td>
                                     <td class="px-6 py-4"><button
@@ -349,7 +349,7 @@
                                     <td class="px-6 py-4">
                                         <div class="flex items-center gap-3">
                                             <div
-                                                class="w-9 h-9 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center font-bold text-xs">
+                                                class="w-9 h-9 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">
                                                 TL</div>
                                             <div>
                                                 <div class="font-bold">Tom Lawson</div>
@@ -358,11 +358,11 @@
                                         </div>
                                     </td>
                                     <td class="px-6 py-4"><span
-                                            class="px-2 py-1 text-xs font-bold rounded-full bg-green-500/10 text-green-500">Staff</span>
+                                            class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Staff</span>
                                     </td>
                                     <td class="px-6 py-4"><span class="flex items-center gap-2"><span
-                                                class="w-2 h-2 bg-green-500 rounded-full"></span><span
-                                                class="text-green-600 font-medium text-xs">Active</span></span></td>
+                                                class="w-2 h-2 bg-primary rounded-full"></span><span
+                                                class="text-primary font-medium text-xs">Active</span></span></td>
                                     <td class="px-6 py-4 font-bold">5</td>
                                     <td class="px-6 py-4 text-slate-400 text-xs">Today, 8:30 AM</td>
                                     <td class="px-6 py-4"><button

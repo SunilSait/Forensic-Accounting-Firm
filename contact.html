@@ -348,7 +348,7 @@
                         <button type="submit"
                             class="w-full bg-primary text-white py-4 rounded-2xl font-black text-lg hover:opacity-90 transition-all"><i
                                 class="fas fa-paper-plane mr-2"></i> Send Message</button>
-                        <p class="text-center text-xs text-slate-400"><i class="fas fa-lock mr-1 text-green-500"></i>
+                        <p class="text-center text-xs text-slate-400"><i class="fas fa-lock mr-1 text-primary"></i>
                             Your information is kept strictly confidential</p>
                     </form>
                 </div>
@@ -372,7 +372,7 @@
                     <div
                         class="flex items-start gap-4 p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                         <div
-                            class="w-12 h-12 bg-blue-500/10 text-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                            class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center flex-shrink-0">
                             <i class="fas fa-phone"></i>
                         </div>
                         <div>
@@ -383,7 +383,7 @@
                     <div
                         class="flex items-start gap-4 p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                         <div
-                            class="w-12 h-12 bg-green-500/10 text-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                            class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center flex-shrink-0">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div>
@@ -395,7 +395,7 @@
                     <div
                         class="flex items-start gap-4 p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                         <div
-                            class="w-12 h-12 bg-purple-500/10 text-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                            class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center flex-shrink-0">
                             <i class="fas fa-clock"></i>
                         </div>
                         <div>
@@ -434,14 +434,26 @@
         <div class="max-w-7xl mx-auto px-4">
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-                <div><a href="index.html" class="flex items-center gap-2 mb-6">
+                <div>
+                    <a href="index.html" class="flex items-center gap-2 mb-6">
                         <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white"><i
-                                class="fas fa-shield-alt"></i></div><span
-                            class="font-bold text-xl tracking-tight font-heading">Forensic<span
+                                class="fas fa-shield-alt"></i></div>
+                        <span class="font-bold text-xl tracking-tight font-heading">Forensic<span
                                 class="text-primary">Edge</span></span>
                     </a>
-                    <p class="text-slate-500 text-sm leading-relaxed">Expert forensic accounting services for over 25
-                        years.</p>
+                    <p class="text-slate-500 text-sm leading-relaxed">Providing expert forensic accounting, fraud investigation,
+                        and litigation support services for over 25 years.</p>
+                    <div class="flex gap-4 mt-6">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all"><i
+                                class="fab fa-facebook-f"></i></a>
+                    </div>
                 </div>
                 <div>
                     <h4 class="font-bold mb-6 uppercase text-xs tracking-widest">Quick Links</h4>
@@ -469,22 +481,21 @@
                 <div>
                     <h4 class="font-bold mb-6 uppercase text-xs tracking-widest">Contact Info</h4>
                     <ul class="space-y-4 text-slate-500">
-                        <li class="flex items-center gap-3"><i class="fas fa-envelope text-primary"></i>
-                            info@forensicedge.com</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-envelope text-primary flex-shrink-0"></i> <a
+                                href="mailto:info@forensicedge.com" class="hover:text-primary break-all">info@forensicedge.com</a></li>
                         <li class="flex items-center gap-3"><i class="fas fa-phone text-primary flex-shrink-0"></i> <a
-                                href="tel:+11234567890" class="hover:text-primary">+1 (123) 456-7890</a>
-                        </li>
-                        <li class="flex items-center gap-3"><i
-                                class="fas fa-map-marker-alt text-primary flex-shrink-0"></i> 250 Park
-                            Ave, New York</li>
+                                href="tel:+11234567890" class="hover:text-primary">+1 (123) 456-7890</a></li>
+                        <li class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-primary flex-shrink-0"></i> 250
+                            Park Avenue, New
+                            York</li>
                     </ul>
                     <!-- Newsletter -->
                     <div class="mt-8">
                         <h4 class="font-bold mb-4 uppercase text-xs tracking-widest">Newsletter</h4>
-                        <p class="text-slate-500 text-xs mb-3 leading-relaxed">Get forensic insights & updates delivered
-                            to your inbox.</p>
+                        <p class="text-slate-500 text-xs mb-3 leading-relaxed">Get forensic insights & updates delivered to your
+                            inbox.</p>
                         <form class="flex gap-2"
-                            onsubmit="event.preventDefault(); this.querySelector('button').innerHTML='✓'; this.querySelector('button').classList.add('bg-green-500','border-green-500'); this.querySelector('input').value='';">
+                            onsubmit="event.preventDefault(); this.querySelector('button').innerHTML='✓'; this.querySelector('button').classList.add('bg-primary','border-primary'); this.querySelector('input').value='';">
                             <input type="email" placeholder="Your email" required
                                 class="w-full px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-slate-900 dark:text-white placeholder-slate-400">
                             <button type="submit"
@@ -492,13 +503,23 @@
                                 <i class="fas fa-paper-plane"></i>
                             </button>
                         </form>
-                        <p class="text-slate-400 text-[10px] mt-2"><i class="fas fa-lock mr-1 text-green-500"></i>No
-                            spam. Unsubscribe anytime.</p>
+                        <p class="text-slate-400 text-[10px] mt-2"><i class="fas fa-lock mr-1 text-primary"></i>No spam.
+                            Unsubscribe anytime.</p>
                     </div>
                 </div>
             </div>
-            <div class="text-center pt-10 border-t border-slate-100 dark:border-slate-800 text-slate-400 text-sm">&copy;
-                2026 ForensicEdge. All rights reserved.</div>
+
+            <div
+                class="flex flex-col md:flex-row items-center justify-between pt-10 border-t border-slate-100 dark:border-slate-800 gap-4">
+                <div class="text-slate-400 text-sm">
+                    &copy; 2026 ForensicEdge. All rights reserved.
+                </div>
+                <div class="flex gap-6 text-sm text-slate-500">
+                    <a href="#" class="hover:text-primary">Privacy Policy</a>
+                    <a href="#" class="hover:text-primary">Terms of Service</a>
+                </div>
+            </div>
+
         </div>
     </footer>
 
