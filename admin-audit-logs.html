@@ -117,21 +117,21 @@
 
         <div class="flex-1 flex flex-col h-screen min-w-0 overflow-y-auto">
             <header
-                class="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-6 py-3">
+                class="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 md:px-6 py-3">
                 <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-4"><button onclick="toggleSidebar()"
+                    <div class="flex items-center gap-2 md:gap-4"><button onclick="toggleSidebar()"
                             class="lg:hidden p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i
                                 class="fas fa-bars"></i></button>
                         <div>
-                            <h1 class="font-heading font-bold text-lg">Audit Logs</h1>
-                            <p class="text-[11px] text-slate-400">System activity & security events</p>
+                            <h1 class="font-heading font-bold text-base md:text-lg">Audit Logs</h1>
+                            <p class="text-[10px] md:text-[11px] text-slate-400 hidden sm:block">System activity & security events</p>
                         </div>
                     </div>
-                    <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2 md:gap-4">
                         <div class="relative hidden md:block"><i
                                 class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i><input
                                 type="text" placeholder="Search logs..."
-                                class="pl-10 pr-4 py-2 w-64 rounded-xl bg-slate-100 dark:bg-slate-800 border-none outline-none text-sm">
+                                class="pl-10 pr-4 py-2 w-full md:w-64 rounded-xl bg-slate-100 dark:bg-slate-800 border-none outline-none text-sm">
                         </div>
                         <button onclick="toggleDir()" class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-bold" title="Switch LTR/RTL">LTR/RTL</button>
                         <button onclick="toggleTheme()"
@@ -144,22 +144,22 @@
                 </div>
             </header>
 
-            <main class="flex-1 p-6 overflow-y-auto">
+            <main class="flex-1 p-4 md:p-6 overflow-y-auto">
                 <div class="mb-8 anim-up">
-                    <h2 class="text-2xl font-heading font-black">Activity Timeline</h2>
+                    <h2 class="text-xl md:text-2xl font-heading font-black">Activity Timeline</h2>
                 </div>
 
                 <div
                     class="anim-up d1 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden">
-                    <div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                    <div class="p-4 md:p-6 border-b border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <h3 class="font-heading font-bold">Recent Activity</h3>
-                        <div class="flex gap-2"><button
-                                class="px-3 py-1 text-xs rounded-lg text-primary bg-primary/10">All</button><button
-                                class="px-3 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800">Logins</button><button
-                                class="px-3 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800">Security</button>
+                        <div class="flex flex-wrap gap-1 md:gap-2"><button
+                                class="px-2 md:px-3 py-1 text-xs rounded-lg text-primary bg-primary/10">All</button><button
+                                class="px-2 md:px-3 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800">Logins</button><button
+                                class="px-2 md:px-3 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800">Security</button>
                         </div>
                     </div>
-                    <div class="p-6 space-y-4">
+                    <div class="p-4 md:p-6 space-y-4">
                         <div
                             class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                             <div

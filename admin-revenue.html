@@ -121,17 +121,17 @@
 
         <div class="flex-1 flex flex-col h-screen min-w-0 overflow-y-auto">
             <header
-                class="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-6 py-3">
+                class="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 md:px-6 py-3">
                 <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-4"><button onclick="toggleSidebar()"
+                    <div class="flex items-center gap-2 md:gap-4"><button onclick="toggleSidebar()"
                             class="lg:hidden p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i
                                 class="fas fa-bars"></i></button>
                         <div>
-                            <h1 class="font-heading font-bold text-lg">Revenue Analytics</h1>
-                            <p class="text-[11px] text-slate-400">Financial performance & trends</p>
+                            <h1 class="font-heading font-bold text-base md:text-lg">Revenue Analytics</h1>
+                            <p class="text-[10px] md:text-[11px] text-slate-400 hidden sm:block">Financial performance & trends</p>
                         </div>
                     </div>
-                    <div class="flex items-center gap-4">                        <button onclick="toggleDir()" class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-bold" title="Switch LTR/RTL">LTR/RTL</button>
+                    <div class="flex items-center gap-2 md:gap-4">                        <button onclick="toggleDir()" class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-bold" title="Switch LTR/RTL">LTR/RTL</button>
                         <button onclick="toggleTheme()"
                             class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i id="theme-icon"
                                 class="fas fa-moon"></i></button>
@@ -142,17 +142,17 @@
                 </div>
             </header>
 
-            <main class="flex-1 p-6 overflow-y-auto">
+            <main class="flex-1 p-4 md:p-6 overflow-y-auto">
                 <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 anim-up">
-                    <h2 class="text-2xl font-heading font-black">Revenue Overview</h2>
+                    <h2 class="text-xl md:text-2xl font-heading font-black">Revenue Overview</h2>
                     <button
                         class="mt-4 md:mt-0 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-xl text-sm font-medium"><i
                             class="fas fa-download mr-2"></i>Export Report</button>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 mb-8">
                     <div
-                        class="anim-up d1 p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+                        class="anim-up d1 p-4 md:p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
                         <div
                             class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-3">
                             <i class="fas fa-dollar-sign text-xl"></i>
@@ -163,7 +163,7 @@
                             last year</div>
                     </div>
                     <div
-                        class="anim-up d2 p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+                        class="anim-up d2 p-4 md:p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
                         <div
                             class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-3">
                             <i class="fas fa-file-invoice text-xl"></i>
@@ -172,7 +172,7 @@
                         <div class="text-xs text-slate-500 mt-1 uppercase tracking-wider">Outstanding</div>
                     </div>
                     <div
-                        class="anim-up d3 p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+                        class="anim-up d3 p-4 md:p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
                         <div
                             class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-3">
                             <i class="fas fa-chart-pie text-xl"></i>
@@ -181,7 +181,7 @@
                         <div class="text-xs text-slate-500 mt-1 uppercase tracking-wider">Avg per Case</div>
                     </div>
                     <div
-                        class="anim-up d4 p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+                        class="anim-up d4 p-4 md:p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
                         <div
                             class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-3">
                             <i class="fas fa-percentage text-xl"></i>
@@ -191,9 +191,9 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-8">
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 md:gap-6 mb-8">
                     <div
-                        class="anim-up d3 p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                        class="anim-up d3 p-4 md:p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
                         <h3 class="font-heading font-bold mb-6">Revenue by Service</h3>
                         <div class="space-y-5">
                             <div>
@@ -228,7 +228,7 @@
                         </div>
                     </div>
                     <div
-                        class="anim-up d4 p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                        class="anim-up d4 p-4 md:p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
                         <h3 class="font-heading font-bold mb-6">Top Revenue Clients</h3>
                         <div class="space-y-4">
                             <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800">

@@ -1104,11 +1104,8 @@
 /* ---------- Ultra-small screens (320px) ---------- */
 @media (max-width: 400px) {
     .page-title {
-        font-size: 1rem;
-        max-width: 130px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        font-size: 0.95rem;
+        line-height: 1.2;
     }
 
     .top-bar-left {
