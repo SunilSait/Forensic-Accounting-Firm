@@ -1,0 +1,25 @@
+{
+  "name": "forensic-accounting-firm",
+  "version": "1.0.0",
+  "description": "A premium, multi-page HTML template for a Forensic Accounting Firm featuring a secure client portal dashboard for sharing financial documents and tracking investigation progress.",
+  "main": "index.js",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  },
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./src/tailwind.css -o ./assets/css/tailwind.min.css --minify",
+    "watch:css": "npx tailwindcss -i ./src/tailwind.css -o ./assets/css/tailwind.min.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SunilSait/Forensic-Accounting-Firm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SunilSait/Forensic-Accounting-Firm/issues"
+  },
+  "homepage": "https://github.com/SunilSait/Forensic-Accounting-Firm#readme"
+}
