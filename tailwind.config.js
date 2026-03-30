@@ -6,9 +6,9 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#D4A843',
-          light: '#E8C97A',
-          dark: '#B8922E',
+          DEFAULT: '#254984',
+          light: '#3a6ac2',
+          dark: '#172d52',
         },
         dark: {
           DEFAULT: '#0B1120',
@@ -16,9 +16,9 @@ module.exports = {
           darker: '#060A14',
         },
         gold: {
-          DEFAULT: '#D4A843',
-          light: '#E8C97A',
-          dark: '#B8922E',
+          DEFAULT: '#254984',
+          light: '#3a6ac2',
+          dark: '#172d52',
         },
         teal: {
           DEFAULT: '#14B8A6',

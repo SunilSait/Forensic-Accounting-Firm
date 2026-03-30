@@ -74,7 +74,7 @@
     }
 
     .nav-link-active {
-      color: #D4A843 !important;
+      color: #254984 !important;
       font-weight: 700;
     }
 
@@ -90,16 +90,16 @@
         left: 0;
         width: 100%;
         height: 2px;
-        background-color: #D4A843;
+        background-color: #254984;
         border-radius: 99px;
       }
     }
 
     @media (max-width: 1023px) {
       .nav-link-active {
-        background-color: rgba(212, 168, 67, 0.05);
+        background-color: rgba(37, 73, 132, 0.05);
         padding-left: 12px;
-        border-left: 4px solid #D4A843;
+        border-left: 4px solid #254984;
       }
     }
 
@@ -208,12 +208,12 @@
 
     .nav-dropdown .dropdown-menu a:hover {
       background: #f1f5f9;
-      color: #D4A843;
+      color: #254984;
     }
 
     .dark .nav-dropdown .dropdown-menu a:hover {
       background: #334155;
-      color: #D4A843;
+      color: #254984;
     }
   </style>
 </head>
@@ -235,7 +235,7 @@
 
         <div class="hidden lg:flex gap-4 xl:gap-8 items-center">
           <div class="nav-dropdown">
-            <a href="index.html"
+            <a href="javascript:void(0)"
               class="nav-link dropdown-toggle hover:text-primary transition-colors whitespace-nowrap text-sm xl:text-base">Home
               <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
@@ -388,7 +388,7 @@
     <div class="absolute inset-0 z-0">
       <img src="assets/images/hero-home1.png" alt="" class="w-full h-full object-cover opacity-40">
       <div class="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none"
-        style="background-image: radial-gradient(#D4A843 1px, transparent 1px); background-size: 30px 30px;"></div>
+        style="background-image: radial-gradient(#254984 1px, transparent 1px); background-size: 30px 30px;"></div>
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
@@ -580,9 +580,7 @@
       </div>
 
       <div class="relative flex flex-col items-center lg:flex-row lg:justify-center lg:gap-12">
-        <div
-          class="absolute hidden lg:block left-0 right-0 top-1/2 -translate-y-1/2 h-1 bg-slate-200 dark:bg-slate-700 rounded-full mx-20">
-        </div>
+
 
         <div
           class="group relative z-10 p-6 md:p-8 w-full max-w-md bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 flex flex-col items-center text-center shadow-lg hover:scale-[1.03] hover:border-primary transition-all my-4 lg:my-0 lg:max-w-[28%] reveal-up delay-100">
@@ -812,18 +810,20 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="reveal-up group cursor-pointer">
+        <div class="reveal-up group cursor-pointer h-full">
           <div
-            class="relative overflow-hidden rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 h-full p-2 transition-all hover:shadow-2xl hover:shadow-primary/10">
-            <div class="relative h-48 rounded-2xl overflow-hidden bg-slate-900 flex items-center justify-center">
-              <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/20"></div>
-              <div class="z-10 text-center"><span class="text-4xl font-black text-white">$3.2M</span>
-                <div
-                  class="mt-2 py-1 px-3 bg-primary/20 text-primary text-[10px] font-bold rounded-full uppercase tracking-widest border border-primary/30">
-                  Recovered</div>
+            class="relative overflow-hidden rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 h-full p-2 transition-all hover:shadow-2xl hover:shadow-primary/10 flex flex-col">
+            <div
+              class="relative h-48 rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 flex items-center justify-center p-8">
+              <div
+                class="w-full h-full border border-slate-200 dark:border-slate-700 rounded-lg p-3 bg-white dark:bg-slate-950 font-mono text-[10px] group-hover:scale-105 transition-transform overflow-hidden">
+                <p class="text-primary">investigation.<span class="text-primary">trace</span>({</p>
+                <p class="ml-4 text-slate-400">target: <span class="text-primary">"assets"</span>,</p>
+                <p class="ml-4 text-slate-400">recovered: <span class="text-primary">3200000</span></p>
+                <p class="text-primary">});</p>
               </div>
             </div>
-            <div class="p-6">
+            <div class="p-6 flex flex-col flex-1">
               <div class="flex items-center gap-3 text-xs font-bold text-primary uppercase tracking-tighter mb-3"><i
                   class="fas fa-tag"></i> Case Study</div>
               <h3 class="text-xl font-bold mb-3 dark:text-white group-hover:text-primary transition-colors">Corporate
@@ -831,35 +831,35 @@
               <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">How our team traced hidden assets
                 across multiple jurisdictions to recover misappropriated funds.</p>
               <div
-                class="mt-6 pt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                class="mt-auto pt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-400">
                 <span>Mar 1, 2026</span><span>8 min read</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="reveal-up delay-100 group cursor-pointer">
+        <div class="reveal-up delay-100 group cursor-pointer h-full">
           <div
-            class="relative overflow-hidden rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 h-full p-2 transition-all hover:shadow-2xl hover:shadow-primary/10">
+            class="relative overflow-hidden rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 h-full p-2 transition-all hover:shadow-2xl hover:shadow-primary/10 flex flex-col">
             <div
               class="relative h-48 rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 flex items-center justify-center p-8">
               <div
-                class="w-full h-full border border-slate-200 dark:border-slate-700 rounded-lg p-3 bg-white dark:bg-slate-950 font-mono text-[10px] group-hover:scale-105 transition-transform">
+                class="w-full h-full border border-slate-200 dark:border-slate-700 rounded-lg p-3 bg-white dark:bg-slate-950 font-mono text-[10px] group-hover:scale-105 transition-transform overflow-hidden">
                 <p class="text-primary">AML.<span class="text-primary">compliance</span>({</p>
                 <p class="ml-4 text-slate-400">status: <span class="text-primary">"verified"</span>,</p>
                 <p class="ml-4 text-slate-400">risk: <span class="text-primary">"low"</span></p>
                 <p class="text-primary">});</p>
               </div>
             </div>
-            <div class="p-6">
+            <div class="p-6 flex flex-col flex-1">
               <div class="flex items-center gap-3 text-xs font-bold text-primary uppercase tracking-tighter mb-3"><i
                   class="fas fa-shield-alt"></i> Regulatory</div>
               <h3 class="text-xl font-bold mb-3 dark:text-white group-hover:text-primary transition-colors">2026 AML
-                Compliance Updates</h3>
+                Compliance <br> Updates</h3>
               <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">Key changes in anti-money laundering
                 regulations and what they mean for your business.</p>
               <div
-                class="mt-6 pt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                class="mt-auto pt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-400">
                 <span>Feb 22, 2026</span><span>12 min read</span>
               </div>
             </div>
@@ -867,20 +867,20 @@
         </div>
 
         <div
-          class="reveal-up delay-200 group cursor-pointer md:col-span-2 md:max-w-md md:mx-auto lg:col-span-1 lg:max-w-none">
+          class="reveal-up delay-200 group cursor-pointer h-full md:col-span-2 md:max-w-md md:mx-auto lg:col-span-1 lg:max-w-none">
           <div
-            class="relative overflow-hidden rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 h-full p-2 transition-all hover:shadow-2xl hover:shadow-primary/10">
+            class="relative overflow-hidden rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 h-full p-2 transition-all hover:shadow-2xl hover:shadow-primary/10 flex flex-col">
             <div
               class="relative h-48 rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 flex items-center justify-center p-8">
               <div
-                class="w-full h-full border border-slate-200 dark:border-slate-700 rounded-lg p-3 bg-white dark:bg-slate-950 font-mono text-[10px] group-hover:scale-105 transition-transform">
+                class="w-full h-full border border-slate-200 dark:border-slate-700 rounded-lg p-3 bg-white dark:bg-slate-950 font-mono text-[10px] group-hover:scale-105 transition-transform overflow-hidden">
                 <p class="text-primary">forensic.<span class="text-primary">analyze</span>({</p>
                 <p class="ml-4 text-slate-400">transactions: <span class="text-primary">15420</span>,</p>
                 <p class="ml-4 text-slate-400">anomalies: <span class="text-primary">23</span></p>
                 <p class="text-primary">});</p>
               </div>
             </div>
-            <div class="p-6">
+            <div class="p-6 flex flex-col flex-1">
               <div class="flex items-center gap-3 text-xs font-bold text-primary uppercase tracking-tighter mb-3"><i
                   class="fas fa-chart-line"></i> Methodology</div>
               <h3 class="text-xl font-bold mb-3 dark:text-white group-hover:text-primary transition-colors">Data Analytics
@@ -888,7 +888,7 @@
               <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">How modern data analytics tools are
                 revolutionizing fraud detection and forensic investigations.</p>
               <div
-                class="mt-6 pt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                class="mt-auto pt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-400">
                 <span>Feb 15, 2026</span><span>10 min read</span>
               </div>
             </div>
@@ -919,12 +919,12 @@
             <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Cost-benefit analysis</li>
           </ul>
           <a href="contact.html"><button
-              class="w-full py-3 rounded-xl border border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all">Book
+              class="w-full py-3 rounded-xl bg-primary text-white font-bold hover:scale-105 transition-all shadow-lg">Book
               Consultation</button></a>
         </div>
 
         <div
-          class="reveal-up delay-100 p-8 rounded-3xl bg-slate-900 dark:bg-primary border-4 border-primary text-white shadow-2xl scale-105 relative overflow-hidden">
+          class="reveal-up delay-100 p-8 rounded-3xl bg-slate-900 dark:bg-slate-800 border-4 border-primary text-white shadow-2xl scale-105 relative overflow-hidden">
           <div
             class="absolute top-4 right-4 bg-white/20 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-widest">
             Most Popular</div>
@@ -941,7 +941,7 @@
             <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Priority support</li>
           </ul>
           <a href="pricing.html"><button
-              class="w-full py-4 rounded-xl bg-white text-slate-900 font-black hover:scale-105 transition-all shadow-lg">View
+              class="w-full py-4 rounded-xl bg-primary text-white font-black hover:scale-105 transition-all shadow-lg">View
               Pricing</button></a>
         </div>
 
@@ -958,7 +958,7 @@
             </li>
           </ul>
           <a href="contact.html"><button
-              class="w-full py-3 rounded-xl border border-slate-900 dark:border-slate-700 font-bold hover:bg-slate-900 hover:text-white dark:hover:bg-slate-700 transition-all">Contact
+              class="w-full py-3 rounded-xl bg-primary text-white font-bold hover:scale-105 transition-all shadow-lg">Contact
               Us</button></a>
         </div>
       </div>
@@ -976,7 +976,7 @@
         <p class="text-slate-600 dark:text-slate-400 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">Partner with certified forensic experts to uncover discrepancies, ensure compliance, and protect your organization's assets with complete confidentiality.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto">
           <a href="contact.html" class="w-full sm:w-auto"><button class="w-full px-8 py-4 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors shadow-sm text-base">Schedule a Consultation</button></a>
-          <a href="about.html" class="w-full sm:w-auto"><button class="w-full px-8 py-4 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 font-medium rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors text-base">Learn About Our Firm</button></a>
+          <a href="about.html" class="w-full sm:w-auto"><button class="w-full px-8 py-4 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 font-medium rounded-lg hover:bg-primary hover:text-white hover:border-primary dark:hover:bg-primary dark:hover:text-white transition-all text-base">Learn About Our Firm</button></a>
         </div>
         <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 flex flex-wrap justify-center gap-6 text-sm text-slate-500 dark:text-slate-400">
           <span class="flex items-center gap-2"><i class="fas fa-check-circle text-primary"></i> CPA Certified</span>

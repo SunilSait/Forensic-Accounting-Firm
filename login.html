@@ -64,7 +64,7 @@
             class="absolute inset-0 bg-gradient-to-br dark:from-slate-900/90 dark:via-slate-900/60 dark:to-slate-900/90 from-slate-100/90 via-slate-100/70 to-slate-100/90">
         </div>
         <div class="absolute inset-0 opacity-[0.03]"
-            style="background-image: radial-gradient(#D4A843 1px, transparent 1px); background-size: 30px 30px;"></div>
+            style="background-image: radial-gradient(#254984 1px, transparent 1px); background-size: 30px 30px;"></div>
     </div>
 
     <!-- Header Bar -->
@@ -130,7 +130,7 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col xs:flex-row items-start xs:items-center justify-between gap-2 text-sm">
+                <div class="flex flex-row items-center justify-between gap-2 text-sm">
                     <label class="flex items-center gap-2 dark:text-slate-400 text-slate-500 cursor-pointer"><input
                             type="checkbox" class="accent-primary w-4 h-4"> Remember me</label>
                     <a href="#" class="text-primary hover:underline font-medium whitespace-nowrap">Forgot password?</a>
@@ -150,20 +150,16 @@
             </div>
 
             <div class="grid grid-cols-2 gap-3">
-                <button
+                <button onclick="window.location.href='dashboard.html'"
                     class="py-3 rounded-xl dark:border-white/10 border-slate-200 border dark:bg-white/5 bg-slate-50 dark:text-white text-slate-700 font-medium text-sm dark:hover:bg-white/10 hover:bg-slate-100 transition-all"><i
-                        class="fas fa-fingerprint mr-2 text-primary"></i> Biometric</button>
-                <button
+                        class="fab fa-google mr-2 text-primary"></i> Google</button>
+                <button onclick="window.location.href='dashboard.html'"
                     class="py-3 rounded-xl dark:border-white/10 border-slate-200 border dark:bg-white/5 bg-slate-50 dark:text-white text-slate-700 font-medium text-sm dark:hover:bg-white/10 hover:bg-slate-100 transition-all"><i
-                        class="fas fa-mobile-alt mr-2 text-primary"></i> 2FA Code</button>
+                        class="fab fa-apple mr-2 text-primary"></i> Apple</button>
             </div>
 
             <p class="text-center mt-6 text-sm dark:text-slate-400 text-slate-500">Don't have an account? <a
                     href="register.html" class="text-primary font-bold hover:underline">Register</a></p>
-
-            <p class="text-center mt-4 text-xs dark:text-slate-500 text-slate-400"><i
-                    class="fas fa-lock mr-1 text-primary"></i>
-                256-bit SSL Encrypted Connection</p>
         </div>
     </div>
 
