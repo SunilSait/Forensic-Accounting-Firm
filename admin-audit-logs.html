@@ -1,278 +1,90 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en" dir="ltr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audit Logs | Admin Panel</title>
     <link rel="stylesheet" href="assets/css/tailwind.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-    <script>if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); }</script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
-
-        body {
-            font-family: 'Inter', sans-serif
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Outfit', sans-serif
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px)
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
-        }
-
-        .anim-up {
-            animation: fadeInUp .6s ease-out forwards;
-            opacity: 0
-        }
-
-        .d1 {
-            animation-delay: .1s
-        }
-
-        .d2 {
-            animation-delay: .2s
-        }
-
-        .d3 {
-            animation-delay: .3s
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <script>var t=localStorage.getItem('faf-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}</script>
 </head>
-
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white">
-    <div class="flex h-screen overflow-hidden">
-        <aside id="sidebar"
-            class="fixed lg:sticky top-0 left-0 z-50 h-screen w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-shrink-0 flex flex-col transition-transform duration-300 -translate-x-full lg:translate-x-0">
-            <div class="py-6 px-6 border-b border-slate-100 dark:border-slate-800">
-                <a href="index.html" class="flex items-center gap-3" style="text-decoration:none;color:inherit;">
-                    <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white"><i
-                            class="fas fa-shield-alt"></i></div>
-                    <div><span class="font-bold text-lg font-heading">Forensic<span
-                                class="text-primary">Edge</span></span>
-                        <div class="text-[10px] text-slate-400 uppercase tracking-widest">Admin Panel</div>
-                    </div>
-                </a>
-            </div>
-            <nav class="flex-1 overflow-y-auto py-6 px-4 space-y-1">
-                <div class="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Main</div>
-                <a href="admin-dashboard.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
-                        class="fas fa-tachometer-alt w-5 text-center"></i> Dashboard</a>
-                <a href="admin-users.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
-                        class="fas fa-users w-5 text-center"></i> User Management</a>
-                <a href="admin-cases.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
-                        class="fas fa-briefcase w-5 text-center"></i> All Cases</a>
-                <div class="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest !mt-6">Analytics
+<body>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar" id="sidebar">
+            <a href="index.html" class="sidebar-header" style="text-decoration:none;color:inherit;">
+                <div class="sidebar-logo"><i data-lucide="shield-check" style="width:20px;height:20px;color:#fff;"></i></div>
+                <div class="sidebar-brand">Forensic<span>Edge</span><div style="font-size:0.55rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.15em;font-family:var(--font-body);font-weight:600;">Admin Panel</div></div>
+            </a>
+            <nav class="sidebar-nav">
+                <div class="nav-section"><div class="nav-label">Main</div>
+                    <a href="admin-dashboard.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span class="nav-text">Dashboard</span></a>
+                    <a href="admin-users.html" class="nav-item"><i data-lucide="users"></i><span class="nav-text">User Management</span></a>
+                    <a href="admin-cases.html" class="nav-item"><i data-lucide="briefcase"></i><span class="nav-text">All Cases</span></a>
                 </div>
-                <a href="admin-revenue.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
-                        class="fas fa-chart-line w-5 text-center"></i> Revenue</a>
-                <a href="admin-audit-logs.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/10 text-primary font-medium"><i
-                        class="fas fa-clipboard-check w-5 text-center"></i> Audit Logs</a>
-                <div class="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest !mt-6">System</div>
-                <a href="admin-billing.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
-                        class="fas fa-file-invoice-dollar w-5 text-center"></i> Billing</a>
-                <a href="admin-settings.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
-                        class="fas fa-cog w-5 text-center"></i> Settings</a>
-                <a href="admin-roles.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
-                        class="fas fa-user-shield w-5 text-center"></i> Roles &amp; Access</a>
+                <div class="nav-section"><div class="nav-label">Analytics</div>
+                    <a href="admin-revenue.html" class="nav-item"><i data-lucide="trending-up"></i><span class="nav-text">Revenue</span></a>
+                    <a href="admin-audit-logs.html" class="nav-item active"><i data-lucide="clipboard-check"></i><span class="nav-text">Audit Logs</span></a>
+                </div>
+                <div class="nav-section"><div class="nav-label">System</div>
+                    <a href="admin-billing.html" class="nav-item"><i data-lucide="receipt"></i><span class="nav-text">Billing</span></a>
+                    <a href="admin-settings.html" class="nav-item"><i data-lucide="settings"></i><span class="nav-text">Settings</span></a>
+                    <a href="admin-roles.html" class="nav-item"><i data-lucide="shield"></i><span class="nav-text">Roles &amp; Access</span></a>
+                </div>
             </nav>
-            <div class="p-4 border-t border-slate-100 dark:border-slate-800">
-                <div class="flex items-center gap-3 p-2">
-                    <div
-                        class="w-10 h-10 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-sm">
-                        AD</div>
-                    <div class="flex-1">
-                        <div class="font-bold text-sm">Admin User</div>
-                        <div class="text-[10px] text-slate-400">Super Administrator</div>
-                    </div><a href="login.html" class="text-slate-400 hover:text-primary"><i
-                            class="fas fa-sign-out-alt"></i></a>
-                </div>
-            </div>
+            <div class="sidebar-user"><div class="sidebar-user-avatar">AD</div><div class="sidebar-user-info"><div class="sidebar-user-name">Admin User</div><div class="sidebar-user-role">Super Administrator</div></div></div>
         </aside>
-
-        <div class="flex-1 flex flex-col h-screen min-w-0 overflow-y-auto">
-            <header
-                class="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 md:px-6 py-3">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-2 md:gap-4"><button onclick="toggleSidebar()"
-                            class="lg:hidden p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i
-                                class="fas fa-bars"></i></button>
-                        <div>
-                            <h1 class="font-heading font-bold text-base md:text-lg">Audit Logs</h1>
-                            <p class="text-[10px] md:text-[11px] text-slate-400 hidden sm:block">System activity & security events</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-2 md:gap-4">
-                        <div class="relative hidden md:block"><i
-                                class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i><input
-                                type="text" placeholder="Search logs..."
-                                class="pl-10 pr-4 py-2 w-full md:w-64 rounded-xl bg-slate-100 dark:bg-slate-800 border-none outline-none text-sm">
-                        </div>
-                        <button onclick="toggleDir()" class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-bold" title="Switch LTR/RTL">LTR/RTL</button>
-                        <button onclick="toggleTheme()"
-                            class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i id="theme-icon"
-                                class="fas fa-moon"></i></button>
-                        <div
-                            class="w-9 h-9 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-xs">
-                            AD</div>
-                    </div>
+        <div class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar"><i data-lucide="menu" style="width:18px;height:18px;"></i></button>
+                    <h1 class="page-title">Audit Logs</h1>
+                </div>
+                <div class="top-bar-right">
+                    <div class="top-bar-search"><i data-lucide="search" style="width:16px;height:16px;"></i><input type="text" placeholder="Search logs..." id="global-search"></div>
+                    <a href="#" class="top-bar-icon" aria-label="Notifications">
+                        <i data-lucide="bell" style="width:18px;height:18px;"></i>
+                        <span class="notification-dot"></span>
+                    </a>
+                    <button onclick="toggleDir()" class="theme-toggle" aria-label="Toggle direction" title="Switch LTR/RTL" style="width:auto;font-size:0.65rem;font-weight:700;padding:0 10px;">LTR/RTL</button>
+                    <button class="theme-toggle" aria-label="Toggle theme"><i data-lucide="moon" style="width:18px;height:18px;"></i></button>
+                    <div class="avatar" style="width:36px;height:36px;font-size:0.8rem;">AD</div>
                 </div>
             </header>
-
-            <main class="flex-1 p-4 md:p-6 overflow-y-auto">
-                <div class="mb-8 anim-up">
-                    <h2 class="text-xl md:text-2xl font-heading font-black">Activity Timeline</h2>
-                </div>
-
-                <div
-                    class="anim-up d1 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden">
-                    <div class="p-4 md:p-6 border-b border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                        <h3 class="font-heading font-bold">Recent Activity</h3>
-                        <div class="flex flex-wrap gap-1 md:gap-2"><button
-                                class="px-2 md:px-3 py-1 text-xs rounded-lg text-primary bg-primary/10">All</button><button
-                                class="px-2 md:px-3 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800">Logins</button><button
-                                class="px-2 md:px-3 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800">Security</button>
+            <div class="dashboard-content">
+                <div style="margin-bottom:var(--space-8);"><h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;">Activity Timeline</h2></div>
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3 class="panel-title">Recent Activity</h3>
+                        <div style="display:flex;gap:var(--space-2);">
+                            <button class="btn btn-primary btn-sm">All</button>
+                            <button class="btn btn-ghost btn-sm">Logins</button>
+                            <button class="btn btn-ghost btn-sm">Security</button>
                         </div>
                     </div>
-                    <div class="p-4 md:p-6 space-y-4">
-                        <div
-                            class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-                            <div
-                                class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
-                                <i class="fas fa-sign-in-alt text-xs"></i>
-                            </div>
-                            <div class="flex-1">
-                                <div class="text-sm font-medium">User <strong>James Donovan</strong> logged in</div>
-                                <div class="text-[10px] text-slate-400 mt-1">Today, 10:42 AM → IP: 192.168.1.xx</div>
-                            </div><span
-                                class="text-[10px] text-primary bg-primary/10 px-2 py-1 rounded-full font-bold">Auth</span>
-                        </div>
-                        <div
-                            class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-                            <div
-                                class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
-                                <i class="fas fa-upload text-xs"></i>
-                            </div>
-                            <div class="flex-1">
-                                <div class="text-sm font-medium">3 documents uploaded to <strong>Case
-                                        FA-2026-038</strong></div>
-                                <div class="text-[10px] text-slate-400 mt-1">Today, 9:15 AM → by Sarah K.</div>
-                            </div><span
-                                class="text-[10px] text-primary bg-primary/10 px-2 py-1 rounded-full font-bold">Data</span>
-                        </div>
-                        <div
-                            class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-                            <div
-                                class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
-                                <i class="fas fa-user-plus text-xs"></i>
-                            </div>
-                            <div class="flex-1">
-                                <div class="text-sm font-medium">New user <strong>Diana Palmer</strong> registered</div>
-                                <div class="text-[10px] text-slate-400 mt-1">Yesterday → Enterprise tier</div>
-                            </div><span
-                                class="text-[10px] text-primary bg-primary/10 px-2 py-1 rounded-full font-bold">User</span>
-                        </div>
-                        <div
-                            class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-                            <div
-                                class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
-                                <i class="fas fa-exclamation-triangle text-xs"></i>
-                            </div>
-                            <div class="flex-1">
-                                <div class="text-sm font-medium"><strong>Failed login attempt</strong> from unknown IP
-                                </div>
-                                <div class="text-[10px] text-slate-400 mt-1">Yesterday, 11:22 PM → IP: 203.45.xx.xx
-                                    (blocked)</div>
-                            </div><span
-                                class="text-[10px] text-primary bg-primary/10 px-2 py-1 rounded-full font-bold">Alert</span>
-                        </div>
-                        <div
-                            class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-                            <div
-                                class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
-                                <i class="fas fa-key text-xs"></i>
-                            </div>
-                            <div class="flex-1">
-                                <div class="text-sm font-medium">Admin <strong>password policy</strong> updated</div>
-                                <div class="text-[10px] text-slate-400 mt-1">Mar 02, 2026 → System config change</div>
-                            </div><span
-                                class="text-[10px] text-primary bg-primary/10 px-2 py-1 rounded-full font-bold">Config</span>
-                        </div>
-                        <div
-                            class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-                            <div
-                                class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
-                                <i class="fas fa-database text-xs"></i>
-                            </div>
-                            <div class="flex-1">
-                                <div class="text-sm font-medium">Database <strong>backup completed</strong> successfully
-                                </div>
-                                <div class="text-[10px] text-slate-400 mt-1">Mar 01, 2026 → 14.2 GB archived</div>
-                            </div><span
-                                class="text-[10px] text-primary bg-primary/10 px-2 py-1 rounded-full font-bold">System</span>
-                        </div>
-                        <div
-                            class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-                            <div
-                                class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
-                                <i class="fas fa-check-circle text-xs"></i>
-                            </div>
-                            <div class="flex-1">
-                                <div class="text-sm font-medium">Case <strong>FA-2026-025</strong> marked as
-                                    <strong>closed</strong>
-                                </div>
-                                <div class="text-[10px] text-slate-400 mt-1">Feb 28, 2026 → Resolved by Tom L.</div>
-                            </div><span
-                                class="text-[10px] text-primary bg-primary/10 px-2 py-1 rounded-full font-bold">Case</span>
+                    <div class="panel-body">
+                        <div class="activity-list">
+                            <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">User <strong>James Donovan</strong> logged in</div><div class="activity-time">Today, 10:42 AM → IP: 192.168.1.xx</div></div><span class="badge badge-gold" style="margin-left:auto;align-self:center;">Auth</span></div>
+                            <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">3 documents uploaded to <strong>Case FA-2026-038</strong></div><div class="activity-time">Today, 9:15 AM → by Sarah K.</div></div><span class="badge badge-gold" style="margin-left:auto;align-self:center;">Data</span></div>
+                            <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">New user <strong>Diana Palmer</strong> registered</div><div class="activity-time">Yesterday → Enterprise tier</div></div><span class="badge badge-gold" style="margin-left:auto;align-self:center;">User</span></div>
+                            <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text"><strong>Failed login attempt</strong> from unknown IP</div><div class="activity-time">Yesterday, 11:22 PM → IP: 203.45.xx.xx (blocked)</div></div><span class="badge badge-danger" style="margin-left:auto;align-self:center;">Alert</span></div>
+                            <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Admin <strong>password policy</strong> updated</div><div class="activity-time">Mar 02, 2026 → System config change</div></div><span class="badge badge-gold" style="margin-left:auto;align-self:center;">Config</span></div>
+                            <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Database <strong>backup completed</strong> successfully</div><div class="activity-time">Mar 01, 2026 → 14.2 GB archived</div></div><span class="badge badge-gold" style="margin-left:auto;align-self:center;">System</span></div>
+                            <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Case <strong>FA-2026-025</strong> marked as <strong>closed</strong></div><div class="activity-time">Feb 28, 2026 → Resolved by Tom L.</div></div><span class="badge badge-gold" style="margin-left:auto;align-self:center;">Case</span></div>
                         </div>
                     </div>
                 </div>
-            </main>
+            </div>
         </div>
     </div>
-    <script>
-        function toggleSidebar() { const s = document.getElementById('sidebar'); s.classList.toggle('-translate-x-full'); }
-        function toggleTheme() { const h = document.documentElement; const i = document.getElementById('theme-icon'); if (h.classList.contains('dark')) { h.classList.remove('dark'); localStorage.setItem('theme', 'light'); i.className = 'fas fa-moon'; } else { h.classList.add('dark'); localStorage.setItem('theme', 'dark'); i.className = 'fas fa-sun'; } }
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); document.getElementById('theme-icon').className = 'fas fa-sun'; }
-    </script>
-
-    <script>
-        // LTR/RTL Direction Toggle
-        function toggleDir() {
-            const html = document.documentElement;
-            const newDir = html.dir === 'ltr' ? 'rtl' : 'ltr';
-            html.dir = newDir;
-            localStorage.setItem('site-direction', newDir);
-        }
-        (function () {
-            const savedDir = localStorage.getItem('site-direction');
-            document.documentElement.dir = savedDir || 'ltr';
-        })();
-    </script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script>lucide.createIcons();</script>
+    <script>function toggleDir(){const html=document.documentElement;const newDir=html.dir==='ltr'?'rtl':'ltr';html.dir=newDir;localStorage.setItem('site-direction',newDir);}(function(){const savedDir=localStorage.getItem('site-direction');document.documentElement.dir=savedDir||'ltr';})();</script>
 </body>
-
 </html>

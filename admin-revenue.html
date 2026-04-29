@@ -1,304 +1,97 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en" dir="ltr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Revenue Analytics | Admin Panel</title>
     <link rel="stylesheet" href="assets/css/tailwind.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-    <script>if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); }</script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
-
-        body {
-            font-family: 'Inter', sans-serif
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Outfit', sans-serif
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px)
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
-        }
-
-        .anim-up {
-            animation: fadeInUp .6s ease-out forwards;
-            opacity: 0
-        }
-
-        .d1 {
-            animation-delay: .1s
-        }
-
-        .d2 {
-            animation-delay: .2s
-        }
-
-        .d3 {
-            animation-delay: .3s
-        }
-
-        .d4 {
-            animation-delay: .4s
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <script>var t=localStorage.getItem('faf-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}</script>
 </head>
-
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white">
-    <div class="flex h-screen overflow-hidden">
-        <aside id="sidebar"
-            class="fixed lg:sticky top-0 left-0 z-50 h-screen w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-shrink-0 flex flex-col transition-transform duration-300 -translate-x-full lg:translate-x-0">
-            <div class="py-6 px-6 border-b border-slate-100 dark:border-slate-800">
-                <a href="index.html" class="flex items-center gap-3" style="text-decoration:none;color:inherit;">
-                    <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white"><i
-                            class="fas fa-shield-alt"></i></div>
-                    <div><span class="font-bold text-lg font-heading">Forensic<span
-                                class="text-primary">Edge</span></span>
-                        <div class="text-[10px] text-slate-400 uppercase tracking-widest">Admin Panel</div>
-                    </div>
-                </a>
-            </div>
-            <nav class="flex-1 overflow-y-auto py-6 px-4 space-y-1">
-                <div class="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Main</div>
-                <a href="admin-dashboard.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
-                        class="fas fa-tachometer-alt w-5 text-center"></i> Dashboard</a>
-                <a href="admin-users.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
-                        class="fas fa-users w-5 text-center"></i> User Management</a>
-                <a href="admin-cases.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
-                        class="fas fa-briefcase w-5 text-center"></i> All Cases</a>
-                <div class="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest !mt-6">Analytics
+<body>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar" id="sidebar">
+            <a href="index.html" class="sidebar-header" style="text-decoration:none;color:inherit;">
+                <div class="sidebar-logo"><i data-lucide="shield-check" style="width:20px;height:20px;color:#fff;"></i></div>
+                <div class="sidebar-brand">Forensic<span>Edge</span><div style="font-size:0.55rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.15em;font-family:var(--font-body);font-weight:600;">Admin Panel</div></div>
+            </a>
+            <nav class="sidebar-nav">
+                <div class="nav-section"><div class="nav-label">Main</div>
+                    <a href="admin-dashboard.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span class="nav-text">Dashboard</span></a>
+                    <a href="admin-users.html" class="nav-item"><i data-lucide="users"></i><span class="nav-text">User Management</span></a>
+                    <a href="admin-cases.html" class="nav-item"><i data-lucide="briefcase"></i><span class="nav-text">All Cases</span></a>
                 </div>
-                <a href="admin-revenue.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/10 text-primary font-medium"><i
-                        class="fas fa-chart-line w-5 text-center"></i> Revenue</a>
-                <a href="admin-audit-logs.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
-                        class="fas fa-clipboard-check w-5 text-center"></i> Audit Logs</a>
-                <div class="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest !mt-6">System</div>
-                <a href="admin-billing.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
-                        class="fas fa-file-invoice-dollar w-5 text-center"></i> Billing</a>
-                <a href="admin-settings.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
-                        class="fas fa-cog w-5 text-center"></i> Settings</a>
-                <a href="admin-roles.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
-                        class="fas fa-user-shield w-5 text-center"></i> Roles &amp; Access</a>
+                <div class="nav-section"><div class="nav-label">Analytics</div>
+                    <a href="admin-revenue.html" class="nav-item active"><i data-lucide="trending-up"></i><span class="nav-text">Revenue</span></a>
+                    <a href="admin-audit-logs.html" class="nav-item"><i data-lucide="clipboard-check"></i><span class="nav-text">Audit Logs</span></a>
+                </div>
+                <div class="nav-section"><div class="nav-label">System</div>
+                    <a href="admin-billing.html" class="nav-item"><i data-lucide="receipt"></i><span class="nav-text">Billing</span></a>
+                    <a href="admin-settings.html" class="nav-item"><i data-lucide="settings"></i><span class="nav-text">Settings</span></a>
+                    <a href="admin-roles.html" class="nav-item"><i data-lucide="shield"></i><span class="nav-text">Roles &amp; Access</span></a>
+                </div>
             </nav>
-            <div class="p-4 border-t border-slate-100 dark:border-slate-800">
-                <div class="flex items-center gap-3 p-2">
-                    <div
-                        class="w-10 h-10 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-sm">
-                        AD</div>
-                    <div class="flex-1">
-                        <div class="font-bold text-sm">Admin User</div>
-                        <div class="text-[10px] text-slate-400">Super Administrator</div>
-                    </div><a href="login.html" class="text-slate-400 hover:text-primary"><i
-                            class="fas fa-sign-out-alt"></i></a>
-                </div>
-            </div>
+            <div class="sidebar-user"><div class="sidebar-user-avatar">AD</div><div class="sidebar-user-info"><div class="sidebar-user-name">Admin User</div><div class="sidebar-user-role">Super Administrator</div></div></div>
         </aside>
-
-        <div class="flex-1 flex flex-col h-screen min-w-0 overflow-y-auto">
-            <header
-                class="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 md:px-6 py-3">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-2 md:gap-4"><button onclick="toggleSidebar()"
-                            class="lg:hidden p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i
-                                class="fas fa-bars"></i></button>
-                        <div>
-                            <h1 class="font-heading font-bold text-base md:text-lg">Revenue Analytics</h1>
-                            <p class="text-[10px] md:text-[11px] text-slate-400 hidden sm:block">Financial performance & trends</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-2 md:gap-4">                        <button onclick="toggleDir()" class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-bold" title="Switch LTR/RTL">LTR/RTL</button>
-                        <button onclick="toggleTheme()"
-                            class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i id="theme-icon"
-                                class="fas fa-moon"></i></button>
-                        <div
-                            class="w-9 h-9 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-xs">
-                            AD</div>
-                    </div>
+        <div class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar"><i data-lucide="menu" style="width:18px;height:18px;"></i></button>
+                    <h1 class="page-title">Revenue Analytics</h1>
+                </div>
+                <div class="top-bar-right">
+                    <a href="#" class="top-bar-icon" aria-label="Notifications">
+                        <i data-lucide="bell" style="width:18px;height:18px;"></i>
+                        <span class="notification-dot"></span>
+                    </a>
+                    <button onclick="toggleDir()" class="theme-toggle" aria-label="Toggle direction" title="Switch LTR/RTL" style="width:auto;font-size:0.65rem;font-weight:700;padding:0 10px;">LTR/RTL</button>
+                    <button class="theme-toggle" aria-label="Toggle theme"><i data-lucide="moon" style="width:18px;height:18px;"></i></button>
+                    <div class="avatar" style="width:36px;height:36px;font-size:0.8rem;">AD</div>
                 </div>
             </header>
-
-            <main class="flex-1 p-4 md:p-6 overflow-y-auto">
-                <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 anim-up">
-                    <h2 class="text-xl md:text-2xl font-heading font-black">Revenue Overview</h2>
-                    <button
-                        class="mt-4 md:mt-0 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-xl text-sm font-medium"><i
-                            class="fas fa-download mr-2"></i>Export Report</button>
+            <div class="dashboard-content">
+                <div style="margin-bottom:var(--space-8);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-4);">
+                    <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;">Revenue Overview</h2>
+                    <button class="btn btn-ghost btn-sm"><i data-lucide="download" style="width:16px;height:16px;"></i> Export Report</button>
                 </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 mb-8">
-                    <div
-                        class="anim-up d1 p-4 md:p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-                        <div
-                            class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-3">
-                            <i class="fas fa-dollar-sign text-xl"></i>
-                        </div>
-                        <div class="text-3xl font-black">$2.4M</div>
-                        <div class="text-xs text-slate-500 mt-1 uppercase tracking-wider">Revenue YTD</div>
-                        <div class="text-xs text-primary mt-2 font-bold"><i class="fas fa-arrow-up mr-1"></i>23% vs
-                            last year</div>
-                    </div>
-                    <div
-                        class="anim-up d2 p-4 md:p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-                        <div
-                            class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-3">
-                            <i class="fas fa-file-invoice text-xl"></i>
-                        </div>
-                        <div class="text-3xl font-black">$890K</div>
-                        <div class="text-xs text-slate-500 mt-1 uppercase tracking-wider">Outstanding</div>
-                    </div>
-                    <div
-                        class="anim-up d3 p-4 md:p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-                        <div
-                            class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-3">
-                            <i class="fas fa-chart-pie text-xl"></i>
-                        </div>
-                        <div class="text-3xl font-black">$18.5K</div>
-                        <div class="text-xs text-slate-500 mt-1 uppercase tracking-wider">Avg per Case</div>
-                    </div>
-                    <div
-                        class="anim-up d4 p-4 md:p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-                        <div
-                            class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-3">
-                            <i class="fas fa-percentage text-xl"></i>
-                        </div>
-                        <div class="text-3xl font-black">94%</div>
-                        <div class="text-xs text-slate-500 mt-1 uppercase tracking-wider">Collection Rate</div>
-                    </div>
+                <div class="stats-grid">
+                    <div class="stat-card animate-fadeInUp delay-1"><div class="stat-icon gold"><i data-lucide="dollar-sign" style="width:22px;height:22px;"></i></div><div class="stat-value">$2.4M</div><div class="stat-label">Revenue YTD</div><div class="stat-change up"><i data-lucide="trending-up" style="width:12px;height:12px;"></i> 23% vs last year</div></div>
+                    <div class="stat-card animate-fadeInUp delay-2"><div class="stat-icon gold"><i data-lucide="file-text" style="width:22px;height:22px;"></i></div><div class="stat-value">$890K</div><div class="stat-label">Outstanding</div></div>
+                    <div class="stat-card animate-fadeInUp delay-3"><div class="stat-icon gold"><i data-lucide="pie-chart" style="width:22px;height:22px;"></i></div><div class="stat-value">$18.5K</div><div class="stat-label">Avg per Case</div></div>
+                    <div class="stat-card animate-fadeInUp delay-4"><div class="stat-icon gold"><i data-lucide="percent" style="width:22px;height:22px;"></i></div><div class="stat-value">94%</div><div class="stat-label">Collection Rate</div></div>
                 </div>
-
-                <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 md:gap-6 mb-8">
-                    <div
-                        class="anim-up d3 p-4 md:p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                        <h3 class="font-heading font-bold mb-6">Revenue by Service</h3>
-                        <div class="space-y-5">
-                            <div>
-                                <div class="flex justify-between text-xs mb-2"><span class="text-slate-500">Fraud
-                                        Investigation</span><span class="font-bold text-primary">$1.01M</span></div>
-                                <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full">
-                                    <div class="h-full bg-primary rounded-full" style="width:42%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-xs mb-2"><span class="text-slate-500">Asset
-                                        Tracing</span><span class="font-bold text-primary">$672K</span></div>
-                                <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full">
-                                    <div class="h-full bg-primary rounded-full" style="width:28%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-xs mb-2"><span class="text-slate-500">Litigation
-                                        Support</span><span class="font-bold text-primary">$432K</span></div>
-                                <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full">
-                                    <div class="h-full bg-primary rounded-full" style="width:18%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-xs mb-2"><span
-                                        class="text-slate-500">Compliance</span><span
-                                        class="font-bold text-primary">$288K</span></div>
-                                <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full">
-                                    <div class="h-full bg-primary rounded-full" style="width:12%"></div>
-                                </div>
-                            </div>
+                <div class="content-grid-equal">
+                    <div class="panel">
+                        <div class="panel-header"><h3 class="panel-title">Revenue by Service</h3></div>
+                        <div class="panel-body">
+                            <div style="margin-bottom:var(--space-5);"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.85rem;"><span>Fraud Investigation</span><span style="font-weight:700;color:var(--accent-gold);">$1.01M</span></div><div class="progress-bar"><div class="progress-fill" data-width="42%"></div></div></div>
+                            <div style="margin-bottom:var(--space-5);"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.85rem;"><span>Asset Tracing</span><span style="font-weight:700;color:var(--accent-gold);">$672K</span></div><div class="progress-bar"><div class="progress-fill" data-width="28%"></div></div></div>
+                            <div style="margin-bottom:var(--space-5);"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.85rem;"><span>Litigation Support</span><span style="font-weight:700;color:var(--accent-gold);">$432K</span></div><div class="progress-bar"><div class="progress-fill" data-width="18%"></div></div></div>
+                            <div><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.85rem;"><span>Compliance</span><span style="font-weight:700;color:var(--accent-gold);">$288K</span></div><div class="progress-bar"><div class="progress-fill" data-width="12%"></div></div></div>
                         </div>
                     </div>
-                    <div
-                        class="anim-up d4 p-4 md:p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                        <h3 class="font-heading font-bold mb-6">Top Revenue Clients</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800">
-                                <div class="flex items-center gap-3">
-                                    <div
-                                        class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs font-bold">
-                                        MC</div>
-                                    <div>
-                                        <div class="font-medium text-sm">Meridian Corp</div>
-                                        <div class="text-[10px] text-slate-400">12 cases</div>
-                                    </div>
-                                </div><span class="text-sm font-bold">$450K</span>
-                            </div>
-                            <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800">
-                                <div class="flex items-center gap-3">
-                                    <div
-                                        class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs font-bold">
-                                        GB</div>
-                                    <div>
-                                        <div class="font-medium text-sm">GlobalBank</div>
-                                        <div class="text-[10px] text-slate-400">3 cases</div>
-                                    </div>
-                                </div><span class="text-sm font-bold">$380K</span>
-                            </div>
-                            <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800">
-                                <div class="flex items-center gap-3">
-                                    <div
-                                        class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs font-bold">
-                                        PH</div>
-                                    <div>
-                                        <div class="font-medium text-sm">Pinnacle Holdings</div>
-                                        <div class="text-[10px] text-slate-400">15 cases</div>
-                                    </div>
-                                </div><span class="text-sm font-bold">$310K</span>
-                            </div>
-                            <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800">
-                                <div class="flex items-center gap-3">
-                                    <div
-                                        class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs font-bold">
-                                        KL</div>
-                                    <div>
-                                        <div class="font-medium text-sm">Kensington Law</div>
-                                        <div class="text-[10px] text-slate-400">8 cases</div>
-                                    </div>
-                                </div><span class="text-sm font-bold">$275K</span>
-                            </div>
+                    <div class="panel">
+                        <div class="panel-header"><h3 class="panel-title">Top Revenue Clients</h3></div>
+                        <div class="panel-body">
+                            <div class="case-card" style="margin-bottom:var(--space-3);"><div style="display:flex;align-items:center;justify-content:space-between;"><div style="display:flex;align-items:center;gap:var(--space-3);"><div class="avatar" style="width:32px;height:32px;font-size:0.7rem;">MC</div><div><div style="font-weight:600;font-size:0.9rem;">Meridian Corp</div><div style="font-size:0.7rem;color:var(--text-secondary);">12 cases</div></div></div><span style="font-weight:700;font-size:0.9rem;">$450K</span></div></div>
+                            <div class="case-card" style="margin-bottom:var(--space-3);"><div style="display:flex;align-items:center;justify-content:space-between;"><div style="display:flex;align-items:center;gap:var(--space-3);"><div class="avatar" style="width:32px;height:32px;font-size:0.7rem;">GB</div><div><div style="font-weight:600;font-size:0.9rem;">GlobalBank</div><div style="font-size:0.7rem;color:var(--text-secondary);">3 cases</div></div></div><span style="font-weight:700;font-size:0.9rem;">$380K</span></div></div>
+                            <div class="case-card" style="margin-bottom:var(--space-3);"><div style="display:flex;align-items:center;justify-content:space-between;"><div style="display:flex;align-items:center;gap:var(--space-3);"><div class="avatar" style="width:32px;height:32px;font-size:0.7rem;">PH</div><div><div style="font-weight:600;font-size:0.9rem;">Pinnacle Holdings</div><div style="font-size:0.7rem;color:var(--text-secondary);">15 cases</div></div></div><span style="font-weight:700;font-size:0.9rem;">$310K</span></div></div>
+                            <div class="case-card"><div style="display:flex;align-items:center;justify-content:space-between;"><div style="display:flex;align-items:center;gap:var(--space-3);"><div class="avatar" style="width:32px;height:32px;font-size:0.7rem;">KL</div><div><div style="font-weight:600;font-size:0.9rem;">Kensington Law</div><div style="font-size:0.7rem;color:var(--text-secondary);">8 cases</div></div></div><span style="font-weight:700;font-size:0.9rem;">$275K</span></div></div>
                         </div>
                     </div>
                 </div>
-            </main>
+            </div>
         </div>
     </div>
-    <script>
-        function toggleSidebar() { const s = document.getElementById('sidebar'); s.classList.toggle('-translate-x-full'); }
-        function toggleTheme() { const h = document.documentElement; const i = document.getElementById('theme-icon'); if (h.classList.contains('dark')) { h.classList.remove('dark'); localStorage.setItem('theme', 'light'); i.className = 'fas fa-moon'; } else { h.classList.add('dark'); localStorage.setItem('theme', 'dark'); i.className = 'fas fa-sun'; } }
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); document.getElementById('theme-icon').className = 'fas fa-sun'; }
-    </script>
-
-    <script>
-        // LTR/RTL Direction Toggle
-        function toggleDir() {
-            const html = document.documentElement;
-            const newDir = html.dir === 'ltr' ? 'rtl' : 'ltr';
-            html.dir = newDir;
-            localStorage.setItem('site-direction', newDir);
-        }
-        (function () {
-            const savedDir = localStorage.getItem('site-direction');
-            document.documentElement.dir = savedDir || 'ltr';
-        })();
-    </script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script>lucide.createIcons();</script>
+    <script>function toggleDir(){const html=document.documentElement;const newDir=html.dir==='ltr'?'rtl':'ltr';html.dir=newDir;localStorage.setItem('site-direction',newDir);}(function(){const savedDir=localStorage.getItem('site-direction');document.documentElement.dir=savedDir||'ltr';})();</script>
 </body>
-
 </html>

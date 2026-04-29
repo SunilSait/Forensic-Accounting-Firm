@@ -1,207 +1,116 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en" dir="ltr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings | Admin Panel</title>
     <link rel="stylesheet" href="assets/css/tailwind.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-    <script>if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); }</script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
-
-        body {
-            font-family: 'Inter', sans-serif
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Outfit', sans-serif
-        }
-
-        .anim-up {
-            animation: fadeInUp .6s ease-out forwards;
-            opacity: 0
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px)
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <script>var t=localStorage.getItem('faf-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}</script>
 </head>
-
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white">
-    <div class="flex h-screen overflow-hidden">
-        <aside id="sidebar"
-            class="fixed lg:sticky top-0 left-0 z-50 h-screen w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-shrink-0 flex flex-col transition-transform duration-300 -translate-x-full lg:translate-x-0">
-            <div class="py-6 px-6 border-b border-slate-100 dark:border-slate-800">
-                <a href="index.html" class="flex items-center gap-3" style="text-decoration:none;color:inherit;">
-                    <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white"><i
-                            class="fas fa-shield-alt"></i></div>
-                    <div><span class="font-bold text-lg font-heading">Forensic<span
-                                class="text-primary">Edge</span></span>
-                        <div class="text-[10px] text-slate-400 uppercase tracking-widest">Admin Panel</div>
-                    </div>
-                </a>
-            </div>
-            <nav class="flex-1 overflow-y-auto py-6 px-4 space-y-1">
-                <div class="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Main</div>
-                <a href="admin-dashboard.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800"><i
-                        class="fas fa-tachometer-alt w-5 text-center"></i> Dashboard</a>
-                <a href="admin-users.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800"><i
-                        class="fas fa-users w-5 text-center"></i> User Management</a>
-                <a href="admin-cases.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800"><i
-                        class="fas fa-briefcase w-5 text-center"></i> All Cases</a>
-                <div class="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest !mt-6">Analytics
+<body>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar" id="sidebar">
+            <a href="index.html" class="sidebar-header" style="text-decoration:none;color:inherit;">
+                <div class="sidebar-logo"><i data-lucide="shield-check" style="width:20px;height:20px;color:#fff;"></i></div>
+                <div class="sidebar-brand">Forensic<span>Edge</span><div style="font-size:0.55rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.15em;font-family:var(--font-body);font-weight:600;">Admin Panel</div></div>
+            </a>
+            <nav class="sidebar-nav">
+                <div class="nav-section"><div class="nav-label">Main</div>
+                    <a href="admin-dashboard.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span class="nav-text">Dashboard</span></a>
+                    <a href="admin-users.html" class="nav-item"><i data-lucide="users"></i><span class="nav-text">User Management</span></a>
+                    <a href="admin-cases.html" class="nav-item"><i data-lucide="briefcase"></i><span class="nav-text">All Cases</span></a>
                 </div>
-                <a href="admin-revenue.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800"><i
-                        class="fas fa-chart-line w-5 text-center"></i> Revenue</a>
-                <a href="admin-audit-logs.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800"><i
-                        class="fas fa-clipboard-check w-5 text-center"></i> Audit Logs</a>
-                <div class="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest !mt-6">System</div>
-                <a href="admin-billing.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800"><i
-                        class="fas fa-file-invoice-dollar w-5 text-center"></i> Billing</a>
-                <a href="admin-settings.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/10 text-primary font-medium"><i
-                        class="fas fa-cog w-5 text-center"></i> Settings</a>
-                <a href="admin-roles.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800"><i
-                        class="fas fa-user-shield w-5 text-center"></i> Roles &amp; Access</a>
+                <div class="nav-section"><div class="nav-label">Analytics</div>
+                    <a href="admin-revenue.html" class="nav-item"><i data-lucide="trending-up"></i><span class="nav-text">Revenue</span></a>
+                    <a href="admin-audit-logs.html" class="nav-item"><i data-lucide="clipboard-check"></i><span class="nav-text">Audit Logs</span></a>
+                </div>
+                <div class="nav-section"><div class="nav-label">System</div>
+                    <a href="admin-billing.html" class="nav-item"><i data-lucide="receipt"></i><span class="nav-text">Billing</span></a>
+                    <a href="admin-settings.html" class="nav-item active"><i data-lucide="settings"></i><span class="nav-text">Settings</span></a>
+                    <a href="admin-roles.html" class="nav-item"><i data-lucide="shield"></i><span class="nav-text">Roles &amp; Access</span></a>
+                </div>
             </nav>
-            <div class="p-4 border-t border-slate-100 dark:border-slate-800">
-                <div class="flex items-center gap-3 p-2">
-                    <div
-                        class="w-10 h-10 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-sm">
-                        AD</div>
-                    <div class="flex-1">
-                        <div class="font-bold text-sm">Admin User</div>
-                        <div class="text-[10px] text-slate-400">Super Administrator</div>
-                    </div><a href="login.html" class="text-slate-400 hover:text-primary"><i
-                            class="fas fa-sign-out-alt"></i></a>
-                </div>
-            </div>
+            <div class="sidebar-user"><div class="sidebar-user-avatar">AD</div><div class="sidebar-user-info"><div class="sidebar-user-name">Admin User</div><div class="sidebar-user-role">Super Administrator</div></div></div>
         </aside>
-        <div class="flex-1 flex flex-col h-screen min-w-0 overflow-y-auto">
-            <header
-                class="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-6 py-3">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-4"><button onclick="toggleSidebar()"
-                            class="lg:hidden p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i
-                                class="fas fa-bars"></i></button>
-                        <div>
-                            <h1 class="font-heading font-bold text-lg">Settings</h1>
-                            <p class="text-[11px] text-slate-400">System configuration</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4">                        <button onclick="toggleDir()" class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-bold" title="Switch LTR/RTL">LTR/RTL</button>
-                        <button onclick="toggleTheme()"
-                            class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i id="theme-icon"
-                                class="fas fa-moon"></i></button>
-                        <div
-                            class="w-9 h-9 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-xs">
-                            AD</div>
-                    </div>
+        <div class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar"><i data-lucide="menu" style="width:18px;height:18px;"></i></button>
+                    <h1 class="page-title">Settings</h1>
+                </div>
+                <div class="top-bar-right">
+                    <a href="#" class="top-bar-icon" aria-label="Notifications">
+                        <i data-lucide="bell" style="width:18px;height:18px;"></i>
+                        <span class="notification-dot"></span>
+                    </a>
+                    <button onclick="toggleDir()" class="theme-toggle" aria-label="Toggle direction" title="Switch LTR/RTL" style="width:auto;font-size:0.65rem;font-weight:700;padding:0 10px;">LTR/RTL</button>
+                    <button class="theme-toggle" aria-label="Toggle theme"><i data-lucide="moon" style="width:18px;height:18px;"></i></button>
+                    <div class="avatar" style="width:36px;height:36px;font-size:0.8rem;">AD</div>
                 </div>
             </header>
-            <main class="flex-1 p-6">
-                <div class="mb-8 anim-up">
-                    <h2 class="text-2xl font-heading font-black">System Settings</h2>
-                </div>
-                <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
-                    <div
-                        class="anim-up p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                        <h3 class="font-heading font-bold mb-6"><i
-                                class="fas fa-shield-alt text-primary mr-2"></i>Security</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between p-4 rounded-xl bg-slate-50 dark:bg-slate-800">
-                                <div>
-                                    <div class="font-medium text-sm">Two-Factor Auth</div>
-                                    <div class="text-[10px] text-slate-400">Required for admins</div>
-                                </div><span class="text-xs font-bold text-primary">Enabled</span>
+            <div class="dashboard-content">
+                <div style="margin-bottom:var(--space-8);"><h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;">System Settings</h2></div>
+                <div class="content-grid-equal">
+                    <div class="panel">
+                        <div class="panel-header"><h3 class="panel-title"><i data-lucide="shield-check" style="width:16px;height:16px;display:inline;margin-right:8px;vertical-align:-2px;color:var(--accent-gold);"></i>Security</h3></div>
+                        <div class="panel-body">
+                            <div class="case-card" style="margin-bottom:var(--space-3);">
+                                <div style="display:flex;align-items:center;justify-content:space-between;">
+                                    <div><div style="font-weight:600;font-size:0.9rem;">Two-Factor Auth</div><div style="font-size:0.7rem;color:var(--text-secondary);">Required for admins</div></div>
+                                    <span style="font-size:0.8rem;font-weight:700;color:var(--accent-gold);">Enabled</span>
+                                </div>
                             </div>
-                            <div class="flex items-center justify-between p-4 rounded-xl bg-slate-50 dark:bg-slate-800">
-                                <div>
-                                    <div class="font-medium text-sm">Session Timeout</div>
-                                    <div class="text-[10px] text-slate-400">Auto-logout</div>
-                                </div><span class="text-xs font-bold">30 min</span>
+                            <div class="case-card" style="margin-bottom:var(--space-3);">
+                                <div style="display:flex;align-items:center;justify-content:space-between;">
+                                    <div><div style="font-weight:600;font-size:0.9rem;">Session Timeout</div><div style="font-size:0.7rem;color:var(--text-secondary);">Auto-logout</div></div>
+                                    <span style="font-size:0.8rem;font-weight:700;">30 min</span>
+                                </div>
                             </div>
-                            <div class="flex items-center justify-between p-4 rounded-xl bg-slate-50 dark:bg-slate-800">
-                                <div>
-                                    <div class="font-medium text-sm">Password Policy</div>
-                                    <div class="text-[10px] text-slate-400">Min 12 chars</div>
-                                </div><button
-                                    class="px-3 py-1 text-xs rounded-lg bg-primary/10 text-primary font-bold">Configure</button>
+                            <div class="case-card">
+                                <div style="display:flex;align-items:center;justify-content:space-between;">
+                                    <div><div style="font-weight:600;font-size:0.9rem;">Password Policy</div><div style="font-size:0.7rem;color:var(--text-secondary);">Min 12 chars</div></div>
+                                    <button class="btn btn-primary btn-sm" style="padding:0.3rem 0.8rem;">Configure</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div
-                        class="anim-up p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                        <h3 class="font-heading font-bold mb-6"><i
-                                class="fas fa-bell text-primary mr-2"></i>Notifications</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between p-4 rounded-xl bg-slate-50 dark:bg-slate-800">
-                                <div>
-                                    <div class="font-medium text-sm">Email Alerts</div>
-                                    <div class="text-[10px] text-slate-400">Critical events</div>
-                                </div><span class="text-xs font-bold text-primary">On</span>
+                    <div class="panel">
+                        <div class="panel-header"><h3 class="panel-title"><i data-lucide="bell" style="width:16px;height:16px;display:inline;margin-right:8px;vertical-align:-2px;color:var(--accent-gold);"></i>Notifications</h3></div>
+                        <div class="panel-body">
+                            <div class="case-card" style="margin-bottom:var(--space-3);">
+                                <div style="display:flex;align-items:center;justify-content:space-between;">
+                                    <div><div style="font-weight:600;font-size:0.9rem;">Email Alerts</div><div style="font-size:0.7rem;color:var(--text-secondary);">Critical events</div></div>
+                                    <span style="font-size:0.8rem;font-weight:700;color:var(--accent-gold);">On</span>
+                                </div>
                             </div>
-                            <div class="flex items-center justify-between p-4 rounded-xl bg-slate-50 dark:bg-slate-800">
-                                <div>
-                                    <div class="font-medium text-sm">Failed Logins</div>
-                                    <div class="text-[10px] text-slate-400">Security alerts</div>
-                                </div><span class="text-xs font-bold text-primary">On</span>
+                            <div class="case-card" style="margin-bottom:var(--space-3);">
+                                <div style="display:flex;align-items:center;justify-content:space-between;">
+                                    <div><div style="font-weight:600;font-size:0.9rem;">Failed Logins</div><div style="font-size:0.7rem;color:var(--text-secondary);">Security alerts</div></div>
+                                    <span style="font-size:0.8rem;font-weight:700;color:var(--accent-gold);">On</span>
+                                </div>
                             </div>
-                            <div class="flex items-center justify-between p-4 rounded-xl bg-slate-50 dark:bg-slate-800">
-                                <div>
-                                    <div class="font-medium text-sm">Weekly Reports</div>
-                                    <div class="text-[10px] text-slate-400">Summary emails</div>
-                                </div><span class="text-xs font-bold text-slate-400">Off</span>
+                            <div class="case-card">
+                                <div style="display:flex;align-items:center;justify-content:space-between;">
+                                    <div><div style="font-weight:600;font-size:0.9rem;">Weekly Reports</div><div style="font-size:0.7rem;color:var(--text-secondary);">Summary emails</div></div>
+                                    <span style="font-size:0.8rem;font-weight:700;color:var(--text-secondary);">Off</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </main>
+            </div>
         </div>
     </div>
-    <script>
-        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('-translate-x-full'); }
-        function toggleTheme() { const h = document.documentElement, i = document.getElementById('theme-icon'); if (h.classList.contains('dark')) { h.classList.remove('dark'); localStorage.setItem('theme', 'light'); i.className = 'fas fa-moon'; } else { h.classList.add('dark'); localStorage.setItem('theme', 'dark'); i.className = 'fas fa-sun'; } }
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); document.getElementById('theme-icon').className = 'fas fa-sun'; }
-    </script>
-
-    <script>
-        // LTR/RTL Direction Toggle
-        function toggleDir() {
-            const html = document.documentElement;
-            const newDir = html.dir === 'ltr' ? 'rtl' : 'ltr';
-            html.dir = newDir;
-            localStorage.setItem('site-direction', newDir);
-        }
-        (function () {
-            const savedDir = localStorage.getItem('site-direction');
-            document.documentElement.dir = savedDir || 'ltr';
-        })();
-    </script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script>lucide.createIcons();</script>
+    <script>function toggleDir(){const html=document.documentElement;const newDir=html.dir==='ltr'?'rtl':'ltr';html.dir=newDir;localStorage.setItem('site-direction',newDir);}(function(){const savedDir=localStorage.getItem('site-direction');document.documentElement.dir=savedDir||'ltr';})();</script>
 </body>
-
 </html>

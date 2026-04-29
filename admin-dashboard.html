@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -8,460 +8,338 @@
         content="ForensicEdge Admin Dashboard - System administration, user management, and analytics.">
     <title>Admin Dashboard | ForensicEdge</title>
     <link rel="stylesheet" href="assets/css/tailwind.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
-
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        .transition-all {
-            transition: all 0.3s ease;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Outfit', sans-serif;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .anim-up {
-            animation: fadeInUp 0.6s ease-out forwards;
-            opacity: 0;
-        }
-
-        .d1 {
-            animation-delay: 0.1s;
-        }
-
-        .d2 {
-            animation-delay: 0.2s;
-        }
-
-        .d3 {
-            animation-delay: 0.3s;
-        }
-
-        .d4 {
-            animation-delay: 0.4s;
-        }
-
-        .d5 {
-            animation-delay: 0.5s;
-        }
-
-        .progress-ring {
-            transform: rotate(-90deg);
-            transform-origin: 50% 50%;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <script>var t = localStorage.getItem('faf-theme'); if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.setAttribute('data-theme', 'dark'); }</script>
 </head>
 
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white transition-all">
-
-    <div class="flex h-screen overflow-hidden">
+<body>
+    <div class="dashboard-wrapper">
 
         <!-- ========== SIDEBAR ========== -->
-        <aside id="sidebar"
-            class="fixed lg:sticky top-0 left-0 z-50 h-screen w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-shrink-0 flex flex-col transition-transform duration-300 -translate-x-full lg:translate-x-0">
-            <div class="py-6 px-6 border-b border-slate-100 dark:border-slate-800">
-                <a href="index.html" class="flex items-center gap-3" style="text-decoration:none;color:inherit;">
-                    <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white"><i
-                            class="fas fa-shield-alt"></i></div>
-                    <div><span class="font-bold text-lg font-heading">Forensic<span
-                                class="text-primary">Edge</span></span>
-                        <div class="text-[10px] text-slate-400 uppercase tracking-widest">Admin Panel</div>
-                    </div>
-                </a>
-            </div>
-
-            <nav class="flex-1 overflow-y-auto py-6 px-4 space-y-1">
-                <div class="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Main</div>
-                <a href="admin-dashboard.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/10 text-primary font-medium"><i
-                        class="fas fa-tachometer-alt w-5 text-center"></i> Dashboard</a>
-                <a href="admin-users.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
-                        class="fas fa-users w-5 text-center"></i> User Management</a>
-                <a href="admin-cases.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
-                        class="fas fa-briefcase w-5 text-center"></i> All Cases</a>
-
-                <div class="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest !mt-6">Analytics
+        <aside class="sidebar" id="sidebar">
+            <a href="index.html" class="sidebar-header" style="text-decoration:none;color:inherit;">
+                <div class="sidebar-logo">
+                    <i data-lucide="shield-check" style="width:20px;height:20px;color:#fff;"></i>
                 </div>
-                <a href="admin-revenue.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
-                        class="fas fa-chart-line w-5 text-center"></i> Revenue</a>
-                <a href="admin-audit-logs.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
-                        class="fas fa-clipboard-check w-5 text-center"></i> Audit Logs</a>
+                <div class="sidebar-brand">Forensic<span>Edge</span>
+                    <div style="font-size:0.55rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.15em;font-family:var(--font-body);font-weight:600;">Admin Panel</div>
+                </div>
+            </a>
 
-                <div class="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest !mt-6">System</div>
-                <a href="admin-billing.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
-                        class="fas fa-file-invoice-dollar w-5 text-center"></i> Billing</a>
-                <a href="admin-settings.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
-                        class="fas fa-cog w-5 text-center"></i> Settings</a>
-                <a href="admin-roles.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"><i
-                        class="fas fa-user-shield w-5 text-center"></i> Roles & Access</a>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-label">Main</div>
+                    <a href="admin-dashboard.html" class="nav-item active">
+                        <i data-lucide="layout-dashboard"></i>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                    <a href="admin-users.html" class="nav-item">
+                        <i data-lucide="users"></i>
+                        <span class="nav-text">User Management</span>
+                    </a>
+                    <a href="admin-cases.html" class="nav-item">
+                        <i data-lucide="briefcase"></i>
+                        <span class="nav-text">All Cases</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-label">Analytics</div>
+                    <a href="admin-revenue.html" class="nav-item">
+                        <i data-lucide="trending-up"></i>
+                        <span class="nav-text">Revenue</span>
+                    </a>
+                    <a href="admin-audit-logs.html" class="nav-item">
+                        <i data-lucide="clipboard-check"></i>
+                        <span class="nav-text">Audit Logs</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-label">System</div>
+                    <a href="admin-billing.html" class="nav-item">
+                        <i data-lucide="receipt"></i>
+                        <span class="nav-text">Billing</span>
+                    </a>
+                    <a href="admin-settings.html" class="nav-item">
+                        <i data-lucide="settings"></i>
+                        <span class="nav-text">Settings</span>
+                    </a>
+                    <a href="admin-roles.html" class="nav-item">
+                        <i data-lucide="shield"></i>
+                        <span class="nav-text">Roles &amp; Access</span>
+                    </a>
+                </div>
             </nav>
 
-            <div class="p-4 border-t border-slate-100 dark:border-slate-800">
-                <div class="flex items-center gap-3 p-2">
-                    <div
-                        class="w-10 h-10 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-sm">
-                        AD</div>
-                    <div class="flex-1">
-                        <div class="font-bold text-sm">Admin User</div>
-                        <div class="text-[10px] text-slate-400">Super Administrator</div>
-                    </div>
-                    <a href="login.html" class="text-slate-400 hover:text-primary transition-colors"><i
-                            class="fas fa-sign-out-alt"></i></a>
+            <div class="sidebar-user">
+                <div class="sidebar-user-avatar">AD</div>
+                <div class="sidebar-user-info">
+                    <div class="sidebar-user-name">Admin User</div>
+                    <div class="sidebar-user-role">Super Administrator</div>
                 </div>
             </div>
         </aside>
 
         <!-- ========== MAIN CONTENT ========== -->
-        <div class="flex-1 flex flex-col h-screen min-w-0 overflow-y-auto">
+        <div class="main-content">
+
             <!-- Top Bar -->
-            <header
-                class="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 md:px-6 py-3">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-2 md:gap-4">
-                        <button onclick="toggleSidebar()"
-                            class="lg:hidden p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i
-                                class="fas fa-bars"></i></button>
-                        <div>
-                            <h1 class="font-heading font-bold text-base md:text-lg">Admin Dashboard</h1>
-                            <p class="text-[10px] md:text-[11px] text-slate-400 hidden sm:block">System overview & management</p>
-                        </div>
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+                        <i data-lucide="menu" style="width:18px;height:18px;"></i>
+                    </button>
+                    <h1 class="page-title">Admin Dashboard</h1>
+                </div>
+                <div class="top-bar-right">
+                    <div class="top-bar-search">
+                        <i data-lucide="search" style="width:16px;height:16px;"></i>
+                        <input type="text" placeholder="Search users, cases..." id="global-search">
                     </div>
-                    <div class="flex items-center gap-2 md:gap-4">
-                        <div class="relative hidden md:block">
-                            <i
-                                class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                            <input type="text" placeholder="Search users, cases..."
-                                class="pl-10 pr-4 py-2 w-full md:w-64 rounded-xl bg-slate-100 dark:bg-slate-800 border-none outline-none text-sm">
-                        </div>
-                        <button class="relative p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i
-                                class="fas fa-bell"></i><span
-                                class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span></button>
-                        <button onclick="toggleDir()" class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-bold" title="Switch LTR/RTL">LTR/RTL</button>
-                        <button onclick="toggleTheme()"
-                            class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i id="theme-icon"
-                                class="fas fa-moon"></i></button>
-                        <div
-                            class="w-9 h-9 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-xs">
-                            AD</div>
-                    </div>
+                    <a href="#" class="top-bar-icon" aria-label="Notifications">
+                        <i data-lucide="bell" style="width:18px;height:18px;"></i>
+                        <span class="notification-dot"></span>
+                    </a>
+                    <button onclick="toggleDir()" class="theme-toggle" aria-label="Toggle direction"
+                        title="Switch LTR/RTL"
+                        style="width:auto;font-size:0.65rem;font-weight:700;padding:0 10px;">LTR/RTL</button>
+                    <button class="theme-toggle" aria-label="Toggle theme">
+                        <i data-lucide="moon" style="width:18px;height:18px;"></i>
+                    </button>
+                    <div class="avatar" style="width:36px;height:36px;font-size:0.8rem;">AD</div>
                 </div>
             </header>
 
-            <main class="flex-1 p-4 md:p-6 overflow-y-auto">
-                <!-- Welcome -->
-                <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 anim-up">
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+
+                <!-- Welcome Bar -->
+                <div
+                    style="margin-bottom:var(--space-8);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-4);">
                     <div>
-                        <h2 class="text-xl md:text-2xl font-heading font-black">Welcome back, Admin 🛡️</h2>
-                        <p class="text-xs md:text-sm text-slate-400 mt-1">Here's your system overview for today.</p>
+                        <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;">Welcome back,
+                            Admin 🛡️</h2>
+                        <p class="text-muted" style="font-size:0.9rem;margin-top:4px;">Here's your system overview for
+                            today.</p>
                     </div>
-                    <div class="flex flex-wrap gap-2 md:gap-3 mt-4 md:mt-0">
-                        <button
-                            class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-xl text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-all"><i
-                                class="fas fa-download mr-2"></i> Export Data</button>
-                        <button
-                            class="px-4 py-2 bg-primary text-white rounded-xl text-sm font-bold hover:bg-primary/80 transition-all"><i
-                                class="fas fa-plus mr-2"></i> New User</button>
-                    </div>
-                </div>
-
-                <!-- Stats Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 mb-8">
-                    <div
-                        class="anim-up d1 p-4 md:p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div
-                                class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center">
-                                <i class="fas fa-users text-xl"></i>
-                            </div><span
-                                class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-full"><i
-                                    class="fas fa-arrow-up mr-1"></i>12%</span>
-                        </div>
-                        <div class="text-3xl font-black">524</div>
-                        <div class="text-xs text-slate-500 mt-1 uppercase tracking-wider">Total Users</div>
-                    </div>
-                    <div
-                        class="anim-up d2 p-4 md:p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div
-                                class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center">
-                                <i class="fas fa-briefcase text-xl"></i>
-                            </div><span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-full">+8
-                                new</span>
-                        </div>
-                        <div class="text-3xl font-black">1,247</div>
-                        <div class="text-xs text-slate-500 mt-1 uppercase tracking-wider">Total Cases</div>
-                    </div>
-                    <div
-                        class="anim-up d3 p-4 md:p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div
-                                class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center">
-                                <i class="fas fa-dollar-sign text-xl"></i>
-                            </div><span
-                                class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-full"><i
-                                    class="fas fa-arrow-up mr-1"></i>23%</span>
-                        </div>
-                        <div class="text-3xl font-black">$2.4M</div>
-                        <div class="text-xs text-slate-500 mt-1 uppercase tracking-wider">Revenue YTD</div>
-                    </div>
-                    <div
-                        class="anim-up d4 p-4 md:p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div
-                                class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center">
-                                <i class="fas fa-shield-alt text-xl"></i>
-                            </div>
-                        </div>
-                        <div class="text-3xl font-black">99.9%</div>
-                        <div class="text-xs text-slate-500 mt-1 uppercase tracking-wider">Uptime</div>
+                    <div style="display:flex;gap:var(--space-3);">
+                        <button class="btn btn-ghost btn-sm">
+                            <i data-lucide="download" style="width:16px;height:16px;"></i>
+                            Export Data
+                        </button>
+                        <button class="btn btn-primary btn-sm">
+                            <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                            New User
+                        </button>
                     </div>
                 </div>
 
-                <!-- Main Grid -->
-                <div class="grid grid-cols-1 xl:grid-cols-12 gap-4 md:gap-6 mb-8">
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card animate-fadeInUp delay-1">
+                        <div class="stat-icon gold"><i data-lucide="users" style="width:22px;height:22px;"></i>
+                        </div>
+                        <div class="stat-value" data-count="524">0</div>
+                        <div class="stat-label">Total Users</div>
+                        <div class="stat-change up"><i data-lucide="trending-up" style="width:12px;height:12px;"></i>
+                            +12% this month</div>
+                    </div>
+
+                    <div class="stat-card animate-fadeInUp delay-2">
+                        <div class="stat-icon gold"><i data-lucide="briefcase" style="width:22px;height:22px;"></i>
+                        </div>
+                        <div class="stat-value" data-count="1247">0</div>
+                        <div class="stat-label">Total Cases</div>
+                        <div class="stat-change up"><i data-lucide="trending-up" style="width:12px;height:12px;"></i> +8
+                            new</div>
+                    </div>
+
+                    <div class="stat-card animate-fadeInUp delay-3">
+                        <div class="stat-icon gold"><i data-lucide="dollar-sign"
+                                style="width:22px;height:22px;"></i></div>
+                        <div class="stat-value" data-prefix="$" data-count="2400000">0</div>
+                        <div class="stat-label">Revenue YTD</div>
+                        <div class="stat-change up"><i data-lucide="trending-up" style="width:12px;height:12px;"></i>
+                            +23% vs last year</div>
+                    </div>
+
+                    <div class="stat-card animate-fadeInUp delay-4">
+                        <div class="stat-icon gold"><i data-lucide="shield-check"
+                                style="width:22px;height:22px;"></i></div>
+                        <div class="stat-value">99.9%</div>
+                        <div class="stat-label">Uptime</div>
+                    </div>
+                </div>
+
+                <!-- Main Content Grid -->
+                <div class="content-grid">
+
                     <!-- User Management Table -->
-                    <div
-                        class="xl:col-span-8 anim-up d2 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden">
-                        <div
-                            class="p-4 md:p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                            <h3 class="font-heading font-bold text-base md:text-lg truncate">User Management</h3>
-                            <div class="flex gap-1 md:gap-2"><button
-                                    class="px-2 md:px-3 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">All</button><button
-                                    class="px-2 md:px-3 py-1 text-xs rounded-lg text-primary bg-primary/10">Active</button>
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">User Management</h3>
+                            <div style="display:flex;gap:var(--space-2);">
+                                <button class="btn btn-ghost btn-sm">All</button>
+                                <button class="btn btn-primary btn-sm">Active</button>
                             </div>
                         </div>
-                        <div class="overflow-x-auto">
-                            <table class="w-full">
+                        <div class="table-wrapper" style="border:none;border-radius:0;">
+                            <table class="data-table">
                                 <thead>
-                                    <tr class="text-left text-[10px] uppercase tracking-widest text-slate-400">
-                                        <th class="px-6 py-4">User</th>
-                                        <th class="px-6 py-4">Role</th>
-                                        <th class="px-6 py-4">Status</th>
-                                        <th class="px-6 py-4">Cases</th>
-                                        <th class="px-6 py-4">Last Login</th>
-                                        <th class="px-6 py-4">Actions</th>
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Role</th>
+                                        <th>Status</th>
+                                        <th>Cases</th>
+                                        <th>Last Login</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody class="text-sm">
-                                    <tr
-                                        class="border-t border-slate-50 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                                        <td class="px-6 py-4">
-                                            <div class="flex items-center gap-3">
-                                                <div
-                                                    class="w-9 h-9 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">
-                                                    JD</div>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div style="display:flex;align-items:center;gap:var(--space-3);">
+                                                <div class="avatar"
+                                                    style="width:32px;height:32px;font-size:0.7rem;">JD</div>
                                                 <div>
-                                                    <div class="font-bold">James Donovan</div>
-                                                    <div class="text-xs text-slate-400">james@meridian.com</div>
+                                                    <div style="font-weight:600;">James Donovan</div>
+                                                    <div style="font-size:0.75rem;color:var(--text-secondary);">
+                                                        james@meridian.com</div>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="px-6 py-4"><span
-                                                class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Client</span>
-                                        </td>
-                                        <td class="px-6 py-4"><span class="flex items-center gap-2"><span
-                                                    class="w-2 h-2 bg-primary rounded-full"></span><span
-                                                    class="text-primary font-medium text-xs">Active</span></span></td>
-                                        <td class="px-6 py-4 font-bold">12</td>
-                                        <td class="px-6 py-4 text-slate-400 text-xs">Today, 10:42 AM</td>
-                                        <td class="px-6 py-4"><button
-                                                class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg"><i
-                                                    class="fas fa-ellipsis-v text-slate-400"></i></button></td>
+                                        <td><span class="badge badge-gold">Client</span></td>
+                                        <td><span class="badge badge-success">Active</span></td>
+                                        <td style="font-weight:700;">12</td>
+                                        <td
+                                            style="font-size:0.75rem;color:var(--text-secondary);">Today, 10:42 AM</td>
+                                        <td><button class="btn btn-ghost btn-sm"
+                                                style="padding:0.35rem 0.6rem;"><i data-lucide="more-vertical"
+                                                    style="width:14px;height:14px;"></i></button></td>
                                     </tr>
-                                    <tr
-                                        class="border-t border-slate-50 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                                        <td class="px-6 py-4">
-                                            <div class="flex items-center gap-3">
-                                                <div
-                                                    class="w-9 h-9 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">
-                                                    SK</div>
+                                    <tr>
+                                        <td>
+                                            <div style="display:flex;align-items:center;gap:var(--space-3);">
+                                                <div class="avatar"
+                                                    style="width:32px;height:32px;font-size:0.7rem;">SK</div>
                                                 <div>
-                                                    <div class="font-bold">Sarah Kensington</div>
-                                                    <div class="text-xs text-slate-400">sarah@kensington.law</div>
+                                                    <div style="font-weight:600;">Sarah Kensington</div>
+                                                    <div style="font-size:0.75rem;color:var(--text-secondary);">
+                                                        sarah@kensington.law</div>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="px-6 py-4"><span
-                                                class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Client</span>
+                                        <td><span class="badge badge-gold">Client</span></td>
+                                        <td><span class="badge badge-success">Active</span></td>
+                                        <td style="font-weight:700;">8</td>
+                                        <td style="font-size:0.75rem;color:var(--text-secondary);">Yesterday, 3:18 PM
                                         </td>
-                                        <td class="px-6 py-4"><span class="flex items-center gap-2"><span
-                                                    class="w-2 h-2 bg-primary rounded-full"></span><span
-                                                    class="text-primary font-medium text-xs">Active</span></span></td>
-                                        <td class="px-6 py-4 font-bold">8</td>
-                                        <td class="px-6 py-4 text-slate-400 text-xs">Yesterday, 3:18 PM</td>
-                                        <td class="px-6 py-4"><button
-                                                class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg"><i
-                                                    class="fas fa-ellipsis-v text-slate-400"></i></button></td>
+                                        <td><button class="btn btn-ghost btn-sm"
+                                                style="padding:0.35rem 0.6rem;"><i data-lucide="more-vertical"
+                                                    style="width:14px;height:14px;"></i></button></td>
                                     </tr>
-                                    <tr
-                                        class="border-t border-slate-50 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                                        <td class="px-6 py-4">
-                                            <div class="flex items-center gap-3">
-                                                <div
-                                                    class="w-9 h-9 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">
-                                                    RN</div>
+                                    <tr>
+                                        <td>
+                                            <div style="display:flex;align-items:center;gap:var(--space-3);">
+                                                <div class="avatar"
+                                                    style="width:32px;height:32px;font-size:0.7rem;">RN</div>
                                                 <div>
-                                                    <div class="font-bold">Robert Nakamura</div>
-                                                    <div class="text-xs text-slate-400">r.nakamura@pinnacle.co</div>
+                                                    <div style="font-weight:600;">Robert Nakamura</div>
+                                                    <div style="font-size:0.75rem;color:var(--text-secondary);">
+                                                        r.nakamura@pinnacle.co</div>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="px-6 py-4"><span
-                                                class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Premium</span>
-                                        </td>
-                                        <td class="px-6 py-4"><span class="flex items-center gap-2"><span
-                                                    class="w-2 h-2 bg-primary rounded-full"></span><span
-                                                    class="text-primary font-medium text-xs">Active</span></span></td>
-                                        <td class="px-6 py-4 font-bold">15</td>
-                                        <td class="px-6 py-4 text-slate-400 text-xs">Mar 03, 2:05 PM</td>
-                                        <td class="px-6 py-4"><button
-                                                class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg"><i
-                                                    class="fas fa-ellipsis-v text-slate-400"></i></button></td>
+                                        <td><span class="badge badge-gold">Premium</span></td>
+                                        <td><span class="badge badge-success">Active</span></td>
+                                        <td style="font-weight:700;">15</td>
+                                        <td style="font-size:0.75rem;color:var(--text-secondary);">Mar 03, 2:05 PM</td>
+                                        <td><button class="btn btn-ghost btn-sm"
+                                                style="padding:0.35rem 0.6rem;"><i data-lucide="more-vertical"
+                                                    style="width:14px;height:14px;"></i></button></td>
                                     </tr>
-                                    <tr
-                                        class="border-t border-slate-50 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                                        <td class="px-6 py-4">
-                                            <div class="flex items-center gap-3">
-                                                <div
-                                                    class="w-9 h-9 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">
-                                                    DP</div>
+                                    <tr>
+                                        <td>
+                                            <div style="display:flex;align-items:center;gap:var(--space-3);">
+                                                <div class="avatar"
+                                                    style="width:32px;height:32px;font-size:0.7rem;">DP</div>
                                                 <div>
-                                                    <div class="font-bold">Diana Palmer</div>
-                                                    <div class="text-xs text-slate-400">diana@globalbank.com</div>
+                                                    <div style="font-weight:600;">Diana Palmer</div>
+                                                    <div style="font-size:0.75rem;color:var(--text-secondary);">
+                                                        diana@globalbank.com</div>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="px-6 py-4"><span
-                                                class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Enterprise</span>
-                                        </td>
-                                        <td class="px-6 py-4"><span class="flex items-center gap-2"><span
-                                                    class="w-2 h-2 bg-primary rounded-full"></span><span
-                                                    class="text-primary font-medium text-xs">Pending</span></span>
-                                        </td>
-                                        <td class="px-6 py-4 font-bold">3</td>
-                                        <td class="px-6 py-4 text-slate-400 text-xs">Feb 28, 9:12 AM</td>
-                                        <td class="px-6 py-4"><button
-                                                class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg"><i
-                                                    class="fas fa-ellipsis-v text-slate-400"></i></button></td>
+                                        <td><span class="badge badge-gold">Enterprise</span></td>
+                                        <td><span class="badge badge-warning">Pending</span></td>
+                                        <td style="font-weight:700;">3</td>
+                                        <td style="font-size:0.75rem;color:var(--text-secondary);">Feb 28, 9:12 AM</td>
+                                        <td><button class="btn btn-ghost btn-sm"
+                                                style="padding:0.35rem 0.6rem;"><i data-lucide="more-vertical"
+                                                    style="width:14px;height:14px;"></i></button></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
 
-                    <!-- Platform Stats Sidebar -->
-                    <div class="xl:col-span-4 space-y-4 md:space-y-6">
-                        <div
-                            class="anim-up d3 p-4 md:p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                            <h4 class="font-bold text-sm mb-6">Case Distribution</h4>
-                            <div class="space-y-5">
-                                <div>
-                                    <div class="flex justify-between text-xs mb-2"><span class="text-slate-500">Fraud
-                                            Investigation</span><span class="font-bold text-primary">42%</span></div>
-                                    <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full">
-                                        <div class="h-full bg-primary rounded-full" style="width:42%"></div>
-                                    </div>
+                    <!-- Case Distribution -->
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">Case Distribution</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div style="margin-bottom:var(--space-5);">
+                                <div
+                                    style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.85rem;">
+                                    <span>Fraud Investigation</span><span
+                                        style="font-weight:700;color:var(--accent-gold);">42%</span>
                                 </div>
-                                <div>
-                                    <div class="flex justify-between text-xs mb-2"><span class="text-slate-500">Asset
-                                            Tracing</span><span class="font-bold text-primary">28%</span></div>
-                                    <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full">
-                                        <div class="h-full bg-primary rounded-full" style="width:28%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between text-xs mb-2"><span
-                                            class="text-slate-500">Litigation Support</span><span
-                                            class="font-bold text-primary">18%</span></div>
-                                    <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full">
-                                        <div class="h-full bg-primary rounded-full" style="width:18%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between text-xs mb-2"><span
-                                            class="text-slate-500">Compliance</span><span
-                                            class="font-bold text-primary">12%</span></div>
-                                    <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full">
-                                        <div class="h-full bg-primary rounded-full" style="width:12%"></div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="42%" style="background:var(--accent-gold);">
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div
-                            class="anim-up d4 p-4 md:p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                            <h4 class="font-bold text-sm mb-4">Team Assignment</h4>
-                            <div class="space-y-3">
+                            <div style="margin-bottom:var(--space-5);">
                                 <div
-                                    class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all cursor-pointer">
-                                    <div class="flex items-center gap-3">
-                                        <div
-                                            class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs font-bold">
-                                            TL</div>
-                                        <div>
-                                            <div class="font-medium text-sm">Tom Lawson</div>
-                                            <div class="text-[10px] text-slate-400">Senior Investigator</div>
-                                        </div>
-                                    </div>
-                                    <span class="text-xs font-bold bg-primary/10 text-primary px-2 py-1 rounded">5
-                                        cases</span>
+                                    style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.85rem;">
+                                    <span>Asset Tracing</span><span
+                                        style="font-weight:700;color:var(--accent-gold);">28%</span>
                                 </div>
-                                <div
-                                    class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all cursor-pointer">
-                                    <div class="flex items-center gap-3">
-                                        <div
-                                            class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs font-bold">
-                                            AM</div>
-                                        <div>
-                                            <div class="font-medium text-sm">Ana Martinez</div>
-                                            <div class="text-[10px] text-slate-400">Forensic Analyst</div>
-                                        </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="28%" style="background:var(--accent-gold);">
                                     </div>
-                                    <span class="text-xs font-bold bg-primary/10 text-primary px-2 py-1 rounded">4
-                                        cases</span>
                                 </div>
+                            </div>
+                            <div style="margin-bottom:var(--space-5);">
                                 <div
-                                    class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all cursor-pointer">
-                                    <div class="flex items-center gap-3">
-                                        <div
-                                            class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs font-bold">
-                                            KB</div>
-                                        <div>
-                                            <div class="font-medium text-sm">Karen Black</div>
-                                            <div class="text-[10px] text-slate-400">Compliance Lead</div>
-                                        </div>
+                                    style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.85rem;">
+                                    <span>Litigation Support</span><span
+                                        style="font-weight:700;color:var(--accent-gold);">18%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="18%" style="background:var(--accent-gold);">
                                     </div>
-                                    <span class="text-xs font-bold bg-primary/10 text-primary px-2 py-1 rounded">3
-                                        cases</span>
+                                </div>
+                            </div>
+                            <div style="margin-bottom:var(--space-5);">
+                                <div
+                                    style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.85rem;">
+                                    <span>Compliance</span><span
+                                        style="font-weight:700;color:var(--accent-gold);">12%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="12%" style="background:var(--accent-gold);">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -469,159 +347,169 @@
                 </div>
 
                 <!-- Audit Logs & Billing -->
-                <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 md:gap-6 mb-8">
+                <div class="content-grid-equal">
                     <!-- Audit Logs -->
-                    <div
-                        class="anim-up d3 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden">
-                        <div
-                            class="p-4 md:p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                            <h3 class="font-heading font-bold">Audit Logs</h3>
-                            <a href="admin-audit-logs.html" class="text-xs text-primary font-bold whitespace-nowrap">View All →</a>
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">Audit Logs</h3>
+                            <a href="admin-audit-logs.html"
+                                style="font-size:0.8rem;color:var(--accent-gold);font-weight:600;">View All →</a>
                         </div>
-                        <div class="p-4 md:p-6 space-y-4">
-                            <div
-                                class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
-                                    <i class="fas fa-sign-in-alt text-xs"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="text-sm font-medium">User <strong>James Donovan</strong> logged in</div>
-                                    <div class="text-[10px] text-slate-400 mt-1">Today, 10:42 AM → IP: 192.168.1.xx
+                        <div class="panel-body">
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-dot" style="background:var(--accent-gold);"></div>
+                                    <div>
+                                        <div class="activity-text">User <strong>James Donovan</strong> logged in</div>
+                                        <div class="activity-time">Today, 10:42 AM → IP: 192.168.1.xx</div>
                                     </div>
                                 </div>
-                            </div>
-                            <div
-                                class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
-                                    <i class="fas fa-upload text-xs"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="text-sm font-medium">3 documents uploaded to <strong>Case
-                                            FA-2026-038</strong></div>
-                                    <div class="text-[10px] text-slate-400 mt-1">Today, 9:15 AM → by Sarah K.</div>
-                                </div>
-                            </div>
-                            <div
-                                class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
-                                    <i class="fas fa-user-plus text-xs"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="text-sm font-medium">New user <strong>Diana Palmer</strong> registered
+                                <div class="activity-item">
+                                    <div class="activity-dot" style="background:var(--accent-gold);"></div>
+                                    <div>
+                                        <div class="activity-text">3 documents uploaded to <strong>Case
+                                                FA-2026-038</strong></div>
+                                        <div class="activity-time">Today, 9:15 AM → by Sarah K.</div>
                                     </div>
-                                    <div class="text-[10px] text-slate-400 mt-1">Yesterday → Enterprise tier</div>
                                 </div>
-                            </div>
-                            <div
-                                class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
-                                    <i class="fas fa-exclamation-triangle text-xs"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="text-sm font-medium"><strong>Failed login attempt</strong> from unknown
-                                        IP</div>
-                                    <div class="text-[10px] text-slate-400 mt-1">Yesterday, 11:22 PM → IP: 203.45.xx.xx
-                                        (blocked)</div>
-                                </div>
-                            </div>
-                            <div
-                                class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-primary/10 text-primary flex-shrink-0 flex items-center justify-center">
-                                    <i class="fas fa-key text-xs"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="text-sm font-medium">Admin <strong>password policy</strong> updated
+                                <div class="activity-item">
+                                    <div class="activity-dot" style="background:var(--accent-gold);"></div>
+                                    <div>
+                                        <div class="activity-text">New user <strong>Diana Palmer</strong> registered
+                                        </div>
+                                        <div class="activity-time">Yesterday → Enterprise tier</div>
                                     </div>
-                                    <div class="text-[10px] text-slate-400 mt-1">Mar 02, 2026 → System config change
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-dot" style="background:var(--accent-gold);"></div>
+                                    <div>
+                                        <div class="activity-text"><strong>Failed login attempt</strong> from unknown IP
+                                        </div>
+                                        <div class="activity-time">Yesterday, 11:22 PM → IP: 203.45.xx.xx (blocked)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-dot" style="background:var(--accent-gold);"></div>
+                                    <div>
+                                        <div class="activity-text">Admin <strong>password policy</strong> updated</div>
+                                        <div class="activity-time">Mar 02, 2026 → System config change</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Billing -->
-                    <div
-                        class="anim-up d4 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden">
-                        <div
-                            class="p-4 md:p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                            <h3 class="font-heading font-bold">Billing Overview</h3>
-                            <a href="admin-billing.html" class="text-xs text-primary font-bold whitespace-nowrap">All Invoices →</a>
+                    <!-- Billing Overview -->
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">Billing Overview</h3>
+                            <a href="admin-billing.html"
+                                style="font-size:0.8rem;color:var(--accent-gold);font-weight:600;">All Invoices →</a>
                         </div>
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-sm">
+                        <div class="table-wrapper" style="border:none;border-radius:0;">
+                            <table class="data-table">
                                 <thead>
-                                    <tr class="text-left text-[10px] uppercase tracking-widest text-slate-400">
-                                        <th class="px-6 py-4">Invoice</th>
-                                        <th class="px-6 py-4">Client</th>
-                                        <th class="px-6 py-4">Amount</th>
-                                        <th class="px-6 py-4">Status</th>
+                                    <tr>
+                                        <th>Invoice</th>
+                                        <th>Client</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr
-                                        class="border-t border-slate-50 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                        <td class="px-6 py-4 font-mono text-xs">#INV-2026-089</td>
-                                        <td class="px-6 py-4 font-medium">Meridian Corp</td>
-                                        <td class="px-6 py-4 font-bold">$12,500</td>
-                                        <td class="px-6 py-4"><span
-                                                class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Paid</span>
-                                        </td>
+                                    <tr>
+                                        <td style="font-family:monospace;font-size:0.75rem;">#INV-2026-089</td>
+                                        <td style="font-weight:600;">Meridian Corp</td>
+                                        <td style="font-weight:700;">$12,500</td>
+                                        <td><span class="badge badge-success">Paid</span></td>
                                     </tr>
-                                    <tr
-                                        class="border-t border-slate-50 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                        <td class="px-6 py-4 font-mono text-xs">#INV-2026-088</td>
-                                        <td class="px-6 py-4 font-medium">Kensington Law</td>
-                                        <td class="px-6 py-4 font-bold">$8,750</td>
-                                        <td class="px-6 py-4"><span
-                                                class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Paid</span>
-                                        </td>
+                                    <tr>
+                                        <td style="font-family:monospace;font-size:0.75rem;">#INV-2026-088</td>
+                                        <td style="font-weight:600;">Kensington Law</td>
+                                        <td style="font-weight:700;">$8,750</td>
+                                        <td><span class="badge badge-success">Paid</span></td>
                                     </tr>
-                                    <tr
-                                        class="border-t border-slate-50 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                        <td class="px-6 py-4 font-mono text-xs">#INV-2026-087</td>
-                                        <td class="px-6 py-4 font-medium">Pinnacle Holdings</td>
-                                        <td class="px-6 py-4 font-bold">$24,000</td>
-                                        <td class="px-6 py-4"><span
-                                                class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Pending</span>
-                                        </td>
+                                    <tr>
+                                        <td style="font-family:monospace;font-size:0.75rem;">#INV-2026-087</td>
+                                        <td style="font-weight:600;">Pinnacle Holdings</td>
+                                        <td style="font-weight:700;">$24,000</td>
+                                        <td><span class="badge badge-warning">Pending</span></td>
                                     </tr>
-                                    <tr
-                                        class="border-t border-slate-50 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                        <td class="px-6 py-4 font-mono text-xs">#INV-2026-086</td>
-                                        <td class="px-6 py-4 font-medium">GlobalBank</td>
-                                        <td class="px-6 py-4 font-bold">$45,000</td>
-                                        <td class="px-6 py-4"><span
-                                                class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Pending</span>
-                                        </td>
+                                    <tr>
+                                        <td style="font-family:monospace;font-size:0.75rem;">#INV-2026-086</td>
+                                        <td style="font-weight:600;">GlobalBank</td>
+                                        <td style="font-weight:700;">$45,000</td>
+                                        <td><span class="badge badge-warning">Pending</span></td>
                                     </tr>
-                                    <tr
-                                        class="border-t border-slate-50 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                        <td class="px-6 py-4 font-mono text-xs">#INV-2026-085</td>
-                                        <td class="px-6 py-4 font-medium">TechVentures</td>
-                                        <td class="px-6 py-4 font-bold">$6,200</td>
-                                        <td class="px-6 py-4"><span
-                                                class="px-2 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">Overdue</span>
-                                        </td>
+                                    <tr>
+                                        <td style="font-family:monospace;font-size:0.75rem;">#INV-2026-085</td>
+                                        <td style="font-weight:600;">TechVentures</td>
+                                        <td style="font-weight:700;">$6,200</td>
+                                        <td><span class="badge badge-danger">Overdue</span></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-            </main>
-        </div>
-    </div>
 
-    <script>
-        function toggleSidebar() { const s = document.getElementById('sidebar'); s.classList.toggle('-translate-x-full'); }
-        function toggleTheme() { const h = document.documentElement; const i = document.getElementById('theme-icon'); if (h.classList.contains('dark')) { h.classList.remove('dark'); localStorage.setItem('theme', 'light'); i.className = 'fas fa-moon'; } else { h.classList.add('dark'); localStorage.setItem('theme', 'dark'); i.className = 'fas fa-sun'; } }
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); document.getElementById('theme-icon').className = 'fas fa-sun'; }
-    </script>
+                <!-- Team Assignment -->
+                <div class="panel" style="margin-bottom:var(--space-8);">
+                    <div class="panel-header">
+                        <h3 class="panel-title">Team Assignment</h3>
+                    </div>
+                    <div class="panel-body"
+                        style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--space-4);">
+                        <div class="case-card">
+                            <div style="display:flex;align-items:center;justify-content:space-between;">
+                                <div style="display:flex;align-items:center;gap:var(--space-3);">
+                                    <div class="avatar" style="width:32px;height:32px;font-size:0.7rem;">TL</div>
+                                    <div>
+                                        <div style="font-weight:600;font-size:0.9rem;">Tom Lawson</div>
+                                        <div style="font-size:0.7rem;color:var(--text-secondary);">Senior Investigator
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="badge badge-gold">5 cases</span>
+                            </div>
+                        </div>
+                        <div class="case-card">
+                            <div style="display:flex;align-items:center;justify-content:space-between;">
+                                <div style="display:flex;align-items:center;gap:var(--space-3);">
+                                    <div class="avatar" style="width:32px;height:32px;font-size:0.7rem;">AM</div>
+                                    <div>
+                                        <div style="font-weight:600;font-size:0.9rem;">Ana Martinez</div>
+                                        <div style="font-size:0.7rem;color:var(--text-secondary);">Forensic Analyst
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="badge badge-gold">4 cases</span>
+                            </div>
+                        </div>
+                        <div class="case-card">
+                            <div style="display:flex;align-items:center;justify-content:space-between;">
+                                <div style="display:flex;align-items:center;gap:var(--space-3);">
+                                    <div class="avatar" style="width:32px;height:32px;font-size:0.7rem;">KB</div>
+                                    <div>
+                                        <div style="font-weight:600;font-size:0.9rem;">Karen Black</div>
+                                        <div style="font-size:0.7rem;color:var(--text-secondary);">Compliance Lead
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="badge badge-gold">3 cases</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- end dashboard-content -->
+        </div><!-- end main-content -->
+    </div><!-- end wrapper -->
+
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script>lucide.createIcons();</script>
 
     <script>
         // LTR/RTL Direction Toggle

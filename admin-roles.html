@@ -1,231 +1,122 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en" dir="ltr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roles &amp; Access | Admin Panel</title>
     <link rel="stylesheet" href="assets/css/tailwind.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-    <script>if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); }</script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
-
-        body {
-            font-family: 'Inter', sans-serif
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Outfit', sans-serif
-        }
-
-        .anim-up {
-            animation: fadeInUp .6s ease-out forwards;
-            opacity: 0
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px)
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <script>var t=localStorage.getItem('faf-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}</script>
 </head>
-
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white">
-    <div class="flex h-screen overflow-hidden">
-        <aside id="sidebar"
-            class="fixed lg:sticky top-0 left-0 z-50 h-screen w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-shrink-0 flex flex-col transition-transform duration-300 -translate-x-full lg:translate-x-0">
-            <div class="py-6 px-6 border-b border-slate-100 dark:border-slate-800">
-                <a href="index.html" class="flex items-center gap-3" style="text-decoration:none;color:inherit;">
-                    <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white"><i
-                            class="fas fa-shield-alt"></i></div>
-                    <div><span class="font-bold text-lg font-heading">Forensic<span
-                                class="text-primary">Edge</span></span>
-                        <div class="text-[10px] text-slate-400 uppercase tracking-widest">Admin Panel</div>
-                    </div>
-                </a>
-            </div>
-            <nav class="flex-1 overflow-y-auto py-6 px-4 space-y-1">
-                <div class="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Main</div>
-                <a href="admin-dashboard.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800"><i
-                        class="fas fa-tachometer-alt w-5 text-center"></i> Dashboard</a>
-                <a href="admin-users.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800"><i
-                        class="fas fa-users w-5 text-center"></i> User Management</a>
-                <a href="admin-cases.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800"><i
-                        class="fas fa-briefcase w-5 text-center"></i> All Cases</a>
-                <div class="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest !mt-6">Analytics
+<body>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar" id="sidebar">
+            <a href="index.html" class="sidebar-header" style="text-decoration:none;color:inherit;">
+                <div class="sidebar-logo"><i data-lucide="shield-check" style="width:20px;height:20px;color:#fff;"></i></div>
+                <div class="sidebar-brand">Forensic<span>Edge</span><div style="font-size:0.55rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.15em;font-family:var(--font-body);font-weight:600;">Admin Panel</div></div>
+            </a>
+            <nav class="sidebar-nav">
+                <div class="nav-section"><div class="nav-label">Main</div>
+                    <a href="admin-dashboard.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span class="nav-text">Dashboard</span></a>
+                    <a href="admin-users.html" class="nav-item"><i data-lucide="users"></i><span class="nav-text">User Management</span></a>
+                    <a href="admin-cases.html" class="nav-item"><i data-lucide="briefcase"></i><span class="nav-text">All Cases</span></a>
                 </div>
-                <a href="admin-revenue.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800"><i
-                        class="fas fa-chart-line w-5 text-center"></i> Revenue</a>
-                <a href="admin-audit-logs.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800"><i
-                        class="fas fa-clipboard-check w-5 text-center"></i> Audit Logs</a>
-                <div class="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest !mt-6">System</div>
-                <a href="admin-billing.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800"><i
-                        class="fas fa-file-invoice-dollar w-5 text-center"></i> Billing</a>
-                <a href="admin-settings.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800"><i
-                        class="fas fa-cog w-5 text-center"></i> Settings</a>
-                <a href="admin-roles.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/10 text-primary font-medium"><i
-                        class="fas fa-user-shield w-5 text-center"></i> Roles &amp; Access</a>
+                <div class="nav-section"><div class="nav-label">Analytics</div>
+                    <a href="admin-revenue.html" class="nav-item"><i data-lucide="trending-up"></i><span class="nav-text">Revenue</span></a>
+                    <a href="admin-audit-logs.html" class="nav-item"><i data-lucide="clipboard-check"></i><span class="nav-text">Audit Logs</span></a>
+                </div>
+                <div class="nav-section"><div class="nav-label">System</div>
+                    <a href="admin-billing.html" class="nav-item"><i data-lucide="receipt"></i><span class="nav-text">Billing</span></a>
+                    <a href="admin-settings.html" class="nav-item"><i data-lucide="settings"></i><span class="nav-text">Settings</span></a>
+                    <a href="admin-roles.html" class="nav-item active"><i data-lucide="shield"></i><span class="nav-text">Roles &amp; Access</span></a>
+                </div>
             </nav>
-            <div class="p-4 border-t border-slate-100 dark:border-slate-800">
-                <div class="flex items-center gap-3 p-2">
-                    <div
-                        class="w-10 h-10 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-sm">
-                        AD</div>
-                    <div class="flex-1">
-                        <div class="font-bold text-sm">Admin User</div>
-                        <div class="text-[10px] text-slate-400">Super Administrator</div>
-                    </div><a href="login.html" class="text-slate-400 hover:text-primary"><i
-                            class="fas fa-sign-out-alt"></i></a>
-                </div>
-            </div>
+            <div class="sidebar-user"><div class="sidebar-user-avatar">AD</div><div class="sidebar-user-info"><div class="sidebar-user-name">Admin User</div><div class="sidebar-user-role">Super Administrator</div></div></div>
         </aside>
-        <div class="flex-1 flex flex-col h-screen min-w-0 overflow-y-auto">
-            <header
-                class="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-6 py-3">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-4"><button onclick="toggleSidebar()"
-                            class="lg:hidden p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i
-                                class="fas fa-bars"></i></button>
-                        <div>
-                            <h1 class="font-heading font-bold text-lg">Roles & Access</h1>
-                            <p class="text-[11px] text-slate-400">Manage permissions & access control</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4">                        <button onclick="toggleDir()" class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-bold" title="Switch LTR/RTL">LTR/RTL</button>
-                        <button onclick="toggleTheme()"
-                            class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"><i id="theme-icon"
-                                class="fas fa-moon"></i></button>
-                        <div
-                            class="w-9 h-9 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-xs">
-                            AD</div>
-                    </div>
+        <div class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar"><i data-lucide="menu" style="width:18px;height:18px;"></i></button>
+                    <h1 class="page-title">Roles & Access</h1>
+                </div>
+                <div class="top-bar-right">
+                    <a href="#" class="top-bar-icon" aria-label="Notifications">
+                        <i data-lucide="bell" style="width:18px;height:18px;"></i>
+                        <span class="notification-dot"></span>
+                    </a>
+                    <button onclick="toggleDir()" class="theme-toggle" aria-label="Toggle direction" title="Switch LTR/RTL" style="width:auto;font-size:0.65rem;font-weight:700;padding:0 10px;">LTR/RTL</button>
+                    <button class="theme-toggle" aria-label="Toggle theme"><i data-lucide="moon" style="width:18px;height:18px;"></i></button>
+                    <div class="avatar" style="width:36px;height:36px;font-size:0.8rem;">AD</div>
                 </div>
             </header>
-            <main class="flex-1 p-6">
-                <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 anim-up">
-                    <h2 class="text-2xl font-heading font-black">Role Management</h2>
-                    <button
-                        class="mt-4 md:mt-0 px-4 py-2 bg-primary text-white rounded-xl text-sm font-bold hover:bg-primary/80"><i
-                            class="fas fa-plus mr-2"></i>Create Role</button>
+            <div class="dashboard-content">
+                <div style="margin-bottom:var(--space-8);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-4);">
+                    <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;">Role Management</h2>
+                    <button class="btn btn-primary btn-sm"><i data-lucide="plus" style="width:16px;height:16px;"></i> Create Role</button>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 anim-up">
-                    <div
-                        class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-all">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div
-                                class="w-10 h-10 bg-primary/10 text-primary rounded-xl flex items-center justify-center">
-                                <i class="fas fa-crown"></i>
+
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--space-6);">
+                    <!-- Super Admin -->
+                    <div class="panel">
+                        <div class="panel-body">
+                            <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4);">
+                                <div class="stat-icon gold" style="width:40px;height:40px;border-radius:0.75rem;"><i data-lucide="crown" style="width:18px;height:18px;"></i></div>
+                                <div><div style="font-weight:700;">Super Admin</div><div style="font-size:0.7rem;color:var(--text-secondary);">Full system access</div></div>
                             </div>
-                            <div>
-                                <div class="font-bold">Super Admin</div>
-                                <div class="text-[10px] text-slate-400">Full system access</div>
+                            <div style="display:flex;flex-direction:column;gap:var(--space-2);margin-bottom:var(--space-4);">
+                                <div style="display:flex;align-items:center;gap:var(--space-2);font-size:0.8rem;color:var(--text-secondary);"><i data-lucide="check" style="width:14px;height:14px;color:var(--accent-gold);"></i>User Management</div>
+                                <div style="display:flex;align-items:center;gap:var(--space-2);font-size:0.8rem;color:var(--text-secondary);"><i data-lucide="check" style="width:14px;height:14px;color:var(--accent-gold);"></i>Case Management</div>
+                                <div style="display:flex;align-items:center;gap:var(--space-2);font-size:0.8rem;color:var(--text-secondary);"><i data-lucide="check" style="width:14px;height:14px;color:var(--accent-gold);"></i>Billing & Revenue</div>
+                                <div style="display:flex;align-items:center;gap:var(--space-2);font-size:0.8rem;color:var(--text-secondary);"><i data-lucide="check" style="width:14px;height:14px;color:var(--accent-gold);"></i>System Settings</div>
                             </div>
+                            <div style="font-size:0.75rem;color:var(--text-secondary);">1 user assigned</div>
                         </div>
-                        <div class="space-y-2 mb-4">
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i
-                                    class="fas fa-check text-primary w-4"></i>User Management</div>
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i
-                                    class="fas fa-check text-primary w-4"></i>Case Management</div>
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i
-                                    class="fas fa-check text-primary w-4"></i>Billing & Revenue</div>
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i
-                                    class="fas fa-check text-primary w-4"></i>System Settings</div>
-                        </div>
-                        <div class="text-xs text-slate-400">1 user assigned</div>
                     </div>
-                    <div
-                        class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-all">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div
-                                class="w-10 h-10 bg-primary/10 text-primary rounded-xl flex items-center justify-center">
-                                <i class="fas fa-user-tie"></i>
+                    <!-- Investigator -->
+                    <div class="panel">
+                        <div class="panel-body">
+                            <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4);">
+                                <div class="stat-icon gold" style="width:40px;height:40px;border-radius:0.75rem;"><i data-lucide="user" style="width:18px;height:18px;"></i></div>
+                                <div><div style="font-weight:700;">Investigator</div><div style="font-size:0.7rem;color:var(--text-secondary);">Case access</div></div>
                             </div>
-                            <div>
-                                <div class="font-bold">Investigator</div>
-                                <div class="text-[10px] text-slate-400">Case access</div>
+                            <div style="display:flex;flex-direction:column;gap:var(--space-2);margin-bottom:var(--space-4);">
+                                <div style="display:flex;align-items:center;gap:var(--space-2);font-size:0.8rem;color:var(--text-secondary);"><i data-lucide="check" style="width:14px;height:14px;color:var(--accent-gold);"></i>View Cases</div>
+                                <div style="display:flex;align-items:center;gap:var(--space-2);font-size:0.8rem;color:var(--text-secondary);"><i data-lucide="check" style="width:14px;height:14px;color:var(--accent-gold);"></i>Upload Documents</div>
+                                <div style="display:flex;align-items:center;gap:var(--space-2);font-size:0.8rem;color:var(--text-secondary);"><i data-lucide="check" style="width:14px;height:14px;color:var(--accent-gold);"></i>Create Reports</div>
+                                <div style="display:flex;align-items:center;gap:var(--space-2);font-size:0.8rem;color:var(--text-secondary);"><i data-lucide="x" style="width:14px;height:14px;color:var(--text-secondary);"></i>Billing</div>
                             </div>
+                            <div style="font-size:0.75rem;color:var(--text-secondary);">3 users assigned</div>
                         </div>
-                        <div class="space-y-2 mb-4">
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i
-                                    class="fas fa-check text-primary w-4"></i>View Cases</div>
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i
-                                    class="fas fa-check text-primary w-4"></i>Upload Documents</div>
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i
-                                    class="fas fa-check text-primary w-4"></i>Create Reports</div>
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i
-                                    class="fas fa-times text-primary w-4"></i>Billing</div>
-                        </div>
-                        <div class="text-xs text-slate-400">3 users assigned</div>
                     </div>
-                    <div
-                        class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-all">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div
-                                class="w-10 h-10 bg-primary/10 text-primary rounded-xl flex items-center justify-center">
-                                <i class="fas fa-user"></i>
+                    <!-- Client -->
+                    <div class="panel">
+                        <div class="panel-body">
+                            <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4);">
+                                <div class="stat-icon gold" style="width:40px;height:40px;border-radius:0.75rem;"><i data-lucide="user" style="width:18px;height:18px;"></i></div>
+                                <div><div style="font-weight:700;">Client</div><div style="font-size:0.7rem;color:var(--text-secondary);">Limited portal access</div></div>
                             </div>
-                            <div>
-                                <div class="font-bold">Client</div>
-                                <div class="text-[10px] text-slate-400">Limited portal access</div>
+                            <div style="display:flex;flex-direction:column;gap:var(--space-2);margin-bottom:var(--space-4);">
+                                <div style="display:flex;align-items:center;gap:var(--space-2);font-size:0.8rem;color:var(--text-secondary);"><i data-lucide="check" style="width:14px;height:14px;color:var(--accent-gold);"></i>View Own Cases</div>
+                                <div style="display:flex;align-items:center;gap:var(--space-2);font-size:0.8rem;color:var(--text-secondary);"><i data-lucide="check" style="width:14px;height:14px;color:var(--accent-gold);"></i>Upload Documents</div>
+                                <div style="display:flex;align-items:center;gap:var(--space-2);font-size:0.8rem;color:var(--text-secondary);"><i data-lucide="x" style="width:14px;height:14px;color:var(--text-secondary);"></i>Admin Panel</div>
+                                <div style="display:flex;align-items:center;gap:var(--space-2);font-size:0.8rem;color:var(--text-secondary);"><i data-lucide="x" style="width:14px;height:14px;color:var(--text-secondary);"></i>Other Cases</div>
                             </div>
+                            <div style="font-size:0.75rem;color:var(--text-secondary);">520 users assigned</div>
                         </div>
-                        <div class="space-y-2 mb-4">
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i
-                                    class="fas fa-check text-primary w-4"></i>View Own Cases</div>
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i
-                                    class="fas fa-check text-primary w-4"></i>Upload Documents</div>
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i
-                                    class="fas fa-times text-primary w-4"></i>Admin Panel</div>
-                            <div class="flex items-center gap-2 text-xs text-slate-500"><i
-                                    class="fas fa-times text-primary w-4"></i>Other Cases</div>
-                        </div>
-                        <div class="text-xs text-slate-400">520 users assigned</div>
                     </div>
                 </div>
-            </main>
+            </div>
         </div>
     </div>
-    <script>
-        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('-translate-x-full'); }
-        function toggleTheme() { const h = document.documentElement, i = document.getElementById('theme-icon'); if (h.classList.contains('dark')) { h.classList.remove('dark'); localStorage.setItem('theme', 'light'); i.className = 'fas fa-moon'; } else { h.classList.add('dark'); localStorage.setItem('theme', 'dark'); i.className = 'fas fa-sun'; } }
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); document.getElementById('theme-icon').className = 'fas fa-sun'; }
-    </script>
-
-    <script>
-        // LTR/RTL Direction Toggle
-        function toggleDir() {
-            const html = document.documentElement;
-            const newDir = html.dir === 'ltr' ? 'rtl' : 'ltr';
-            html.dir = newDir;
-            localStorage.setItem('site-direction', newDir);
-        }
-        (function () {
-            const savedDir = localStorage.getItem('site-direction');
-            document.documentElement.dir = savedDir || 'ltr';
-        })();
-    </script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script>lucide.createIcons();</script>
+    <script>function toggleDir(){const html=document.documentElement;const newDir=html.dir==='ltr'?'rtl':'ltr';html.dir=newDir;localStorage.setItem('site-direction',newDir);}(function(){const savedDir=localStorage.getItem('site-direction');document.documentElement.dir=savedDir||'ltr';})();</script>
 </body>
-
 </html>
